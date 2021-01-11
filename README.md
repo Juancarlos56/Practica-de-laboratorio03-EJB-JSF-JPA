@@ -2,7 +2,7 @@
 
 ## Dependencias: 
 
-En este programa se realiza un ejemplo sobre la especificación de JSF 2.3 usando el servidor Glassfish 5.1.0.
+En este programa se realiza un ejemplo sobre la especificación de JSF 2.3 usando el servidor Glassfish 5.0.0.
 
 ## Versiones: 
 
