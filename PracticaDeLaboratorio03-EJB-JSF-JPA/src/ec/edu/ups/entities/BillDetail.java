@@ -33,11 +33,11 @@ public class BillDetail implements Serializable {
 	private boolean state;
 	
 	@ManyToOne 
-    @JoinColumn
+    @JoinColumn(name="fk_productowarehouse_billdetail", insertable=false, updatable=false)
     private ProductWarehouse pro_war_detail;
 	
 	@ManyToOne 
-    @JoinColumn
+    @JoinColumn(name="fk_billhead_billdetail", insertable=false, updatable=false)
     private BillHead head_detail;
 	
 	

@@ -32,7 +32,7 @@ public class City implements Serializable {
     private List<Warehouse> warehouses= new ArrayList<Warehouse>();
 	
 	@ManyToOne 
-    @JoinColumn
+    @JoinColumn(name="fk_city_country", insertable=false, updatable=false)
     private Country country_city;
 	
 	public City() {

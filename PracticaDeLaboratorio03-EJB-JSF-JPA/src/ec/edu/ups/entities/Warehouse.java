@@ -28,14 +28,14 @@ public class Warehouse implements Serializable {
 	@Column(name = "warehouse_description", length = 255, nullable = false)
     private String wareHouseDescription;
 	
-	@Column(name = "warehouse_description", length = 10, nullable = false)
+	@Column(name = "warehouse_state", length = 10, nullable = false)
     private String wareHouseState;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "warehouse_ware_pro")
     private List<ProductWarehouse> warehousesProduct= new ArrayList<ProductWarehouse>();
 	
 	@ManyToOne 
-    @JoinColumn
+    @JoinColumn(name="fk_warehouse_City", insertable=false, updatable=false)
     private City city_warehouse;
 	
 	public Warehouse() {
