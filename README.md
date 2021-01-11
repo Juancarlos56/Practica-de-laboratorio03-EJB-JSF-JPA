@@ -8,7 +8,7 @@ En este programa se realiza un ejemplo sobre la especificación de JSF 2.3 usand
 
 - Eclipse=2020-03 (4.15.0)
 - Java=JavaSE-1.8
-- GlassFish=5.1.0.
+- GlassFish=5.0.0 estrictamente 
 - javax.faces-2.3.8
 - javax-inject
 - jstl-api-1.2
