@@ -3,8 +3,10 @@ package ec.edu.ups.test;
 import java.io.Serializable;
 
 import javax.ejb.EJB;
+import javax.ejb.Remote;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.annotation.FacesConfig;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
 import ec.edu.ups.EJB.CategoryFacade;
