@@ -43,7 +43,7 @@ public class User implements Serializable {
 	}
 
 
-	public User(int cod_usu, String email, String password, String userName, String role) {
+	public User(String email, String password, String userName, String role) {
 		super();
 		this.cod_usu = cod_usu;
 		this.email = email;

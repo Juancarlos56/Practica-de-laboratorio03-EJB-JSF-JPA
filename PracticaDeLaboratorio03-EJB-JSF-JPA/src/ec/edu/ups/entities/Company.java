@@ -34,9 +34,8 @@ public class Company implements Serializable {
 	}
 
 
-	public Company(int cod_com, String nombre, String url, String description, String address) {
+	public Company(String nombre, String url, String description, String address) {
 		super();
-		this.cod_com = cod_com;
 		this.nombre = nombre;
 		this.url = url;
 		this.description = description;
