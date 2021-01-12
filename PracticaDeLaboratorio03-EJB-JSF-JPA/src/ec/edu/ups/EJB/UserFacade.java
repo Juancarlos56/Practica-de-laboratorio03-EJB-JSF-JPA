@@ -23,6 +23,4 @@ public class UserFacade extends AbstractFacade<User>{
 	protected EntityManager getEntityManager() {
 		return em;
 	}
-
-	
 }

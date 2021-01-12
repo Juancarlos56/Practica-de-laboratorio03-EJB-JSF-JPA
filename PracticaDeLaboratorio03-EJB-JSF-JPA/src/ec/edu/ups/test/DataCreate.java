@@ -199,12 +199,12 @@ public class DataCreate implements Serializable{
 		ejbWarehouseProduct.create(productoBodega12);
 
 		
-		User user = new User("barrerajuan930@gmail.com", "5665", "barrerajuan930", "Usuario");
-		User user2 = new User("katerinbarrera21@gmail.com", "5665", "katerinbarrera21", "Usuario");
-		User user3 = new User("johnhenrychiqui@gmail.com", "5665", "johnhenrychiqui", "Usuario");
-		User user4 = new User("jbarrerab1@est.ups.edu.ec", "5665", "jbarrerab1", "Admin");
-		User user5 = new User("kbarrerab1@est.ups.edu.ec", "5665", "kbarrerab1", "Admin");
-		User user6 = new User("jchiquic@est.ups.edu.ec", "5665", "jchiquic", "Admin");
+		User user = new User("barrerajuan930@gmail.com", "5665", "Juan Barrera", "Usuario", "Activo");
+		User user2 = new User("katerinbarrera21@gmail.com", "5665", "Katerin Barrera", "Usuario", "Activo");
+		User user3 = new User("johnhenrychiqui@gmail.com", "5665", "John Chiqui", "Usuario", "Activo");
+		User user4 = new User("jbarrerab1@est.ups.edu.ec", "5665", "Juan Barrera", "Admin", "Activo");
+		User user5 = new User("kbarrerab1@est.ups.edu.ec", "5665", "Katerin Barrera", "Admin", "Activo");
+		User user6 = new User("jchiquic@est.ups.edu.ec", "5665", "John Chiqui", "Admin", "Activo");
 		
 		ejbUser.create(user);
 		ejbUser.create(user2);

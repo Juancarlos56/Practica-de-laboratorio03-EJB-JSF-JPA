@@ -34,6 +34,9 @@ public class User implements Serializable {
 	@Column(name="usu_role", length=255, nullable=false)
     private String role;
 	
+	@Column(name="usu_state", length=255, nullable=false)
+    private String state;
+	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user_head")
     private List<BillHead> billsUser= new ArrayList<BillHead>();
 	
@@ -43,15 +46,17 @@ public class User implements Serializable {
 	}
 
 
-	public User(String email, String password, String userName, String role) {
+	public User(String email, String password, String userName, String role, String state) {
 		super();
-		this.cod_usu = cod_usu;
 		this.email = email;
 		this.password = password;
 		this.userName = userName;
 		this.role = role;
+		this.state = state;
 	}
 
+	
+	
 
 	public int getCod_usu() {
 		return cod_usu;
@@ -100,6 +105,18 @@ public class User implements Serializable {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	
+	
+
+	public String getState() {
+		return state;
+	}
+
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 
