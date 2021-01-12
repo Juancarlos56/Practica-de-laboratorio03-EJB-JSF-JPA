@@ -32,11 +32,11 @@ public class ProductWarehouse implements Serializable {
     private List<BillDetail> details= new ArrayList<BillDetail>();
 	
 	@ManyToOne 
-    @JoinColumn(name="fk_productwarehouse_warehouse", insertable=false, updatable=false)
+    @JoinColumn(name="fk_productwarehouse_warehouse")
     private Warehouse warehouse_ware_pro;
 	
 	@ManyToOne 
-    @JoinColumn(name="fk_productwarehouse_product", insertable=false, updatable=false)
+    @JoinColumn(name="fk_productwarehouse_product")
     private Product product_ware_pro;
 	
 	public ProductWarehouse() {

@@ -35,7 +35,7 @@ public class Warehouse implements Serializable {
     private List<ProductWarehouse> warehousesProduct= new ArrayList<ProductWarehouse>();
 	
 	@ManyToOne 
-    @JoinColumn(name="fk_warehouse_City", insertable=false, updatable=false)
+    @JoinColumn(name="fk_warehouse_City")
     private City city_warehouse;
 	
 	public Warehouse() {

@@ -41,7 +41,7 @@ public class Product implements Serializable {
     private List<ProductWarehouse> productsWarehouse= new ArrayList<ProductWarehouse>();
 	
 	@ManyToOne 
-    @JoinColumn(name="fk_product_category", insertable=false, updatable=false)
+    @JoinColumn(name="fk_product_category")
     private Category category_product;
 	
 	public Product() {
