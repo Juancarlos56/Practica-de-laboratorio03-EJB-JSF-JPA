@@ -42,10 +42,9 @@ public class Warehouse implements Serializable {
 		super();
 	}
 
-	public Warehouse(int cod_warehouse, String wareHouseName, String wareHouseDescription, String wareHouseState,
+	public Warehouse(String wareHouseName, String wareHouseDescription, String wareHouseState,
 			City city_warehouse) {
 		super();
-		this.cod_warehouse = cod_warehouse;
 		this.wareHouseName = wareHouseName;
 		this.wareHouseDescription = wareHouseDescription;
 		this.wareHouseState = wareHouseState;

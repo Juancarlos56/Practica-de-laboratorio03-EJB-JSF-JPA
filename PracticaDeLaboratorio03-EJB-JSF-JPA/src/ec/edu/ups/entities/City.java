@@ -33,18 +33,17 @@ public class City implements Serializable {
 	
 	@ManyToOne 
     @JoinColumn(name="fk_city_country", insertable=false, updatable=false)
-    private Country country_city;
+    private Province province_city;
 	
 	public City() {
 		super();
 	}
 
-	public City(int cod_city, String cityName, String cityPostCode, Country country_city) {
+	public City(String cityName, String cityPostCode, Province province_city) {
 		super();
-		this.cod_city = cod_city;
 		this.cityName = cityName;
 		this.cityPostCode = cityPostCode;
-		this.country_city = country_city;
+		this.province_city = province_city;
 	}
 
 	public int getCod_city() {
@@ -83,12 +82,12 @@ public class City implements Serializable {
 		this.warehouses.add(warehouse);
 	}
 	
-	public Country getCountry_city() {
-		return country_city;
+	public Province getProvince_city() {
+		return province_city;
 	}
 
-	public void setCountry_city(Country country_city) {
-		this.country_city = country_city;
+	public void setProvince_city(Province province_city) {
+		this.province_city = province_city;
 	}
 
 	
@@ -103,7 +102,7 @@ public class City implements Serializable {
 		result = prime * result + ((cityName == null) ? 0 : cityName.hashCode());
 		result = prime * result + ((cityPostCode == null) ? 0 : cityPostCode.hashCode());
 		result = prime * result + cod_city;
-		result = prime * result + ((country_city == null) ? 0 : country_city.hashCode());
+		result = prime * result + ((province_city == null) ? 0 : province_city.hashCode());
 		result = prime * result + ((warehouses == null) ? 0 : warehouses.hashCode());
 		return result;
 	}
@@ -129,10 +128,10 @@ public class City implements Serializable {
 			return false;
 		if (cod_city != other.cod_city)
 			return false;
-		if (country_city == null) {
-			if (other.country_city != null)
+		if (province_city == null) {
+			if (other.province_city != null)
 				return false;
-		} else if (!country_city.equals(other.country_city))
+		} else if (!province_city.equals(other.province_city))
 			return false;
 		if (warehouses == null) {
 			if (other.warehouses != null)
@@ -145,7 +144,7 @@ public class City implements Serializable {
 	@Override
 	public String toString() {
 		return "City [cod_city=" + cod_city + ", cityName=" + cityName + ", cityPostCode=" + cityPostCode
-				+ ", warehouses=" + warehouses + ", country_city=" + country_city + "]";
+				+ ", warehouses=" + warehouses + ", country_city=" + province_city + "]";
 	}
    
 	
