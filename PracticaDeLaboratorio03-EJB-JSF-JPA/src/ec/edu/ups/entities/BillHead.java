@@ -42,11 +42,11 @@ public class BillHead implements Serializable {
     private List<BillDetail> headDetails= new ArrayList<BillDetail>();
 	
 	@ManyToOne 
-    @JoinColumn(name="fk_billhead_user", insertable=false, updatable=false)
+    @JoinColumn(name="fk_billhead_user")
     private User user_head;
 	
 	@ManyToOne 
-    @JoinColumn(name="fk_billhead_client", insertable=false, updatable=false)
+    @JoinColumn(name="fk_billhead_client")
     private Client client_head;
 	
 	public BillHead() {
