@@ -23,10 +23,10 @@ public class ProductWarehouse implements Serializable {
     private int cod_pro;
 	
 	@Column(name = "pro_ware_state", length = 10, nullable = false)
-    private String productName;
+    private String productState;
 	
 	@Column(name = "pro_ware_stock", nullable = false)
-    private Double productPrice;
+    private int productStock;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pro_war_detail")
     private List<BillDetail> details= new ArrayList<BillDetail>();
@@ -43,12 +43,11 @@ public class ProductWarehouse implements Serializable {
 		super();
 	}
 
-	public ProductWarehouse(int cod_pro, String productName, Double productPrice, Warehouse warehouse_ware_pro,
+	public ProductWarehouse(String productState, int productStock, Warehouse warehouse_ware_pro,
 			Product product_ware_pro) {
 		super();
-		this.cod_pro = cod_pro;
-		this.productName = productName;
-		this.productPrice = productPrice;
+		this.productState = productState;
+		this.productStock = productStock;
 		this.warehouse_ware_pro = warehouse_ware_pro;
 		this.product_ware_pro = product_ware_pro;
 	}
@@ -62,19 +61,19 @@ public class ProductWarehouse implements Serializable {
 	}
 
 	public String getProductName() {
-		return productName;
+		return productState;
 	}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setProductName(String productState) {
+		this.productState = productState;
 	}
 
-	public Double getProductPrice() {
-		return productPrice;
+	public int getProductPrice() {
+		return productStock;
 	}
 
-	public void setProductPrice(Double productPrice) {
-		this.productPrice = productPrice;
+	public void setProductPrice(int productPrice) {
+		this.productStock = productPrice;
 	}
 
 	public List<BillDetail> getDetails() {
@@ -115,8 +114,8 @@ public class ProductWarehouse implements Serializable {
 		int result = 1;
 		result = prime * result + cod_pro;
 		result = prime * result + ((details == null) ? 0 : details.hashCode());
-		result = prime * result + ((productName == null) ? 0 : productName.hashCode());
-		result = prime * result + ((productPrice == null) ? 0 : productPrice.hashCode());
+		result = prime * result + ((productState == null) ? 0 : productState.hashCode());
+		result = prime * result + productStock;
 		result = prime * result + ((product_ware_pro == null) ? 0 : product_ware_pro.hashCode());
 		result = prime * result + ((warehouse_ware_pro == null) ? 0 : warehouse_ware_pro.hashCode());
 		return result;
@@ -138,15 +137,12 @@ public class ProductWarehouse implements Serializable {
 				return false;
 		} else if (!details.equals(other.details))
 			return false;
-		if (productName == null) {
-			if (other.productName != null)
+		if (productState == null) {
+			if (other.productState != null)
 				return false;
-		} else if (!productName.equals(other.productName))
+		} else if (!productState.equals(other.productState))
 			return false;
-		if (productPrice == null) {
-			if (other.productPrice != null)
-				return false;
-		} else if (!productPrice.equals(other.productPrice))
+		if (productStock != other.productStock)
 			return false;
 		if (product_ware_pro == null) {
 			if (other.product_ware_pro != null)
@@ -163,11 +159,11 @@ public class ProductWarehouse implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ProductWarehouse [cod_pro=" + cod_pro + ", productName=" + productName + ", productPrice="
-				+ productPrice + ", details=" + details + ", warehouse_ware_pro=" + warehouse_ware_pro
+		return "ProductWarehouse [cod_pro=" + cod_pro + ", productState=" + productState + ", productStock="
+				+ productStock + ", details=" + details + ", warehouse_ware_pro=" + warehouse_ware_pro
 				+ ", product_ware_pro=" + product_ware_pro + "]";
 	}
+
 	
 	
-   
 }

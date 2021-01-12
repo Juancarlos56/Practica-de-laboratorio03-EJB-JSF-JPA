@@ -5,7 +5,7 @@
 		<class>ec.edu.ups.entities.Company</class>
 		<class>ec.edu.ups.entities.Warehouse</class>
 		<class>ec.edu.ups.entities.City</class>
-		<class>ec.edu.ups.entities.Country</class>
+		<class>ec.edu.ups.entities.Province</class>
 		<class>ec.edu.ups.entities.Category</class>
 		<class>ec.edu.ups.entities.Product</class>
 		<class>ec.edu.ups.entities.ProductWarehouse</class>

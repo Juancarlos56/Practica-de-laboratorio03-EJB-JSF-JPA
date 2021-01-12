@@ -41,6 +41,11 @@ public class Category implements Serializable {
 		CategoryName = categoryName;
 	}
 
+	
+	public Category(String categoryName) {
+		super();
+		CategoryName = categoryName;
+	}
 
 	public int getCod_cat() {
 		return cod_cat;
