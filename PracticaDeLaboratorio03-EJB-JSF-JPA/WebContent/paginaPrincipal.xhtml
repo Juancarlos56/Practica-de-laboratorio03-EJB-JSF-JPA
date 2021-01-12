@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Hola JSF 2.3</title>
+</h:head>
+<h:body>
+    <h:form id="formatoParaIniciarSesion" action="">
+
+        <label>Ingresar Usuario</label>
+        <input type="text" value="" name="ingresarUsuario" id="ingresarUsuario" />
+        <label>Ingresar contrasena</label>
+        <input type="text" value="" name="ingresarContrasena" id="ingresarContrasena" />
+        <input type="submit" name="buscar" value="iniciarSesion" />
+
+    </h:form>
+
+
+    <h1> Catalogo de productos</h1>
+    <button>
+        <h3>Empleado</h3>
+           <h:commandLink value="usuaroEmpleado" action="empleado/UsuarioEmpleado">
+	     </h:commandLink>
+    </button>
+
+    <button>
+        <h3>Categoria1</h3>
+    </button>
+
+    <button>
+        <h3>Categoria2</h3>
+    </button>
+
+    <button>
+        <h3>Categoria3</h3>
+    </button>
+    <br/>
+    <br/>
+    <button>
+        <h3>Bodega1</h3>
+    </button>
+
+    <button>
+        <h3>Bodega2</h3>
+    </button>
+
+
+
+</h:body>
+</html>
