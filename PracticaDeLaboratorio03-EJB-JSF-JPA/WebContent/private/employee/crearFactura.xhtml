@@ -11,7 +11,41 @@
 
 <h:body>
 
-
+	<div id="contenedorCliente">
+		  
+		  <p:panel id="panel" header="Search Form" style="margin-bottom:10px;">
+	        <p:messages id="messages" />
+	 
+	        <h:panelGrid columns="4" cellpadding="5">
+	            <h:outputLabel for="nombre" value="Buscar Producto: " />
+	            <p:inputText id="nombre" value="#{productBean.buscarPorNombre}" required="true" label="Nombre del producto">
+	                <f:validateLength minimum="2" />
+	            </p:inputText>
+			</h:panelGrid>
+	    </p:panel>
+		  
+		  
+		  <h:form id="Cliente"> 
+				<h3>Buscar Cliente: </h3>
+				<p></p>
+				<h:inputText id="cedulaBuscar" value="#{personaBean.cedula}" type="text"></h:inputText>
+				<h:commandButton value="buscarPersona" action="#{personaBean.buscarPersonaCedula}">
+					<f:ajax execute="cedulaBuscar" render="salidaNombre salidaApellido salidaCedula salidaTelefono salidaDireccion" />
+				</h:commandButton>
+				<p></p>
+				<h:outputLabel for="salidaNombre" value="Nombre:" ></h:outputLabel>
+				<h:inputText id="salidaNombre" value="#{personaBean.nombre}"></h:inputText>
+		        <h:outputLabel for="salidaApellido" value="Apellido:"></h:outputLabel>
+		        <h:inputText id="salidaApellido" value="#{personaBean.apellido}"></h:inputText>
+		        <p></p>
+		        <h:outputLabel for="salidaTelefono" value="Telefono:" ></h:outputLabel>
+		        <h:inputText id="salidaTelefono" value="#{personaBean.telefono}"></h:inputText>
+		        <h:outputLabel for="salidaDireccion" value="Direccion:" ></h:outputLabel>
+		        <h:inputText id="salidaDireccion" value="#{personaBean.direccion}"></h:inputText>
+		  </h:form>
+	</div>  
+	
+	
 	<h:form id="Busqueda">      
 	    <p:panel id="panel" header="Search Form" style="margin-bottom:10px;">
 	        <p:messages id="messages" />
