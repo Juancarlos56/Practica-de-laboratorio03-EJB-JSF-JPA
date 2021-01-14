@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" type="javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" type="javascript"></script>
+	<h:head>
+		<title>Listar Facturas</title>
+	    <style type="text/css">
+				
+				* {
+					margin:0px;
+					padding:0px;
+				}
+				
+				#header {
+					margin:auto;
+					width:500px;
+					font-family:Arial, Helvetica, sans-serif;
+				}
+				
+				ul, ol {
+					list-style:none;
+				}
+				
+				.nav > li {
+					float:left;
+				}
+				
+				.nav li a {
+					background-color:#000;
+					color:#fff;
+					text-decoration:none;
+					padding:10px 12px;
+					display:block;
+				}
+				
+				.nav li a:hover {
+					background-color:#434343;
+				}
+				
+				.nav li ul {
+					display:none;
+					position:absolute;
+					min-width:140px;
+				}
+				
+				.nav li:hover > ul {
+					display:block;
+				}
+				
+				.nav li ul li {
+					position:relative;
+				}
+				
+				.nav li ul li ul {
+					right:-140px;
+					top:0px;
+				}
+				
+				boton {
+				  border-radius: 5px;
+				  background: black;
+				}
+				
+				.tabla {
+					border-collapse: collapse;
+				}
+				
+				.cabeceraTabla {
+					text-align: center;
+					background: none repeat scroll 0 0 #E5E5E5;
+					border-bottom: 1px solid #BBBBBB;
+					padding: 8px;
+				}
+				
+				.filaPar {
+					text-align: center;
+					background: none repeat scroll 0 0 #FFFFFFF;
+					border-top: 1px solid #BBBBBB;
+				}
+				
+				.filaImpar {
+					text-align: center;
+					background: none repeat scroll 0 0 #F9F9F9;
+					border-top: 1px solid #BBBBBB;
+				}
+				
+				#contenedorCabeceras{
+					clear: both;
+				    float: left;
+				    width: 46%;
+				    height: auto;
+				    margin-left: 5%;
+				    margin-top: 2%;
+				}
+				
+				#filtros{
+					clear: both;
+				    float: left;
+				    width: 46%;
+				    height: auto;
+				    margin-left: 5%;
+				    margin-top: 2%;
+				}
+				
+				
+				#buscarProdFac{
+					clear: both;
+				    float: left;
+				    margin-left: 5%;
+				    margin-top: 1%;
+				}
+				
+				
+				#contenedorDetalles{
+					float: left;
+					width: 40%;
+				    height: auto;
+					margin-left: 3%;
+					margin-top: 2%;
+				}
+						
+			</style>
+	</h:head>
+	<nav>
+	    <h:form id="formGestionClientes">
+	    	<ul class="nav">
+				<li><a>Gestionar Facturas</a>
+					<ul>
+						<li><h:commandLink value="Crear Factura" action="#{navigator.reglaRedir('CreacionFactura')}" /></li>
+						<li><h:commandLink value="Listar Facturas" action="#{navigator.reglaRedir('listarFactura')}" /></li>
+					</ul>
+				</li>
+				<li><a>Gestionar Clientes</a>
+					<ul>
+						<li><h:commandLink value="Crear Cliente" action="#{navigator.reglaRedir('CreacionFactura')}" /></li>
+						<li><h:commandLink value="Listar Clientes" action="#{navigator.reglaRedir('CreacionFactura')}" /></li>
+					</ul>
+				</li>
+				<li><a href="">Cerrar Sesion</a></li>
+			</ul>
+	    </h:form>
+	</nav>
+	<h:body>
+	
+	    <div id="filtros">
+	    	<h:form>
+		    	<h3>Buscar por cedula de cliente</h3>
+		    	<p:inputText id="ced" value="#{buscarFacturaController.cedula}" type="text"/>
+		    	<p:commandButton value="Buscar" action="#{buscarFacturaController.buscarPorCedula}"  update="facturaCabecera"/>
+		    </h:form>
+	    </div>
+	    
+	    <h:form id="facturaCabecera">
+	    	<div id="contenedorCabeceras">
+	    		<p:dataTable value="#{facturaCabeceraBean.cabeceras}" var="cabF" 
+		    		styleClass="tabla" headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+		   			<p:column>
+		   				<f:facet name="header" id="proid">Codigo</f:facet>#{cabF.id}
+		   			</p:column>
+		   			<p:column>
+		   				<f:facet name="header" id="proid">Fecha</f:facet>#{cabF.fecha}
+		   			</p:column>
+		   			<p:column>
+		   				<f:facet name="header" id="proid">Cliente</f:facet>#{cabF.persona.getNombre()}
+		   			</p:column>
+		   			<p:column>
+		   				<f:facet name="header" id="proid">Subtotal</f:facet>#{cabF.subtotal}
+		   			</p:column>
+		   			<p:column>
+		   				<f:facet name="header" id="proid">IVA</f:facet>#{cabF.iva}
+		   			</p:column>
+		   			<p:column>
+		   				<f:facet name="header" id="proid">Total</f:facet>#{cabF.total}
+		   			</p:column>
+			   		<p:column>
+		   				<f:facet name="header" id="proid">Detalle</f:facet>
+		   				<p:commandButton value="Ver" action="#{facturaCabeceraBean.sacarDetalles(cabF)}" update="facturaDetalle">
+			    		</p:commandButton>
+		   			</p:column>
+		   		</p:dataTable>
+	    	</div>
+	   	</h:form>
+	   	<h:form id="facturaDetalle">
+	   		<div id="contenedorDetalles">
+	   			<p:dataTable id="detalles" value="#{facturaCabeceraBean.detalles}" var="d" styleClass="tabla" 
+		   			headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+		   			<p:column>
+		   				<f:facet name="header" id="proid">Producto</f:facet>#{d.producto.nombre}
+		   			</p:column>
+		   			<p:column>
+		   				<f:facet name="header" id="proid">Cantidad</f:facet>#{d.cantidad}
+		   			</p:column>
+		   			<p:column>
+		   				<f:facet name="header" id="proid">Total</f:facet>#{d.total}
+		   			</p:column>
+		   		</p:dataTable>
+	   		</div>
+	    </h:form>
+	</h:body>
+</html>
