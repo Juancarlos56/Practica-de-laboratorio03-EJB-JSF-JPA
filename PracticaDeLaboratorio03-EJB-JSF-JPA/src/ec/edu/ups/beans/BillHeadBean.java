@@ -17,6 +17,7 @@ import ec.edu.ups.EJB.ProductWarehouseFacade;
 import ec.edu.ups.EJB.UserFacade;
 import ec.edu.ups.entities.BillDetail;
 import ec.edu.ups.entities.BillHead;
+import ec.edu.ups.entities.Client;
 import ec.edu.ups.entities.User;
 
 
@@ -37,7 +38,7 @@ public class BillHeadBean implements Serializable{
 	private UserFacade ejbUserFacade;
 	
 	
-	private User user;
+	private Client user;
 	private BillHead billHead;
 	
 	private boolean userSelected;
@@ -89,7 +90,8 @@ public class BillHeadBean implements Serializable{
 
 
 
-	public void setUser(User user) {
+	public void setUser(Client user) {
+		System.out.println("JOderrrrrrr: cliente nuevo"+user.toString());
 		this.user = user;
 	}
 
@@ -100,7 +102,7 @@ public class BillHeadBean implements Serializable{
 		return null;
 	}
 	
-	public User getUser() {
+	public Client getUser() {
 		return user;
 	}
 

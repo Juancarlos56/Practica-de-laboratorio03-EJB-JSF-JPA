@@ -52,7 +52,7 @@
 		 <h:panelGroup id="main-content">
 			<h:panelGroup id="user-select">
 				<p:panelGrid columns="1" layout="flex" styleClass="showcase-text-align-center"
-				rendered="#{not billHeadBean.userSelected}">
+				>
 		  
 					 <h:form>
 						<h3>Seleccione un Cliente</h3>
@@ -83,17 +83,14 @@
 							</p:column>
 							<p:column>
 								<f:facet name="header">Acción</f:facet>
-								<p:commandButton value="Seleccionar" actionListener="#{billHeadBean.setUser(u)}"
+								<p:commandButton value="Seleccionar" action="#{billHeadBean.setUser(u)}" update="clientesel"
 								/>
 							</p:column>
 						</p:dataTable>
 					</h:form>
-				</p:panelGrid>
-			</h:panelGroup>
-			<h:panelGroup id="user-selected">
-				<h:panelGroup rendered="#{billHeadBean.userSelected}">
-					<p:row>
-						<form>
+					
+					
+					<h:form id="clientesel">
 							<h2><h:outputText value="Facturación"/></h2>
 							<h:panelGroup style="text-align:center;" styleClass="col-11">
 								<p:panel header="Usuario Seleccionado" style="text-align:center; margin: 0 auto;">
@@ -104,12 +101,21 @@
 							        			<h:outputText value="#{billHeadBean.user.dni}"/>
 							        		</p:column>
 										</p:row>
+										
 										<p:row>
-											<p:column styleClass="my-f-w">Nombre:</p:column>					       			
-							        		<p:column><h:outputText value="#{billHeadBean.user.name}"/></p:column>
-											<p:column styleClass="my-f-w">Apellido:</p:column>
-							        		<p:column><h:outputText value="#{billHeadBean.user.lastname}"/></p:column>
+							       			<p:column styleClass="my-f-w">Nombre:</p:column>
+							        		<p:column colspan="3">
+							        			<h:outputText value="#{billHeadBean.user.name}"/>
+							        		</p:column>
 										</p:row>
+										
+										<p:row>
+							       			<p:column styleClass="my-f-w">Apellido:</p:column>
+							        		<p:column colspan="3">
+							        			<h:outputText value="#{billHeadBean.user.lastname}"/>
+							        		</p:column>
+										</p:row>
+										
 										<p:row>
 											<p:column styleClass="my-f-w">Correo:</p:column>
 											<p:column colspan="3">
@@ -119,12 +125,107 @@
 									</p:panelGrid>
 								</p:panel>
 							</h:panelGroup>
-						</form>
+						</h:form>
+					
+					
+				</p:panelGrid>
+			</h:panelGroup>
+			<h:panelGroup id="user-selected">
+				<h:panelGroup >
+					<p:row>
+						
 					</p:row>
-		  
+		  			<p:row>
+						<h2>Crear Facturas</h2>
+						<h:form id="Busqueda">      
+						    <p:panel id="panel" header="Search Form" style="margin-bottom:10px;">
+						        <p:messages id="messages" />
+						 
+						        <h:panelGrid columns="4" cellpadding="5">
+						            <h:outputLabel for="nombre" value="Buscar Producto: " />
+						            <p:inputText id="nombre" value="#{productBean.buscarPorNombre}" required="true" label="Nombre del producto">
+						                <f:validateLength minimum="2" />
+						            </p:inputText>
+								</h:panelGrid>
+						    </p:panel>
+						 
+						    <h:panelGrid columns="1">
+						        <p:commandButton value="Buscar Producto" id="buscarProducto"  action="#{productBean.buscarPorNombreProductodBodega}" update="Busqueda" style="margin-right:20px;" styleClass="ui-priority-primary" />
+						    </h:panelGrid>
+						    
+						    <div id="contenedorProductos">
+						    	<p:dataTable id="tablaProd"  var="prod" value="#{productBean.productosBodegas}"
+									 headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+									
+									<p:column headerText="Codigo Producto">
+						            	<h:outputText value="#{prod.product_ware_pro.cod_pro}"/>
+						            </p:column>
+						           	
+						           	<p:column headerText="Nombre">
+						               	<h:outputText value="#{prod.product_ware_pro.productName}"/>
+						           	</p:column>
+						           	
+						           	<p:column headerText="Precio del Producto">
+						               <h:outputText value="#{prod.product_ware_pro.productPrice}"/>
+						           	</p:column>
+						            
+						            <p:column headerText="Descripcion">
+						               <h:outputText value="#{prod.product_ware_pro.proDescription}" />
+						            </p:column>
+						            
+						            <p:column headerText="Bodega: ">
+						               <h:outputText value="#{prod.warehouse_ware_pro.wareHouseName}" />
+						            </p:column>
+						               
+						        	<p:column headerText="Cantidad a Pedir">
+							        	<p:inputText id="cantidad" value="#{billDetailBean.cantidadCompra}" required="true" label="Nombre del producto" type="text">
+						            	</p:inputText>
+						            </p:column> 
+						            
+						            <p:column headerText="Agregar Producto">
+						           		<p:commandButton value="Agregar" id="agregarProducto"  action="#{billDetailBean.addDetallesFactura(prod)}" update="facturaDetalle" ajax="false"  style="margin-right:20px;" styleClass="ui-priority-primary"/>
+						            </p:column>
+						            
+						    	</p:dataTable>
+					    	</div>  
+						</h:form>
+						
+						<h:form id="facturaDetalle">      
+						    <p:panel id="panel2" header="Detalles de los producto para Facturación" style="margin-bottom:10px;">
+						       
+						        
+						        <div id="contenedorDetalles">
+						    	<p:dataTable id="tablaDet"  var="det" value="#{billDetailBean.detallesFac}"
+									 headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+									
+									<p:column headerText="Cantidad Compra">
+						            	<h:outputText value="#{det.amount}"/>
+						            </p:column>
+									
+									<p:column headerText="Nombre Producto">
+						            	<h:outputText value="#{det.pro_war_detail.productName}"/>
+						            </p:column>
+						           	
+						           	<p:column headerText="Precio Unitario">
+						               	<h:outputText value="#{det.unitPrice}"/>
+						           	</p:column>
+						           	
+						           	<p:column headerText="Subtotal">
+						               <h:outputText value="#{det.subtotal}"/>
+						           	</p:column>
+					
+						          
+						    	</p:dataTable>
+					    	</div>  
+						 	</p:panel>
+						</h:form>
+						
+						
+					</p:row>
 		    
 				</h:panelGroup>
 			</h:panelGroup>
+			
 		</h:panelGroup>
 		  
 		  
@@ -140,90 +241,7 @@
 	
 	
 	
-	<h2>Crear Facturas</h2>
-	<h:form id="Busqueda">      
-	    <p:panel id="panel" header="Search Form" style="margin-bottom:10px;">
-	        <p:messages id="messages" />
-	 
-	        <h:panelGrid columns="4" cellpadding="5">
-	            <h:outputLabel for="nombre" value="Buscar Producto: " />
-	            <p:inputText id="nombre" value="#{productBean.buscarPorNombre}" required="true" label="Nombre del producto">
-	                <f:validateLength minimum="2" />
-	            </p:inputText>
-			</h:panelGrid>
-	    </p:panel>
-	 
-	    <h:panelGrid columns="1">
-	        <p:commandButton value="Buscar Producto" id="buscarProducto"  action="#{productBean.buscarPorNombreProductodBodega}" update="Busqueda" style="margin-right:20px;" styleClass="ui-priority-primary" />
-	    </h:panelGrid>
-	    
-	    <div id="contenedorProductos">
-	    	<p:dataTable id="tablaProd"  var="prod" value="#{productBean.productosBodegas}"
-				 headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
-				
-				<p:column headerText="Codigo Producto">
-	            	<h:outputText value="#{prod.product_ware_pro.cod_pro}"/>
-	            </p:column>
-	           	
-	           	<p:column headerText="Nombre">
-	               	<h:outputText value="#{prod.product_ware_pro.productName}"/>
-	           	</p:column>
-	           	
-	           	<p:column headerText="Precio del Producto">
-	               <h:outputText value="#{prod.product_ware_pro.productPrice}"/>
-	           	</p:column>
-	            
-	            <p:column headerText="Descripcion">
-	               <h:outputText value="#{prod.product_ware_pro.proDescription}" />
-	            </p:column>
-	            
-	            <p:column headerText="Bodega: ">
-	               <h:outputText value="#{prod.warehouse_ware_pro.wareHouseName}" />
-	            </p:column>
-	               
-	        	<p:column headerText="Cantidad a Pedir">
-		        	<p:inputText id="cantidad" value="#{billDetailBean.cantidadCompra}" required="true" label="Nombre del producto" type="text">
-	            	</p:inputText>
-	            </p:column> 
-	            
-	            <p:column headerText="Agregar Producto">
-	           		<p:commandButton value="Agregar" id="agregarProducto"  actionListener="#{billDetailBean.addDetallesFactura(prod)}" update="Busqueda facturaDetalle" style="margin-right:20px;" styleClass="ui-priority-primary"/>
-	            </p:column>
-	            
-	    	</p:dataTable>
-    	</div>  
-	</h:form>
-	
-	<h:form id="facturaDetalle">      
-	    <p:panel id="panel2" header="Detalles de los producto para Facturación" style="margin-bottom:10px;">
-	        <p:messages id="messagesDetalles" />
-	        
-	        <div id="contenedorDetalles">
-	    	<p:dataTable id="tablaDet"  var="det" value="#{billDetailBean.detallesFac}"
-				 headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
-				
-				<p:column headerText="Cantidad Compra">
-	            	<h:outputText value="#{det.amount}"/>
-	            </p:column>
-				
-				<p:column headerText="Nombre Producto">
-	            	<h:outputText value="#{det.pro_war_detail.productName}"/>
-	            </p:column>
-	           	
-	           	<p:column headerText="Precio Unitario">
-	               	<h:outputText value="#{det.unitPrice}"/>
-	           	</p:column>
-	           	
-	           	<p:column headerText="Subtotal">
-	               <h:outputText value="#{det.subtotal}"/>
-	           	</p:column>
-
-	          
-	    	</p:dataTable>
-    	</div>  
-	 	</p:panel>
-	</h:form>
-	
+		
 </h:body>
 
 </html>

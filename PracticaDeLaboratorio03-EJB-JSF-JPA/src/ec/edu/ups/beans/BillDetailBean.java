@@ -51,7 +51,7 @@ public class BillDetailBean implements Serializable{
 		boolean stock = controlStock(getCantidadCompra(), productoBodega.getProductStock());
 		
 		if (stock) {
-			
+			System.out.println("Se Agrego el productoooooo");
 			facturaDetalle = new BillDetail();
 			facturaDetalle.setAmount(getAmount());
 			facturaDetalle.setState("Agregado");
