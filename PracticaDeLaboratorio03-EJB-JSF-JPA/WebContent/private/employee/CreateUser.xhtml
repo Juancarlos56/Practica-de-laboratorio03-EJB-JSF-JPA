@@ -11,6 +11,30 @@
 	</h:head>
 	
 	<h:body>
+		  <h:form id="formGestionClientes">
+              <h3>Menu</h3>
+               
+              <p:linkButton outcome="/private/employee/crearFactura" value="Crear Factura" style="margin-right:20px;">
+  		  		<f:param name="productId" value="10" />
+			  </p:linkButton>
+			  
+			  <p:linkButton outcome="/private/employee/CreateUser" value="Crear Cliente" style="margin-right:20px;">
+  		  		<f:param name="productId" value="10" />
+			  </p:linkButton>
+			  
+			   <p:linkButton outcome="/private/employee/ListarFacturas" value="Listar Facturas" style="margin-right:20px;">
+  		  		<f:param name="productId" value="10" />
+			  </p:linkButton>
+			  
+			  <p:linkButton outcome="/private/employee/listarUsuario" value="Listar Clientes" style="margin-right:20px;">
+  		  		<f:param name="productId" value="10" />
+			  </p:linkButton>
+			 
+			 <p:linkButton outcome="/paginaPrincipal" value="Salir" style="margin-right:20px;">
+  		  		<f:param name="productId" value="10" />
+			  </p:linkButton>
+
+            </h:form>
 	
 		<h:form id="crearUsuario">
 			<p:growl id="growl" life="2000" />
