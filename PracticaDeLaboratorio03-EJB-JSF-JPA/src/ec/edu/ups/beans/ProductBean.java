@@ -67,6 +67,10 @@ public class ProductBean implements Serializable{
 		//}
 	}
 
+    public void buscarTodosLosProductos() {
+  
+	}
+
 
 	public String getBuscarPorNombre() {
 		return buscarPorNombre;
