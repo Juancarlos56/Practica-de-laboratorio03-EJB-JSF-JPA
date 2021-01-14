@@ -8,6 +8,8 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.annotation.FacesConfig;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -23,7 +25,10 @@ public class ProductWarehouseBean implements Serializable{
 	private static final long serialVersionUID = -8602164835159577774L;
 	public static List<ProductWarehouse> productosbodega;
 	private ProductWarehouse productoBodega;
-	private String buscarPorNombre;
+	private int id;
+	private int cantidad;
+	private ProductWarehouse pw;
+
 	@EJB
 	private ProductWarehouseFacade ejbProductoBodega;
 	
@@ -33,21 +38,29 @@ public class ProductWarehouseBean implements Serializable{
     }
 
     
+    public void incrementarStockProducto(int cod_pro) {
+    	setId(cod_pro);
+    	pw =  ejbProductoBodega.buscarProductoBodega(this.getId());
+    	//System.out.println("Aqui: "+pw.getCod_pro()+" "+pw.getProductStock()+" "+cod_pro);
+    	if (getCantidad()>0) {
+        	pw.setProductStock(pw.getProductStock()+getCantidad());
+        	addMessage("Se ha actualizado el stock!!");
+		}
+    	 
+    }
     
-    public void buscarPorNombre() {
-    	productosbodega = ejbProductoBodega.buscarStockDeProductoPorNombre(this.getBuscarPorNombre());
+    public void addMessage(String summary) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, null);
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
+   
+	public int getId() {
+		return id;
 	}
 
-
-	public String getBuscarPorNombre() {
-		return buscarPorNombre;
+	public void setId(int id) {
+		this.id = id;
 	}
-
-
-	public void setBuscarPorNombre(String buscarPorNombre) {
-		this.buscarPorNombre = buscarPorNombre;
-	}
-
 
 	public ProductWarehouseFacade getEjbProductoBodega() {
 		return ejbProductoBodega;
@@ -58,6 +71,21 @@ public class ProductWarehouseBean implements Serializable{
 		this.ejbProductoBodega = ejbProductoBodega;
 	}
     
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public ProductWarehouse getPw() {
+		return pw;
+	}
+
+	public void setPw(ProductWarehouse pw) {
+		this.pw = pw;
+	}
     
     
 }

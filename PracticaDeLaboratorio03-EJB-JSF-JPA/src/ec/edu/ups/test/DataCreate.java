@@ -173,16 +173,43 @@ public class DataCreate implements Serializable{
 		ProductWarehouse productoBodega2 = new ProductWarehouse("Activo", 12, bod, prod2);
 		ProductWarehouse productoBodega3 = new ProductWarehouse("Activo", 14, bod, prod3);
 		ProductWarehouse productoBodega4 = new ProductWarehouse("Activo", 10, bod, prod4);
+		ProductWarehouse productoBodega5 = new ProductWarehouse("Activo", 10, bod, prod5);
+		ProductWarehouse productoBodega6 = new ProductWarehouse("Activo", 12, bod, prod6);
+		ProductWarehouse productoBodega7 = new ProductWarehouse("Activo", 14, bod, prod7);
+		ProductWarehouse productoBodega8 = new ProductWarehouse("Activo", 10, bod, prod8);
+		ProductWarehouse productoBodega9 = new ProductWarehouse("Activo", 10, bod, prod9);
+		ProductWarehouse productoBodega10 = new ProductWarehouse("Activo", 12, bod, prod10);
+		ProductWarehouse productoBodega11 = new ProductWarehouse("Activo", 14, bod, prod11);
+		ProductWarehouse productoBodega12 = new ProductWarehouse("Activo", 10, bod, prod12);
 		
-		ProductWarehouse productoBodega5 = new ProductWarehouse("Activo", 10, bod2, prod5);
-		ProductWarehouse productoBodega6 = new ProductWarehouse("Activo", 12, bod2, prod6);
-		ProductWarehouse productoBodega7 = new ProductWarehouse("Activo", 14, bod2, prod7);
-		ProductWarehouse productoBodega8 = new ProductWarehouse("Activo", 10, bod2, prod8);
 		
-		ProductWarehouse productoBodega9 = new ProductWarehouse("Activo", 10, bod3, prod9);
-		ProductWarehouse productoBodega10 = new ProductWarehouse("Activo", 12, bod3, prod10);
-		ProductWarehouse productoBodega11 = new ProductWarehouse("Activo", 14, bod3, prod11);
-		ProductWarehouse productoBodega12 = new ProductWarehouse("Activo", 10, bod3, prod12);
+		
+		ProductWarehouse productoBodega13 = new ProductWarehouse("Activo", 10, bod2, prod);
+		ProductWarehouse productoBodega14 = new ProductWarehouse("Activo", 12, bod2, prod2);
+		ProductWarehouse productoBodega15 = new ProductWarehouse("Activo", 14, bod2, prod3);
+		ProductWarehouse productoBodega16 = new ProductWarehouse("Activo", 10, bod2, prod4);
+		ProductWarehouse productoBodega17 = new ProductWarehouse("Activo", 10, bod2, prod5);
+		ProductWarehouse productoBodega18 = new ProductWarehouse("Activo", 12, bod2, prod6);
+		ProductWarehouse productoBodega19 = new ProductWarehouse("Activo", 14, bod2, prod7);
+		ProductWarehouse productoBodega20 = new ProductWarehouse("Activo", 10, bod2, prod8);
+		ProductWarehouse productoBodega21 = new ProductWarehouse("Activo", 10, bod2, prod9);
+		ProductWarehouse productoBodega22 = new ProductWarehouse("Activo", 12, bod2, prod10);
+		ProductWarehouse productoBodega23 = new ProductWarehouse("Activo", 14, bod2, prod11);
+		ProductWarehouse productoBodega24 = new ProductWarehouse("Activo", 10, bod2, prod12);
+		
+		
+		ProductWarehouse productoBodega25 = new ProductWarehouse("Activo", 10, bod3, prod);
+		ProductWarehouse productoBodega26 = new ProductWarehouse("Activo", 12, bod3, prod2);
+		ProductWarehouse productoBodega27 = new ProductWarehouse("Activo", 14, bod3, prod3);
+		ProductWarehouse productoBodega28 = new ProductWarehouse("Activo", 10, bod3, prod4);
+		ProductWarehouse productoBodega29 = new ProductWarehouse("Activo", 10, bod3, prod5);
+		ProductWarehouse productoBodega30 = new ProductWarehouse("Activo", 12, bod3, prod6);
+		ProductWarehouse productoBodega31 = new ProductWarehouse("Activo", 14, bod3, prod7);
+		ProductWarehouse productoBodega32 = new ProductWarehouse("Activo", 10, bod3, prod8);
+		ProductWarehouse productoBodega33 = new ProductWarehouse("Activo", 10, bod3, prod9);
+		ProductWarehouse productoBodega34 = new ProductWarehouse("Activo", 12, bod3, prod10);
+		ProductWarehouse productoBodega35 = new ProductWarehouse("Activo", 14, bod3, prod11);
+		ProductWarehouse productoBodega36 = new ProductWarehouse("Activo", 10, bod3, prod12);
 		
 		
 		ejbWarehouseProduct.create(productoBodega);
@@ -197,6 +224,30 @@ public class DataCreate implements Serializable{
 		ejbWarehouseProduct.create(productoBodega10);
 		ejbWarehouseProduct.create(productoBodega11);
 		ejbWarehouseProduct.create(productoBodega12);
+		ejbWarehouseProduct.create(productoBodega13);
+		ejbWarehouseProduct.create(productoBodega14);
+		ejbWarehouseProduct.create(productoBodega15);
+		ejbWarehouseProduct.create(productoBodega16);
+		ejbWarehouseProduct.create(productoBodega17);
+		ejbWarehouseProduct.create(productoBodega18);
+		ejbWarehouseProduct.create(productoBodega19);
+		ejbWarehouseProduct.create(productoBodega20);
+		ejbWarehouseProduct.create(productoBodega21);
+		ejbWarehouseProduct.create(productoBodega22);
+		ejbWarehouseProduct.create(productoBodega23);
+		ejbWarehouseProduct.create(productoBodega24);
+		ejbWarehouseProduct.create(productoBodega25);
+		ejbWarehouseProduct.create(productoBodega26);
+		ejbWarehouseProduct.create(productoBodega27);
+		ejbWarehouseProduct.create(productoBodega28);
+		ejbWarehouseProduct.create(productoBodega29);
+		ejbWarehouseProduct.create(productoBodega30);
+		ejbWarehouseProduct.create(productoBodega31);
+		ejbWarehouseProduct.create(productoBodega32);
+		ejbWarehouseProduct.create(productoBodega33);
+		ejbWarehouseProduct.create(productoBodega34);
+		ejbWarehouseProduct.create(productoBodega35);
+		ejbWarehouseProduct.create(productoBodega36);
 
 		
 		User user = new User("barrerajuan930@gmail.com", "5665", "Juan Barrera", "Usuario", "Activo");

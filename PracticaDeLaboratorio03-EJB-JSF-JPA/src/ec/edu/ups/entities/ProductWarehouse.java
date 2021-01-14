@@ -60,14 +60,6 @@ public class ProductWarehouse implements Serializable {
 		this.cod_pro = cod_pro;
 	}
 
-	public String getProductName() {
-		return productState;
-	}
-
-	public void setProductName(String productState) {
-		this.productState = productState;
-	}
-
 	public List<BillDetail> getDetails() {
 		return details;
 	}
@@ -102,6 +94,14 @@ public class ProductWarehouse implements Serializable {
 
 	
 	
+	public String getProductState() {
+		return productState;
+	}
+
+	public void setProductState(String productState) {
+		this.productState = productState;
+	}
+
 	public int getProductStock() {
 		return productStock;
 	}

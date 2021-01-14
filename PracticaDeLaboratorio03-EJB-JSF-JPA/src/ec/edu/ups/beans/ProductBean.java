@@ -1,6 +1,7 @@
 package ec.edu.ups.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -23,73 +24,49 @@ public class ProductBean implements Serializable{
 
     
 	private static final long serialVersionUID = -2085468197085313985L;
-    private String productName;
-    private Double productPrice;
-    private String productUrl;
-    private String proDescription;
-    private String productState;
+  
 	private String buscarPorNombre;
-	public static List<Product> productos;
+	private List<ProductWarehouse> productosBodegas;
+	private List<Product> productos;
+	private List<ProductWarehouse> productosBodegaBuscada;
+	private int cod_pro;
 	
 	
 	@EJB
 	private ProductFacade ejbProducto; 
-	
+	@EJB
+	private ProductWarehouseFacade ejbProductoBodega;
 	
 	
     public ProductBean() {
-       
+    	
     }
     
-    public void buscarPorNombre() {
-		
-
-    	productos=ejbProducto.buscarPorNombre(this.getBuscarPorNombre());
-    	if(productos==null) {
-			productos=ejbProducto.findAll();
+    public void buscarPorNombreProductodBodega() {
+    	productosBodegaBuscada = new  ArrayList<ProductWarehouse>();
+    	
+    	productos = ejbProductoBodega.buscarPorNombre(getBuscarPorNombre());
+    	productosBodegas = ejbProductoBodega.findAll();
+    	
+    	for (ProductWarehouse bodegaPro : productosBodegas) {
+    		
+    		for (Product product : productos) {
+    			if (bodegaPro.getProduct_ware_pro().getCod_pro() == product.getCod_pro()) {
+    				productosBodegaBuscada.add(bodegaPro);
+    			}
+			}
+    		
+			
 		}
-	}
-  
-
-	public String getProductName() {
-		return productName;
-	}
-
-	public void setProductName(String productName) {
-		this.productName = productName;
+    	
+    	productosBodegas = productosBodegaBuscada;
+    	
+		System.out.println("Lenght de ProductosBodegas: "+ productosBodegas.size());
+    	//if(productosBodegas==null) {
+			//productos=ejbProducto.findAll();
+		//}
 	}
 
-	public Double getProductPrice() {
-		return productPrice;
-	}
-
-	public void setProductPrice(Double productPrice) {
-		this.productPrice = productPrice;
-	}
-
-	public String getProductUrl() {
-		return productUrl;
-	}
-
-	public void setProductUrl(String productUrl) {
-		this.productUrl = productUrl;
-	}
-
-	public String getProDescription() {
-		return proDescription;
-	}
-
-	public void setProDescription(String proDescription) {
-		this.proDescription = proDescription;
-	}
-
-	public String getProductState() {
-		return productState;
-	}
-
-	public void setProductState(String productState) {
-		this.productState = productState;
-	}
 
 	public String getBuscarPorNombre() {
 		return buscarPorNombre;
@@ -97,6 +74,24 @@ public class ProductBean implements Serializable{
 
 	public void setBuscarPorNombre(String buscarPorNombre) {
 		this.buscarPorNombre = buscarPorNombre;
+	}
+
+	
+
+	public List<ProductWarehouse> getProductosBodegas() {
+		return productosBodegas;
+	}
+
+	public void setProductosBodegas(List<ProductWarehouse> productosBodegas) {
+		this.productosBodegas = productosBodegas;
+	}
+
+	public List<Product> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(List<Product> productos) {
+		this.productos = productos;
 	}
 
 	public ProductFacade getEjbProducto() {
@@ -107,15 +102,16 @@ public class ProductBean implements Serializable{
 		this.ejbProducto = ejbProducto;
 	}
 
-	public List<Product> getProductos() {
-		return productos;
+	public ProductWarehouseFacade getEjbProductoBodega() {
+		return ejbProductoBodega;
 	}
 
-	public void setProductos(List<Product> productos) {
-		this.productos = productos;
+	public void setEjbProductoBodega(ProductWarehouseFacade ejbProductoBodega) {
+		this.ejbProductoBodega = ejbProductoBodega;
 	}
+  
     
-    
+   
     
 
 }

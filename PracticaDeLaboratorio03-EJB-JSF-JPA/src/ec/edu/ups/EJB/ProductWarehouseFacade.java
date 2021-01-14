@@ -38,7 +38,7 @@ public class ProductWarehouseFacade extends AbstractFacade<ProductWarehouse>{
 			em.refresh(prod);
 			System.out.println("PRODUCTOS: "+prod.size());
 		} catch (Exception e) {
-			System.out.println(">>>WARNING (productosEmpresa EmpresaDAO): " + e.getMessage());
+			System.out.println(">>>WARNING1111 (productosEmpresa EmpresaDAO): " + e.getMessage());
 		}
 		
 		return prod;
@@ -50,13 +50,59 @@ public class ProductWarehouseFacade extends AbstractFacade<ProductWarehouse>{
 		String consulta = "SELECT  pw FROM ProductWarehouse pw, Product p WHERE p.cod_pro = :id";
 		try {
 			em.clear();
-			prod = (ProductWarehouse) em.createQuery(consulta).setParameter("id", id).getResultList();
-			em.refresh(prod);
+			prod = (ProductWarehouse) em.createQuery(consulta).setParameter("id", id).getSingleResult();
+			//em.refresh(prod);
 		} catch (Exception e) {
-			System.out.println(">>>WARNING (productosEmpresa EmpresaDAO): " + e.getMessage());
+			System.out.println(">>>WARNING2222 (buscarProductoBodega ): " + e.getMessage());
 		}
 		
 		return prod;
     }
+	
+	 @SuppressWarnings("unchecked")
+		public List<ProductWarehouse> buscarPorNombreBodegas(String nombre) {
+	    	List<ProductWarehouse> prod = new ArrayList<ProductWarehouse>();
+	    	String consulta = "SELECT  pr FROM ProductWarehouse pw, Product pr WHERE pr.productName = :nombre AND pr.productState LIKE 'ACTIVO'";
+			try {
+				em.clear();
+				prod = (List<ProductWarehouse>)em.createQuery(consulta).setParameter("nombre", nombre).getResultList();	
+				em.refresh(prod);
+			} catch (Exception e) {
+				System.out.println(">>>WARNING2222 (buscarProductoBodega ): " + e.getMessage());
+			}
+			
+			return prod;
+	 }
+	 
+	 @SuppressWarnings("unchecked")
+		public List<Product> buscarPorNombre(String nombre) {
+	    	List<Product> prod = new ArrayList<Product>();
+	    	String consulta = "SELECT  pr FROM Product pr WHERE pr.productName = :nombre AND pr.productState LIKE 'ACTIVO'";
+			try {
+				em.clear();
+				prod = (List<Product>)em.createQuery(consulta).setParameter("nombre", nombre).getResultList();	
+				em.refresh(prod);
+			} catch (Exception e) {
+				System.out.println(">>>WARNING2222 (buscarPorNombre ): " + e.getMessage());
+			}
+			
+			return prod;
+	 }
+
+	 
+	 @SuppressWarnings("unchecked")
+		public ProductWarehouse buscarProductosPorBodega(int id) {
+		 	List<ProductWarehouse> prod = new ArrayList<ProductWarehouse>();
+			String consulta = "SELECT  pw FROM ProductWarehouse pw, Product p WHERE p.cod_pro = :id";
+			try {
+				em.clear();
+				prod = (ProductWarehouse) em.createQuery(consulta).setParameter("id", id).getSingleResult();
+				//em.refresh(prod);
+			} catch (Exception e) {
+				System.out.println(">>>WARNING2222 (buscarProductoBodega ): " + e.getMessage());
+			}
+			
+			return prod;
+	    }
 
 }

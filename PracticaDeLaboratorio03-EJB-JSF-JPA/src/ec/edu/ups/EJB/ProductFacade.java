@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import ec.edu.ups.entities.Product;
+import ec.edu.ups.entities.ProductWarehouse;
 
 /**
  * Session Bean implementation class ProductFacade
@@ -43,6 +44,7 @@ public class ProductFacade extends AbstractFacade<Product>{
 		
 		return prod;
     }
-
+    
+   
     
 }
