@@ -28,8 +28,8 @@ public class Navegador implements Serializable{
 		}else if(page.equals("usuarioEmpleado")) {
 			return "usuarioEmpleado";
 			
-		}else if(page.equals("usuarioAdministrador")) {
-			return "usuarioAdmin";
+		}else if(page.equals("gestionarBodegaGeneral")) {
+			return "gestionarBodegaGeneral";
 			
 		}else if(page.equals("paginaPrincipal")) {
 			return "paginaPrincipal";
@@ -45,7 +45,23 @@ public class Navegador implements Serializable{
 			
 		}else if(page.equals("ListarClientes")) {
 			return "listarCliente";
+			
+		}else if(page.equals("inventarioPorBodega")) {
+			return "inventarioPorBodega";
+		
+		}else if(page.equals("productoPorBodega")) {
+			return "productoPorBodega";
+			
+		}else if(page.equals("bodega1Producto")) {
+			return "bodega2Producto";
+			
+		}else if(page.equals("bodega2Producto")) {
+			return "bodega2Producto";
+			
+		}else if(page.equals("bodega1Producto")) {
+			return "bodega2Producto";
 		}
+		
 		
 		
 		return page;

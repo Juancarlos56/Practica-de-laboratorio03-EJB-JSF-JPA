@@ -87,7 +87,7 @@
     	
     	<navigation-case>
     		<from-outcome>usuarioAdmin</from-outcome>
-    		<to-view-id>/private/administrador/UsuarioAdmin.xhtml</to-view-id>
+    		<to-view-id>/private/administrador/GestionarBodegasGeneral.xhtml</to-view-id>
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
     </navigation-rule>
@@ -109,7 +109,7 @@
       FIN REGLAS PARA LA BODEGA 1 --> 
     
     
-     <!-- REGLAS PARA LA BODEGA 2 --> 
+     <!-- REGLAS PARA LA BODEGA 2 
     
     <navigation-rule>
     	<from-view-id>/bodega2.xhtml</from-view-id>
@@ -119,11 +119,11 @@
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
     </navigation-rule>
-    
+    --> 
     <!-- FIN  REGLAS PARA LA BODEGA 2 -->  
    
         
-     <!-- REGLAS PARA LA BODEGA 3 --> 
+     <!-- REGLAS PARA LA BODEGA 3  
     <navigation-rule>
     	<from-view-id>/bodega3.xhtml</from-view-id>
     	<navigation-case>
@@ -132,11 +132,75 @@
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
     </navigation-rule>
+    
+    -->
      <!-- FIN REGLAS PARA LA BODEGA 3 --> 
     
+         <!-- REGLAS PARA Ventana de Usuario Admin -->
+    <navigation-rule>
+    	<from-view-id>/private/administrador/GestionarBodegasGeneral.xhtml</from-view-id>
+    	
+    	<navigation-case>
+    		<from-outcome>gestionarBodegasGeneral</from-outcome>
+    		<to-view-id>/private/administrador/gestionarBodegasGeneral.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>inventarioPorBodega</from-outcome>
+    		<to-view-id>/private/administrador/inventarioPorBodega.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>bodega1Producto</from-outcome>
+    		<to-view-id>/private/administrador/bodega1Producto.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>bodega2Producto</from-outcome>
+    		<to-view-id>/private/administrador/bodega2Producto.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>bodega2Producto</from-outcome>
+    		<to-view-id>/private/administrador/bodega2Producto.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    </navigation-rule>
     
+     <!-- FIN REGLAS PARA LA ventana usuario admin --> 
     
+    <!-- REGLAS PARA Ventana inventarioPorBodega -->
+    <navigation-rule>
+    	<from-view-id>/private/administrador/inventarioPorBodega.xhtml</from-view-id>
+    	
+    	<navigation-case>
+    		<from-outcome>usuarioAdmin</from-outcome>
+    		<to-view-id>/private/administrador/UsuarioAdmin.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>productoPorBodega</from-outcome>
+    		<to-view-id>/private/administrador/gestionarProductos.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>usuarioAdministrador</from-outcome>
+    		<to-view-id>/private/administrador/UsuarioAdmin.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    </navigation-rule>
+    
+     <!-- FIN REGLAS PARA LA BODEGA 3 -->        
             
+            bodega1Producto
 
     
 </faces-config>

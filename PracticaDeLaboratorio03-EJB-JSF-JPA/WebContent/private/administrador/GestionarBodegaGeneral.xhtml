@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+	<h:head>
+	    <title>Informe General</title>
+	    <style type="text/css">
+				
+				* {
+					margin:0px;
+					padding:0px;
+				}
+				
+				#header {
+					margin:auto;
+					margin-top:30px
+					font-family:Arial, Helvetica, sans-serif;
+				}
+				
+				li p {
+					font-family:Arial, Helvetica, sans-serif;
+				
+				}
+				
+				
+				ul, ol {
+					list-style:none;
+				}
+				
+				.nav > li {
+					float:left;
+				}
+				
+				.nav li a {
+					background-color:#000;
+					color:#fff;
+					text-decoration:none;
+					padding:10px 138px;
+					display:block;
+				}
+				
+				.nav li a:hover {
+					background-color:#434343;
+				}
+				
+				.nav li ul {
+					display:none;
+					position:absolute;
+					min-width:140px;
+				}
+				
+				.nav li:hover > ul {
+					display:block;
+				}
+				
+				.nav li ul li {
+					position:relative;
+				}
+				
+				.nav li ul li ul {
+					right:-140px;
+					top:0px;
+				}
+				
+				boton {
+				  border-radius: 5px;
+				  background: black;
+				}
+				
+				.tabla {
+					border-collapse: collapse;
+				}
+				
+				.cabeceraTabla {
+					text-align: center;
+					background: none repeat scroll 0 0 #E5E5E5;
+					border-bottom: 1px solid #BBBBBB;
+					padding: 8px;
+				}
+				
+				.filaPar {
+					text-align: center;
+					background: none repeat scroll 0 0 #FFFFFFF;
+					border-top: 1px solid #BBBBBB;
+				}
+				
+				.filaImpar {
+					text-align: center;
+					background: none repeat scroll 0 0 #F9F9F9;
+					border-top: 1px solid #BBBBBB;
+				}
+				
+				#contenedorFactura{
+					clear: both;
+				    float: left;
+				    margin-left: 5%;
+				    margin-top: 2%;
+				}
+				
+				#buscarProdFac{
+					clear: both;
+				    float: left;
+				    margin-left: 5%;
+				    margin-top: 1%;
+				}
+				
+				.encabezado{
+					width: 100%;
+					height: 60px
+				}
+				
+				.cuerpo{
+					width: 100%
+				}
+				
+				
+						
+			</style>
+	</h:head>
+
+	<h:body>
+	
+		
+	<nav class = "encabezado">
+
+	    <h:form id="formGestionBodegas">
+	    
+            <ul class="nav">
+            
+            <li><a href="">Inventario General</a>
+				<ul>
+					<p:link outcome="/private/administrador/GestionarBodegaGeneral" value="Inventario General" style="margin-right:50px;">
+  		  				<f:param name="productId" value="10" />
+			  			</p:link>
+			 		
+					
+				</ul>
+			</li>
+			
+			 <li><a href="">Inventario Por Bodega</a>
+				<ul>
+					<p:link outcome="/private/administrador/inventarioPorBodega" value="Inventario por Bodegas" style="margin-right:20px;">
+  		  				<f:param name="productId" value="10" />
+			  			</p:link>
+			 		
+					
+				</ul>
+			</li>
+             
+             <li><a href="">Gestionar Productos</a>
+				<ul>
+					<p:link outcome="/private/administrador/bodega1Producto.xhtml" value="Productos Bodega 1" style="margin-right:20px;">
+  		  					<f:param name="productId" value="10" />
+			 			 </p:link>
+			 		
+			 		
+			 		<p:link outcome="/private/administrador/bodega2Producto.xhtml" value="Productos Bodega 2" style="margin-right:20px;">
+  		  					<f:param name="productId" value="10" />
+			  			</p:link>
+			 		
+			 		
+			 		<p:link outcome="/private/administrador/bodega3Producto.xhtml" value="Productos Bodega 3" style="margin-right:20px;">
+  		  					<f:param name="productId" value="10" />
+			  			</p:link>
+			 		
+					
+				</ul>
+			</li>  
+             
+			 <li><a href="">Salir</a>
+				<ul>
+					<p:link outcome="/paginaPrincipal" value="Salir" style="margin-right:20px;">
+  		  					<f:param name="productId" value="10" />
+			  			</p:link>
+			 		
+			 		
+				</ul>
+			</li>  
+			
+		</ul>
+		
+       </h:form>
+	</nav>
+	
+	<br></br>
+
+
+		<h:form class = "cuerpo">	
+		<p:dataTable value="#{bodegaBean2.todos}" var="i" styleClass="tabla" headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">			
+			<p:column filterBy="#{i.nombre}" filterStyle="width:100px;" filterMatchMode="contains">
+               	<f:facet name="header">Nombre</f:facet>
+               	<h:outputText value="#{i.nombre}" size="10"/>               	
+            </p:column>
+            <p:column filterBy="#{i.precio}" filterStyle="width:100px;" filterMatchMode="contains">
+               	<f:facet name="header">Precio</f:facet>
+               	<h:outputText value="#{i.precio}" size="10"/>
+            </p:column>          
+            <p:column filterBy="#{i.stock}" filterStyle="width:100px;" filterMatchMode="contains">
+               	<f:facet name="header">Stock</f:facet>
+               	<h:outputText value="#{i.stock}" size="10"/>               	
+            </p:column>
+            <p:column filterBy="#{i.estado}" filterStyle="width:100px;" filterMatchMode="contains">
+               	<f:facet name="header">Estado</f:facet>
+               	<h:outputText value="#{i.estado}" size="10"/>
+            </p:column>                                   		
+		</p:dataTable>
+		</h:form>					
+	</h:body>
+</html>
