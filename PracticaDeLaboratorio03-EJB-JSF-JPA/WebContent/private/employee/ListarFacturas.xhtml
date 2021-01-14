@@ -130,23 +130,30 @@
 			</style>
 	</h:head>
 	<nav>
-	    <h:form id="formGestionClientes">
-	    	<ul class="nav">
-				<li><a>Gestionar Facturas</a>
-					<ul>
-						<li><h:commandLink value="Crear Factura" action="#{navigator.reglaRedir('CreacionFactura')}" /></li>
-						<li><h:commandLink value="Listar Facturas" action="#{navigator.reglaRedir('listarFactura')}" /></li>
-					</ul>
-				</li>
-				<li><a>Gestionar Clientes</a>
-					<ul>
-						<li><h:commandLink value="Crear Cliente" action="#{navigator.reglaRedir('CreacionFactura')}" /></li>
-						<li><h:commandLink value="Listar Clientes" action="#{navigator.reglaRedir('CreacionFactura')}" /></li>
-					</ul>
-				</li>
-				<li><a href="">Cerrar Sesion</a></li>
-			</ul>
-	    </h:form>
+	        <h:form id="formGestionClientes">
+              <h3>Menu</h3>
+               
+              <p:linkButton outcome="/private/employee/crearFactura" value="Crear Factura" style="margin-right:20px;">
+  		  		<f:param name="productId" value="10" />
+			  </p:linkButton>
+			  
+			  <p:linkButton outcome="/private/employee/CreateUser" value="Crear Cliente" style="margin-right:20px;">
+  		  		<f:param name="productId" value="10" />
+			  </p:linkButton>
+			  
+			   <p:linkButton outcome="/private/employee/ListarFacturas" value="Listar Facturas" style="margin-right:20px;">
+  		  		<f:param name="productId" value="10" />
+			  </p:linkButton>
+			  
+			  <p:linkButton outcome="/private/employee/listarUsuario" value="Listar Clientes" style="margin-right:20px;">
+  		  		<f:param name="productId" value="10" />
+			  </p:linkButton>
+			 
+			 <p:linkButton outcome="/paginaPrincipal" value="Salir" style="margin-right:20px;">
+  		  		<f:param name="productId" value="10" />
+			  </p:linkButton>
+
+            </h:form>
 	</nav>
 	<h:body>
 	
