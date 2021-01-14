@@ -45,18 +45,20 @@ public class ProductWarehouseFacade extends AbstractFacade<ProductWarehouse>{
     }
 	
 	@SuppressWarnings("unchecked")
-	public ProductWarehouse buscarProductoBodega(int id) {
-    	ProductWarehouse prod = new ProductWarehouse();
-		String consulta = "SELECT  pw FROM productwarehouse pw, product p WHERE p.cod_pro = :id AND pw.product_ware_pro = p.cod_pro";
-		try {
-			em.clear();
-			prod = (ProductWarehouse) em.createQuery(consulta).setParameter("id", id).getResultList();
-			em.refresh(prod);
-		} catch (Exception e) {
-			System.out.println(">>>WARNING (productosEmpresa EmpresaDAO): " + e.getMessage());
-		}
-		
-		return prod;
+    public ProductWarehouse buscarProductoBodega(int id) {
+		System.out.println(id);
+        ProductWarehouse prod = new ProductWarehouse();
+        String consulta = "SELECT  pw FROM ProductWarehouse pw, Product p WHERE p.cod_pro = :id";
+        try {
+        	em.clear();
+            prod = (ProductWarehouse) em.createQuery(consulta).setParameter("id", id).getResultList();
+            em.refresh(prod);
+            System.out.println(prod);
+        } catch (Exception e) {
+            System.out.println(">>>WARNING (productosEmpresa EmpresaDAO): " + e.getMessage());
+        }
+        
+        return prod;
     }
 
 }
