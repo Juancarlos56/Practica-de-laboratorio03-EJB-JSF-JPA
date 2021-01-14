@@ -11,6 +11,7 @@ import javax.inject.Named;
 
 import ec.edu.ups.EJB.CategoryFacade;
 import ec.edu.ups.EJB.CityFacade;
+import ec.edu.ups.EJB.ClientFacade;
 import ec.edu.ups.EJB.CompanyFacade;
 import ec.edu.ups.EJB.ProvinceFacade;
 import ec.edu.ups.EJB.ProductFacade;
@@ -19,6 +20,7 @@ import ec.edu.ups.EJB.UserFacade;
 import ec.edu.ups.EJB.WarehouseFacade;
 import ec.edu.ups.entities.Category;
 import ec.edu.ups.entities.City;
+import ec.edu.ups.entities.Client;
 import ec.edu.ups.entities.Company;
 import ec.edu.ups.entities.Product;
 import ec.edu.ups.entities.ProductWarehouse;
@@ -50,7 +52,8 @@ public class DataCreate implements Serializable{
 	private UserFacade ejbUser;
 	@EJB
 	private ProductWarehouseFacade ejbWarehouseProduct;
-	
+	@EJB
+	private ClientFacade ejbClient;
 	
 	/**
      * Default constructor. 
@@ -264,6 +267,12 @@ public class DataCreate implements Serializable{
 		ejbUser.create(user5);
 		ejbUser.create(user6);
 		
+		
+		Client cli = new Client(0, "barrerajuan930@gmail.com", "0106113301", "Juan", "Barrera");
+		Client cli2 = new Client(0, "katerinbarrera21@gmail.com", "0106114309", "Katherine", "Barrera");
+		
+		ejbClient.create(cli);
+		ejbClient.create(cli2);
 		
     }
     

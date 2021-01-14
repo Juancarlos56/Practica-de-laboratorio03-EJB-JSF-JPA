@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import ec.edu.ups.entities.Client;
+import ec.edu.ups.entities.ProductWarehouse;
 
 /**
  * Session Bean implementation class ClientFacade
@@ -25,6 +26,19 @@ public class ClientFacade extends AbstractFacade<Client>{
 		return em;
 	}
     
-    
+    @SuppressWarnings("unchecked")
+	public Client buscarClienteCedula(String cedula) {
+    	Client prod = new Client();
+		String consulta = "SELECT  c FROM Client c WHERE c.dni = :cedula";
+		try {
+			em.clear();
+			prod = (Client) em.createQuery(consulta).setParameter("cedula", cedula).getSingleResult();
+			//em.refresh(prod);
+		} catch (Exception e) {
+			System.out.println(">>>WARNING2222 (buscarClienteCedula ): " + e.getMessage());
+		}
+		
+		return prod;
+    }
 
 }

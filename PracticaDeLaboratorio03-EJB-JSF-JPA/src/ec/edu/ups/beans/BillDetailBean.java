@@ -33,30 +33,31 @@ public class BillDetailBean implements Serializable{
 	private ProductWarehouseFacade ejbProductoBodega;
 	
 	private int cantidadCompra;
-	public static List<BillDetail> detallesFac = new ArrayList<BillDetail>();
+	private List<BillDetail> detallesFac = new ArrayList<BillDetail>();
 	private BillDetail facturaDetalle;
     private double subtotal;
     private int amount;
 	private double unitPrice;
 	private boolean state;
-	private ProductWarehouse productoBodega;
+	//private ProductWarehouse productoBodega;
 	
 	public BillDetailBean() {
         // TODO Auto-generated constructor stub
     }
 	
 	
-	public void addDetallesFactura(Product producto) {
-		
-		productoBodega = ejbProductoBodega.buscarProductoBodega(producto.getCod_pro());
+	public void addDetallesFactura(ProductWarehouse productoBodega) {
+		System.out.println("No mames: "+productoBodega.getProduct_ware_pro().getProductName());
 		boolean stock = controlStock(getCantidadCompra(), productoBodega.getProductStock());
 		
 		if (stock) {
+			
 			facturaDetalle = new BillDetail();
 			facturaDetalle.setAmount(getAmount());
 			facturaDetalle.setState("Agregado");
-			facturaDetalle.setUnitPrice(getUnitPrice());
+			facturaDetalle.setUnitPrice(productoBodega.getProduct_ware_pro().getProductPrice());
 			facturaDetalle.setSubtotal(facturaDetalle.calcularSubtotal());
+			facturaDetalle.setPro_war_detail(productoBodega);
 			
 			detallesFac.add(facturaDetalle);
 			disminicionStock(getCantidadCompra(), productoBodega);
@@ -78,6 +79,8 @@ public class BillDetailBean implements Serializable{
 		
 	}
 	
+	
+	
 	public void disminicionStock(int cantidadCompra, ProductWarehouse producto) {
 		
 		int stock = cantidadCompra - producto.getProductStock(); 
@@ -91,6 +94,19 @@ public class BillDetailBean implements Serializable{
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
     
+    
+    
+    
+	public List<BillDetail> getDetallesFac() {
+		return detallesFac;
+	}
+
+
+	public void setDetallesFac(List<BillDetail> detallesFac) {
+		this.detallesFac = detallesFac;
+	}
+
+
 
 	public ProductWarehouseFacade getEjbProductoBodega() {
 		return ejbProductoBodega;
@@ -99,16 +115,6 @@ public class BillDetailBean implements Serializable{
 
 	public void setEjbProductoBodega(ProductWarehouseFacade ejbProductoBodega) {
 		this.ejbProductoBodega = ejbProductoBodega;
-	}
-
-
-	public ProductWarehouse getProductoBodega() {
-		return productoBodega;
-	}
-
-
-	public void setProductoBodega(ProductWarehouse productoBodega) {
-		this.productoBodega = productoBodega;
 	}
 
 

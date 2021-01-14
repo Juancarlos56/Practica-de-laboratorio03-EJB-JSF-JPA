@@ -30,7 +30,7 @@ public class ProductBean implements Serializable{
 	private List<Product> productos;
 	private List<ProductWarehouse> productosBodegaBuscada;
 	private int cod_pro;
-	
+	private int stocktotal;
 	
 	@EJB
 	private ProductFacade ejbProducto; 
