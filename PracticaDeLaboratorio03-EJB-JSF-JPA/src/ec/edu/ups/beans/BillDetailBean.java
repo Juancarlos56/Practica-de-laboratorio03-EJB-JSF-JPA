@@ -7,6 +7,8 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.annotation.FacesConfig;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 import ec.edu.ups.EJB.BillDetailFacade;
@@ -58,6 +60,9 @@ public class BillDetailBean implements Serializable{
 			
 			detallesFac.add(facturaDetalle);
 			disminicionStock(getCantidadCompra(), productoBodega);
+			addMessage("Producto Agregado!!");
+		}else {
+			addMessage("No existe stock de este producto!!");
 		}
 		
 		
@@ -81,7 +86,11 @@ public class BillDetailBean implements Serializable{
 	}
 	
 	
-	
+    public void addMessage(String summary) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, null);
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
+    
 
 	public ProductWarehouseFacade getEjbProductoBodega() {
 		return ejbProductoBodega;

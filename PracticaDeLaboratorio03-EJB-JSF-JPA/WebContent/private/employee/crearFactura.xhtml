@@ -49,22 +49,23 @@
 	            </p:column>
 	               
 	        	<p:column headerText="Cantidad a Pedir">
-		        	<p:inputText id="cantidad" value="#{billDetailBean.cantidadCompra}" required="true" label="Nombre del producto">
-	                	<f:validateLength minimum="2" />
+		        	<p:inputText id="cantidad" value="#{billDetailBean.cantidadCompra}" required="true" label="Nombre del producto" type="text">
 	            	</p:inputText>
 	            </p:column> 
 	            
 	            <p:column headerText="">
-	           		<p:commandButton value="Agregar">
-	           		</p:commandButton>
+	           		<p:commandButton value="Agregar" id="agregarProducto"  actionListener="#{billDetailBean.addDetallesFactura(prod)}" update="facturaDetalle" style="margin-right:20px;" styleClass="ui-priority-primary" />
 	            </p:column>
 	            
 	    	</p:dataTable>
     	</div>  
 	</h:form>
-
-
-
+	
+	<h:form id="facturaDetalle">      
+	    <p:panel id="panel2" header="Search Form" style="margin-bottom:10px;">
+	        <p:messages id="messagesDetalles" />
+	 	</p:panel>
+	</h:form>
 	
 </h:body>
 
