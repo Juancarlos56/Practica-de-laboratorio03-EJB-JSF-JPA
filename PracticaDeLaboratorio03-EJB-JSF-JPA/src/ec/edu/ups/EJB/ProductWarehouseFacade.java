@@ -90,19 +90,5 @@ public class ProductWarehouseFacade extends AbstractFacade<ProductWarehouse>{
 	 }
 
 	 
-	 @SuppressWarnings("unchecked")
-		public ProductWarehouse buscarProductosPorBodega(int id) {
-		 	List<ProductWarehouse> prod = new ArrayList<ProductWarehouse>();
-			String consulta = "SELECT  pw FROM ProductWarehouse pw, Product p WHERE p.cod_pro = :id";
-			try {
-				em.clear();
-				prod = (ProductWarehouse) em.createQuery(consulta).setParameter("id", id).getSingleResult();
-				//em.refresh(prod);
-			} catch (Exception e) {
-				System.out.println(">>>WARNING2222 (buscarProductoBodega ): " + e.getMessage());
-			}
-			
-			return prod;
-	    }
 
 }
