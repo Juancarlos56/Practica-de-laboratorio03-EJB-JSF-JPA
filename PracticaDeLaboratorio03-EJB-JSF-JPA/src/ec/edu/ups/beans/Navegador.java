@@ -1,12 +1,17 @@
 package ec.edu.ups.beans;
+import java.io.Serializable;
+
+
 import javax.enterprise.context.RequestScoped;
-import javax.faces.annotation.FacesConfig;
 import javax.inject.Named;
 
 
 @Named
 @RequestScoped
-public class Navegador {
+public class Navegador implements Serializable{
+	
+	
+	
 	
 	public Navegador() {
 		
@@ -14,19 +19,26 @@ public class Navegador {
 	
 	public String redireccionar(String page) {
 		
-		if(page.equals("Bodega1")) {
-			return "Bodega1";
-		} else if(page.equals("Bodega2")) {
-			return "Bodega2";
-		}else if(page.equals("Bodega3")) {
-			return "Bodega3";
+		if(page.equals("bodega1")) {
+			return "bodega1";
+		} else if(page.equals("bodega2")) {
+			return "bodega2";
+		}else if(page.equals("bodega3")) {
+			return "bodega3";
 		}else if(page.equals("usuarioEmpleado")) {
 			return "usuarioEmpleado";
+		}else if(page.equals("paginaPrincipal")) {
+			return "paginaPrincipal";
 		}
+		
 		
 		
 		return page;
 		
+	}
+	
+	public String pruebaNavegador() {
+		return  "ingresa al Navegador";
 	}
 
 }

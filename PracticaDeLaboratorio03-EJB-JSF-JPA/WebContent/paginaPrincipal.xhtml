@@ -10,23 +10,30 @@
 	<title>Hola JSF 2.3</title>
 </h:head>
 <h:body>
-    <h:form id="formatoParaIniciarSesion" action="">
+   
 
-        <label>Ingresar Usuario</label>
-        <input type="text" value="" name="ingresarUsuario" id="ingresarUsuario" />
-        <label>Ingresar contrasena</label>
-        <input type="text" value="" name="ingresarContrasena" id="ingresarContrasena" />
-        <input type="submit" name="buscar" value="iniciarSesion" />
+   <div class="main-panel" id="main-panel">
+    	<h:form>
+    		<h:inputText id="text" value="#{bodegaBean.usuario}"  class="form-control"  p:placeholder="Usuario"/>
+   			<br /> 
+    		<h:inputSecret id="contra" value="#{bodegaBean.contrasena}" type="password"  class="form-control" p:placeholder="Contraseña"/>
+			<br />
+			<h:commandButton class="btn btn-primary btn-block" value="Iniciar sesion" action="#{bodegaBean.iniciarSecion()}"/>
+		</h:form>
+	</div>
 
-    </h:form>
+		<p:linkButton outcome="privado/empleado/UsuarioEmpleado" value="usuarioEmpleadoSOloEJEMPLO" style="margin-right:20px;">
+  		  <f:param name="productId" value="10" />
+		</p:linkButton>
+		
+		<p:linkButton outcome="privado/administrador/UsuarioAdmin" value="usuarioAdminSOloEJEMPLO" style="margin-right:20px;">
+  		  <f:param name="productId" value="10" />
+		</p:linkButton>
+
 
 
     <h1> Catalogo de productos</h1>
-    <button>
-        <h3>Empleado</h3>
-           <h:commandLink value="usuaroEmpleado" action="empleado/UsuarioEmpleado">
-	     </h:commandLink>
-    </button>
+
 
     <button>
         <h3>Categoria1</h3>
@@ -35,20 +42,27 @@
     <button>
         <h3>Categoria2</h3>
     </button>
-
-    <button>
-        <h3>Categoria3</h3>
-    </button>
+    
+    
     <br/>
     <br/>
-    <button>
-        <h3>Bodega1</h3>
-    </button>
 
-    <button>
-        <h3>Bodega2</h3>
-    </button>
-
+	
+	<p:linkButton outcome="bodega1" value="Bodega 1" style="margin-right:20px;">
+  		  
+	</p:linkButton>
+	
+	<p:linkButton outcome="bodega2" value="Bodega 2" style="margin-right:20px;">
+  		  
+	</p:linkButton>
+	
+	<p:linkButton outcome="bodega3" value="Bodega 3" style="margin-right:20px;">
+  		  
+	</p:linkButton>
+	
+	
+	
+	
 
 
 </h:body>
