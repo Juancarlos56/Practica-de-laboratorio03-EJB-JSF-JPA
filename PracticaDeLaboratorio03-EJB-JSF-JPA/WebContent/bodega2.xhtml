@@ -23,22 +23,138 @@
 	  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 	  <link href="assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
 	  
-	  
+	   
+    <title>Bodegas</title>
+    	    <style type="text/css">
+				
+				* {
+					margin:0px;
+					padding:0px;
+				}
+				
+				#header {
+					margin:auto;
+					margin-top:30px
+					font-family:Arial, Helvetica, sans-serif;
+				}
+				
+				li p {
+					font-family:Arial, Helvetica, sans-serif;
+					background-color:#000;
+					color:#fff;
+					text-decoration:none;
+					padding:10px 138px;
+					display:block;
+				
+				}
+				
+				
+				ul, ol {
+					list-style:none;
+				}
+				
+				.nav > li {
+					float:left;
+				}
+				
+				.nav li a {
+					background-color:#000;
+					color:#fff;
+					text-decoration:none;
+					padding:15px 100px 15px 100px;
+					display:block;
+				}
+				
+				.nav li a:hover {
+					background-color:#434343;
+				}
+				
+				.nav li ul {
+					display:none;
+					position:absolute;
+					min-width:140px;
+				}
+				
+				.nav li:hover > ul {
+					display:block;
+				}
+				
+				.nav li ul li {
+					position:relative;
+				}
+				
+				.nav li ul li ul {
+					right:-140px;
+					top:0px;
+				}
+				
+				boton {
+				  border-radius: 5px;
+				  background: black;
+				}
+				
+				.tabla {
+					border-collapse: collapse;
+				}
+				
+				.cabeceraTabla {
+					text-align: center;
+					background: none repeat scroll 0 0 #E5E5E5;
+					border-bottom: 1px solid #BBBBBB;
+					padding: 8px;
+				}
+				
+				.filaPar {
+					text-align: center;
+					background: none repeat scroll 0 0 #FFFFFFF;
+					border-top: 1px solid #BBBBBB;
+				}
+				
+				.filaImpar {
+					text-align: center;
+					background: none repeat scroll 0 0 #F9F9F9;
+					border-top: 1px solid #BBBBBB;
+				}
+				
+				#contenedorFactura{
+					clear: both;
+				    float: left;
+				    margin-left: 5%;
+				    margin-top: 2%;
+				}
+				
+				#buscarProdFac{
+					clear: both;
+				    float: left;
+				    margin-left: 5%;
+				    margin-top: 1%;
+				}
+				
+				.encabezado{
+					width: 100%;
+					height: 60px
+				}
+				
+				.cuerpo{
+					width: 100%
+				}
+				
+				.mainPanel{
+				    margin-left: 10px;
+  				  padding: 14px;
+				}
+				
+						
+			</style>
+			
 	  <script type="text/javascript">
 	</script>
 	  
 </h:head>
-
-<h:body onload="#{bodegaBean.onload(2)}">
-
-
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
-      <div class="logo">
-        <h1 style="color:green;"> Para tu Hogar </h1>
-      </div>
-      
+		
+		
+	<nav class = "encabezado">
+	    
       <!-- Lista del menu -->
      <div class="sidebar-wrapper" id="sidebar-wrapper">
         <h:form>
@@ -63,21 +179,34 @@
 	              <i class="now-ui-icons shopping_box"></i>
 	            </h:commandLink>
 	          </li>
+	          
+	          <li>
+	          <!--  
+	          	    <div class="mainPanel" id="main-panel">
+    					<h:form>
+    					<h:inputText id="text" value="#{bodegaBean.usuario}"  class="form-control"  p:placeholder="Usuario" style="height: 35px"/>
+    					<h:inputSecret id="contra" value="#{bodegaBean.contrasena}" type="password"  class="form-control" p:placeholder="Contraseña" style="height: 35px"/>
+    					<h:commandButton class="btn btn-primary btn-block" value="Iniciar sesion" action="#{bodegaBean.iniciarSecion()}" style=" height: 39px"/>
+						</h:form>
+					</div>
+	          -->
+	          </li>
 	        </ul>
         </h:form>
-      </div>    
+      </div>  
+	</nav>
 
-    
+<h:body onload="#{bodegaBean.onload(3)}">
 
-    <div class="main-panel" id="main-panel">
-    	<h:form>
-    		<h:inputText id="text" value="#{bodegaBean.usuario}"  class="form-control"  p:placeholder="Usuario"/>
-   			<br /> 
-    		<h:inputSecret id="contra" value="#{bodegaBean.contrasena}" type="password"  class="form-control" p:placeholder="Contraseña"/>
-			<br />
-			<h:commandButton class="btn btn-primary btn-block" value="Iniciar sesion" action="#{bodegaBean.iniciarSecion()}"/>
-		</h:form>
-	</div>
+
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+      <div class="logo">
+        <h1 style="color:green;"> Para tu Hogar </h1>
+      </div>
+
+
       
       <!-- End Navbar -->
            

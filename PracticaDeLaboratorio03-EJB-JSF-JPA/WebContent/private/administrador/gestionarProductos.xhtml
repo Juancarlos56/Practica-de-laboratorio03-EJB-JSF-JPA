@@ -7,10 +7,162 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
+	<title>Gestionar Productos</title>
+	 <style type="text/css">
+				
+				* {
+					margin:0px;
+					padding:0px;
+				}
+				
+				#header {
+					margin:auto;
+					margin-top:30px
+					font-family:Arial, Helvetica, sans-serif;
+				}
+				
+				li p {
+					font-family:Arial, Helvetica, sans-serif;
+					background-color:#000;
+					color:#fff;
+					text-decoration:none;
+					padding:10px 138px;
+					display:block;
+				
+				}
+				
+				
+				ul, ol {
+					list-style:none;
+				}
+				
+				.nav > li {
+					float:left;
+				}
+				
+				.nav li a {
+					background-color:#000;
+					color:#fff;
+					text-decoration:none;
+					padding:15px 100px 15px 100px;
+					display:block;
+				}
+				
+				.nav li a:hover {
+					background-color:#434343;
+				}
+				
+				.nav li ul {
+					display:none;
+					position:absolute;
+					min-width:140px;
+				}
+				
+				.nav li:hover > ul {
+					display:block;
+				}
+				
+				.nav li ul li {
+					position:relative;
+				}
+				
+				.nav li ul li ul {
+					right:-140px;
+					top:0px;
+				}
+				
+				boton {
+				  border-radius: 5px;
+				  background: black;
+				}
+				
+				.tabla {
+					border-collapse: collapse;
+				}
+				
+				.cabeceraTabla {
+					text-align: center;
+					background: none repeat scroll 0 0 #E5E5E5;
+					border-bottom: 1px solid #BBBBBB;
+					padding: 8px;
+				}
+				
+				.filaPar {
+					text-align: center;
+					background: none repeat scroll 0 0 #FFFFFFF;
+					border-top: 1px solid #BBBBBB;
+				}
+				
+				.filaImpar {
+					text-align: center;
+					background: none repeat scroll 0 0 #F9F9F9;
+					border-top: 1px solid #BBBBBB;
+				}
+				
+				#contenedorFactura{
+					clear: both;
+				    float: left;
+				    margin-left: 5%;
+				    margin-top: 2%;
+				}
+				
+				#buscarProdFac{
+					clear: both;
+				    float: left;
+				    margin-left: 5%;
+				    margin-top: 1%;
+				}
+				
+				.encabezado{
+					width: 100%;
+					height: 60px
+				}
+				
+				.cuerpo{
+					width: 100%
+				}
+				
+				
+						
+			</style>
 </h:head>
 
 <h:body>
+		
+	<nav class = "encabezado">
 
+	    <h:form id="formGestionBodegas">
+	    
+            <ul class="nav">
+            
+            <li><p:link outcome="/private/administrador/GestionarBodegaGeneral" value="Inventario General" style="margin-right:50px;">
+  		  				<f:param name="productId" value="10" />
+			  			</p:link>
+			</li>
+			
+			 <li><p:link outcome="/private/administrador/inventarioPorBodega" value="Inventario por Bodegas" style="margin-right:20px;">
+  		  				<f:param name="productId" value="10" />
+			  			</p:link>
+			</li>
+             
+             <li><p:link outcome="/private/administrador/gestionarProductos.xhtml" value="Aumentar stock por bodega" style="margin-right:20px;">
+  		  					<f:param name="productId" value="10" />
+			 			 </p:link>
+			</li>  
+             
+			 <li>
+					<p:link outcome="/paginaPrincipal" value="Salir" style="margin-right:20px;">
+  		  					<f:param name="productId" value="10" />
+			  			</p:link>
+			</li>  
+			
+		</ul>
+		
+       </h:form>
+	</nav>
+	
+	
+	<br></br>
 
 	<h:form id="Busqueda">      
 	    <p:panel id="panel" header="Search Form" style="margin-bottom:10px;">

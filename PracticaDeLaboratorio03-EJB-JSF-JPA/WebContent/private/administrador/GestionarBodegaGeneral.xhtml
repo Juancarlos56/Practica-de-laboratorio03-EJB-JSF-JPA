@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 	<h:head>
-	    <title>Informe General</title>
+	    <title>Inventario General</title>
 	    <style type="text/css">
 				
 				* {
@@ -23,6 +23,11 @@
 				
 				li p {
 					font-family:Arial, Helvetica, sans-serif;
+					background-color:#000;
+					color:#fff;
+					text-decoration:none;
+					padding:10px 138px;
+					display:block;
 				
 				}
 				
@@ -39,7 +44,7 @@
 					background-color:#000;
 					color:#fff;
 					text-decoration:none;
-					padding:10px 138px;
+					padding:15px 100px 15px 100px;
 					display:block;
 				}
 				
@@ -131,54 +136,25 @@
 	    
             <ul class="nav">
             
-            <li><a href="">Inventario General</a>
-				<ul>
-					<p:link outcome="/private/administrador/GestionarBodegaGeneral" value="Inventario General" style="margin-right:50px;">
+            <li><p:link outcome="/private/administrador/GestionarBodegaGeneral" value="Inventario General" style="margin-right:50px;">
   		  				<f:param name="productId" value="10" />
 			  			</p:link>
-			 		
-					
-				</ul>
 			</li>
 			
-			 <li><a href="">Inventario Por Bodega</a>
-				<ul>
-					<p:link outcome="/private/administrador/inventarioPorBodega" value="Inventario por Bodegas" style="margin-right:20px;">
+			 <li><p:link outcome="/private/administrador/inventarioPorBodega" value="Inventario por Bodegas" style="margin-right:20px;">
   		  				<f:param name="productId" value="10" />
 			  			</p:link>
-			 		
-					
-				</ul>
 			</li>
              
-             <li><a href="">Gestionar Productos</a>
-				<ul>
-					<p:link outcome="/private/administrador/bodega1Producto.xhtml" value="Productos Bodega 1" style="margin-right:20px;">
+             <li><p:link outcome="/private/administrador/gestionarProductos.xhtml" value="Aumentar stock por bodega" style="margin-right:20px;">
   		  					<f:param name="productId" value="10" />
 			 			 </p:link>
-			 		
-			 		
-			 		<p:link outcome="/private/administrador/bodega2Producto.xhtml" value="Productos Bodega 2" style="margin-right:20px;">
-  		  					<f:param name="productId" value="10" />
-			  			</p:link>
-			 		
-			 		
-			 		<p:link outcome="/private/administrador/bodega3Producto.xhtml" value="Productos Bodega 3" style="margin-right:20px;">
-  		  					<f:param name="productId" value="10" />
-			  			</p:link>
-			 		
-					
-				</ul>
 			</li>  
              
-			 <li><a href="">Salir</a>
-				<ul>
+			 <li>
 					<p:link outcome="/paginaPrincipal" value="Salir" style="margin-right:20px;">
   		  					<f:param name="productId" value="10" />
 			  			</p:link>
-			 		
-			 		
-				</ul>
 			</li>  
 			
 		</ul>
@@ -186,28 +162,62 @@
        </h:form>
 	</nav>
 	
+	
+	
 	<br></br>
 
 
-		<h:form class = "cuerpo">	
-		<p:dataTable value="#{bodegaBean2.todos}" var="i" styleClass="tabla" headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">			
-			<p:column filterBy="#{i.nombre}" filterStyle="width:100px;" filterMatchMode="contains">
-               	<f:facet name="header">Nombre</f:facet>
-               	<h:outputText value="#{i.nombre}" size="10"/>               	
-            </p:column>
-            <p:column filterBy="#{i.precio}" filterStyle="width:100px;" filterMatchMode="contains">
-               	<f:facet name="header">Precio</f:facet>
-               	<h:outputText value="#{i.precio}" size="10"/>
-            </p:column>          
-            <p:column filterBy="#{i.stock}" filterStyle="width:100px;" filterMatchMode="contains">
-               	<f:facet name="header">Stock</f:facet>
-               	<h:outputText value="#{i.stock}" size="10"/>               	
-            </p:column>
-            <p:column filterBy="#{i.estado}" filterStyle="width:100px;" filterMatchMode="contains">
-               	<f:facet name="header">Estado</f:facet>
-               	<h:outputText value="#{i.estado}" size="10"/>
-            </p:column>                                   		
-		</p:dataTable>
-		</h:form>					
+	<h:form id="Busqueda">      
+	    <p:panel id="panel" header="Search Form" style="margin-bottom:10px;">
+	        <p:messages id="messages" />
+	 
+	        <h:panelGrid columns="4" cellpadding="5">
+	            <h:outputLabel for="nombre" value="Buscar Producto: " />
+	            <p:inputText id="nombre" value="#{productBean.buscarPorNombre}" required="true" label="Nombre del producto">
+	                <f:validateLength minimum="2" />
+	            </p:inputText>
+			</h:panelGrid>
+	    </p:panel> 
+	 
+	    <h:panelGrid columns="1">
+	        <p:commandButton value="Buscar Producto" id="buscarProducto"  action="#{productBean.buscarPorNombreProductodBodega}" update="Busqueda" style="margin-right:20px;" styleClass="ui-priority-primary" />
+	    </h:panelGrid>
+	    
+	    <div id="contenedorProductos">
+	    	
+	    	<p:dataTable id="tablaProd"  var="prod" value="#{productBean.productosBodegas}"
+				 headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+				
+				<p:column headerText="Codigo Producto">
+	            	<h:outputText value="#{prod.product_ware_pro.cod_pro}"/>
+	            </p:column>
+	           	
+	           	<p:column headerText="Nombre">
+	               	<h:outputText value="#{prod.product_ware_pro.productName}"/>
+	           	</p:column>
+	           	
+	           	<p:column headerText="Precio del Producto">
+	               <h:outputText value="#{prod.product_ware_pro.productPrice}"/>
+	           	</p:column>
+	            
+	            <p:column headerText="Descripcion">
+	               <h:outputText value="#{prod.product_ware_pro.proDescription}" />
+	            </p:column>
+	            
+	            <p:column headerText="# Productos diponibles: ">
+	               <h:outputText value="" />
+	            </p:column> 
+	            
+	    	</p:dataTable>
+    	</div>  
+	</h:form>
+
+
+
+
+
+
+
+				
 	</h:body>
 </html>
