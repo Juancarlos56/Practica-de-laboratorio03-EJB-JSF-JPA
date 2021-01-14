@@ -68,14 +68,6 @@ public class ProductWarehouse implements Serializable {
 		this.productState = productState;
 	}
 
-	public int getProductPrice() {
-		return productStock;
-	}
-
-	public void setProductPrice(int productPrice) {
-		this.productStock = productPrice;
-	}
-
 	public List<BillDetail> getDetails() {
 		return details;
 	}
@@ -106,6 +98,16 @@ public class ProductWarehouse implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	
+	
+	public int getProductStock() {
+		return productStock;
+	}
+
+	public void setProductStock(int productStock) {
+		this.productStock = productStock;
 	}
 
 	@Override

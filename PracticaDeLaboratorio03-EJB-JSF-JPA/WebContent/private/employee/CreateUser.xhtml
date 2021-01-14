@@ -10,10 +10,11 @@
 	    <title>Crear Cliente</title>
 	</h:head>
 	
-	
 	<h:body>
 	
 		<h:form id="crearUsuario">
+			<p:growl id="growl" life="2000" />
+		
 			<h3>Horizontal and Fixed Width</h3>
 		    <div class="p-field p-grid">
 		        <p:outputLabel for="nombre" styleClass="p-col-fixed" style="width:100px" value="Ingrese el Nombre: " />
@@ -32,7 +33,7 @@
 		    <div class="p-field p-grid">
 		        <p:outputLabel for="password" styleClass="p-col-fixed" style="width:100px" value="Ingrese Contraseña" />
 		        <div class="p-col">
-			        <p:password id="password" value="#{userBean.password}" label="Password" required="true" />
+			        <p:password  id="password" value="#{userBean.password}" label="Password" required="true" />
 		        </div>
 		    </div>
 		    
@@ -51,7 +52,8 @@
 		        </div>
 		    </div>
 		
-		  <p:commandButton value="Crear Usuario" id="crearUsuariobtn" action="#{userBean.createUser}" style="margin-right:20px;" styleClass="ui-priority-primary" process="@this" ajax="false"/>	
+			<p:commandButton value="Crear Usuario" id="crearUsuario" update="growl" action="#{userBean.createUser}"  style="margin-right:20px;" styleClass="ui-priority-primary" />
+		  
 		</h:form>
 		
 	</h:body>

@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.annotation.FacesConfig;
 import javax.faces.application.FacesMessage;
@@ -16,16 +17,16 @@ import javax.inject.Named;
 import ec.edu.ups.EJB.UserFacade;
 import ec.edu.ups.entities.User;
 
-/**
- * Session Bean implementation class UserBean
- */
 @FacesConfig(version = FacesConfig.Version.JSF_2_3)
 @Named
-@SessionScoped
+@RequestScoped
 public class UserBean implements Serializable{
 
-	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5713304986716465231L;
 	@EJB
 	private UserFacade ejbUserFacade;
 
@@ -35,22 +36,23 @@ public class UserBean implements Serializable{
 	private String role;
 	private String state;
 	
+	
     public UserBean() {
     
     }
     
-    @PostConstruct
-	public void init() {
-	}
+ 
     
     public String createUser() {
-    	System.out.println("nombre"+ name);
+    	//System.out.println("nombre"+ name);
 		try {
 			User user = new User(email, password, name, role, state);
 			ejbUserFacade.create(user);
+			addMessage("Usuario creado!!");
 			return "Success";
 		} catch (Exception e) {
 			e.printStackTrace();
+			addMessage("No se pudo crear el usuario!!");
 			return "Error";
 		}
 	}
@@ -86,10 +88,6 @@ public class UserBean implements Serializable{
 			return "Error";
 		}
 	}
-    
-    public void buttonAction() {
-        addMessage("Welcome to PrimeFaces!!");
-    }
     
     public void addMessage(String summary) {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, null);

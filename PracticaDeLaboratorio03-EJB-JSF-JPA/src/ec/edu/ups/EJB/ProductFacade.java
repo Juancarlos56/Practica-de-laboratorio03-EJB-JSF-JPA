@@ -1,5 +1,8 @@
 package ec.edu.ups.EJB;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -24,6 +27,22 @@ public class ProductFacade extends AbstractFacade<Product>{
 	protected EntityManager getEntityManager() {
 		return em;
 	}
+	
+    @SuppressWarnings("unchecked")
+	public List<Product> buscarPorNombre (String nombre) {
+    	List<Product> prod = new ArrayList<Product>();
+		String consulta = "SELECT  p FROM Product p WHERE p.productName LIKE :nombre AND p.productState LIKE 'ACTIVO'";
+		try {
+			em.clear();
+			prod = (List<Product>)em.createQuery(consulta).setParameter("nombre", nombre).getResultList();		
+			em.refresh(prod);
+			System.out.println("PRODUCTOS: "+prod.size());
+		} catch (Exception e) {
+			System.out.println(">>>WARNING (productosEmpresa EmpresaDAO): " + e.getMessage());
+		}
+		
+		return prod;
+    }
 
     
 }

@@ -1,9 +1,13 @@
 package ec.edu.ups.EJB;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import ec.edu.ups.entities.Product;
 import ec.edu.ups.entities.ProductWarehouse;
 
 /**
@@ -24,5 +28,35 @@ public class ProductWarehouseFacade extends AbstractFacade<ProductWarehouse>{
 		return em;
 	}
 
-    
+	@SuppressWarnings("unchecked")
+	public List<ProductWarehouse> buscarStockDeProductoPorNombre(String nombre) {
+    	List<ProductWarehouse> prod = new ArrayList<ProductWarehouse>();
+		String consulta = "SELECT  pw FROM productwarehouse pw, product p WHERE p.productName LIKE :nombre AND p.productState LIKE 'ACTIVO'";
+		try {
+			em.clear();
+			prod = (List<ProductWarehouse>)em.createQuery(consulta).setParameter("nombre", nombre).getResultList();		
+			em.refresh(prod);
+			System.out.println("PRODUCTOS: "+prod.size());
+		} catch (Exception e) {
+			System.out.println(">>>WARNING (productosEmpresa EmpresaDAO): " + e.getMessage());
+		}
+		
+		return prod;
+    }
+	
+	@SuppressWarnings("unchecked")
+	public ProductWarehouse buscarProductoBodega(int id) {
+    	ProductWarehouse prod = new ProductWarehouse();
+		String consulta = "SELECT  pw FROM productwarehouse pw, product p WHERE p.cod_pro = :id AND pw.product_ware_pro = p.cod_pro";
+		try {
+			em.clear();
+			prod = (ProductWarehouse) em.createQuery(consulta).setParameter("id", id).getResultList();
+			em.refresh(prod);
+		} catch (Exception e) {
+			System.out.println(">>>WARNING (productosEmpresa EmpresaDAO): " + e.getMessage());
+		}
+		
+		return prod;
+    }
+
 }
