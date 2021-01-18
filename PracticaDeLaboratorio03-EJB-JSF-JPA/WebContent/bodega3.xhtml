@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+
+
+<h:head>
+    <meta charset="utf-8" />
+	  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png"/>
+	  <link rel="icon" type="image/png" href="../assets/img/favicon.png"/>
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Bodegas</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+	  <!--     Fonts and icons     -->
+	  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
+	  <!-- CSS Files -->
+	  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+	  <link href="assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+	  
+	   
+
+    	    <style type="text/css">
+				
+				* {
+					margin:0px;
+					padding:0px;
+				}
+				
+				#header {
+					margin:auto;
+					margin-top:30px
+					font-family:Arial, Helvetica, sans-serif;
+				}
+				
+				li p {
+					font-family:Arial, Helvetica, sans-serif;
+					background-color:#000;
+					color:#fff;
+					text-decoration:none;
+					padding:10px 138px;
+					display:block;
+				
+				}
+				
+				
+				ul, ol {
+					list-style:none;
+				}
+				
+				.nav > li {
+					float:left;
+				}
+				
+				.nav li a {
+					background-color:#000;
+					color:#fff;
+					text-decoration:none;
+					padding:15px 100px 15px 100px;
+					display:block;
+				}
+				
+				.nav li a:hover {
+					background-color:#434343;
+				}
+				
+				.nav li ul {
+					display:none;
+					position:absolute;
+					min-width:140px;
+				}
+				
+				.nav li:hover > ul {
+					display:block;
+				}
+				
+				.nav li ul li {
+					position:relative;
+				}
+				
+				.nav li ul li ul {
+					right:-140px;
+					top:0px;
+				}
+				
+				boton {
+				  border-radius: 5px;
+				  background: black;
+				}
+				
+				.tabla {
+					border-collapse: collapse;
+				}
+				
+				.cabeceraTabla {
+					text-align: center;
+					background: none repeat scroll 0 0 #E5E5E5;
+					border-bottom: 1px solid #BBBBBB;
+					padding: 8px;
+				}
+				
+				.filaPar {
+					text-align: center;
+					background: none repeat scroll 0 0 #FFFFFFF;
+					border-top: 1px solid #BBBBBB;
+				}
+				
+				.filaImpar {
+					text-align: center;
+					background: none repeat scroll 0 0 #F9F9F9;
+					border-top: 1px solid #BBBBBB;
+				}
+				
+				#contenedorFactura{
+					clear: both;
+				    float: left;
+				    margin-left: 5%;
+				    margin-top: 2%;
+				}
+				
+				#buscarProdFac{
+					clear: both;
+				    float: left;
+				    margin-left: 5%;
+				    margin-top: 1%;
+				}
+				
+				.encabezado{
+					width: 100%;
+					height: 60px
+				}
+				
+				.cuerpo{
+					width: 100%
+				}
+				
+				.mainPanel{
+				    margin-left: 10px;
+  				  padding: 14px;
+				}
+				
+						
+			</style>
+			
+	  <script type="text/javascript">
+	</script>
+	  
+</h:head>
+		
+		
+	<nav class = "encabezado">
+	    
+      <!-- Lista del menu -->
+     <div class="sidebar-wrapper" id="sidebar-wrapper">
+        <h:form>
+        	<ul class="nav">
+	          <li>
+	            <h:commandLink value="Menu Principal" action="#{navegador.redireccionar('paginaPrincipal')}">
+	              <i class="now-ui-icons files_paper"></i>
+	            </h:commandLink>
+	          </li>
+	          <li class="active">
+	            <h:commandLink value="bodega 1" action="#{navegador.redireccionar('bodega1')}">
+	              <i class="now-ui-icons shopping_box"></i>
+	            </h:commandLink>
+	          </li>
+	          <li>
+	            <h:commandLink value="bodega 2" action="#{navegador.redireccionar('bodega2')}">
+	              <i class="now-ui-icons shopping_box"></i>
+	            </h:commandLink>
+	          </li>
+	          <li>
+	            <h:commandLink value="bodega 3" action="#{navegador.redireccionar('bodega3')}">
+	              <i class="now-ui-icons shopping_box"></i>
+	            </h:commandLink>
+	          </li>
+	          
+	          <li>
+	          <!--  
+	          	    <div class="mainPanel" id="main-panel">
+    					<h:form>
+    					<h:inputText id="text" value="#{bodegaBean.usuario}"  class="form-control"  p:placeholder="Usuario" style="height: 35px"/>
+    					<h:inputSecret id="contra" value="#{bodegaBean.contrasena}" type="password"  class="form-control" p:placeholder="Contraseña" style="height: 35px"/>
+    					<h:commandButton class="btn btn-primary btn-block" value="Iniciar sesion" action="#{bodegaBean.iniciarSecion()}" style=" height: 39px"/>
+						</h:form>
+					</div>
+	          -->
+	          </li>
+	        </ul>
+        </h:form>
+      </div>  
+	</nav>
+
+<h:body onload="#{bodegaBean.onload(3)}">
+
+
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+      <div class="logo">
+        <h1 style="color:green;"> Para tu Hogar </h1>
+      </div>
+
+
+      
+      <!-- End Navbar -->
+           
+      <!-- CONTENIDOOO -->
+      <div class="content">
+      	<h4 class="card-title"> Inventario</h4>
+      	<!-- Busqueda de los productos -->
+        <h:form  style="width : 80%; margin-left:10%;">
+        	<h:selectOneMenu value="#{bodegaBean.categoria}">
+				<f:selectItems value="#{bodegaBean.categoriaList}" />
+				<f:ajax  listener="#{bodegaBean.listener}"  render="productos" />
+			</h:selectOneMenu>
+			
+            <h:messages />
+            <h:inputText id="text" value="#{bodegaBean.text}" type="text"  class="form-control" p:placeholder="Busqueda"/>
+            <h:commandButton class="btn btn-primary btn-block" style="width : 40%; margin-left:60%;" value="Buscar por texto" action="#{bodegaBean.buscarTexto()}"/>
+            
+            <h:dataTable id="productos"  value="#{bodegaBean.listaArr}" var = "producto"
+					   styleClass = "table"
+					   headerClass = "employeeTableHeader"
+					   rowClasses = "employeeTableOddRow,employeeTableEvenRow">
+					   
+				<h:column>    				
+					    <f:facet name = "header"> Producto</f:facet>    				
+					      #{producto.nombre}
+				</h:column>
+				
+				<h:column>
+					<f:facet name = "header">Precio Unitario</f:facet>
+					#{producto.precio}
+				</h:column>
+					   
+				<h:column>
+					 <f:facet name = "header">Cantidad</f:facet>
+					 #{producto.stock}
+				</h:column>
+				
+				<h:column>
+					<f:facet name = "header">Categoria</f:facet>
+					#{producto.categoria.nombre}
+				</h:column>
+		   </h:dataTable>
+		</h:form>
+	</div>
+      
+       
+      
+      <footer class="footer">
+
+      </footer>
+
+    
+
+ 
+ 
+    
+</h:body>
+
+</html>

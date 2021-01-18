@@ -12,7 +12,7 @@
     	
     	
     	<navigation-case>
-    		<from-outcome>usuarioEmpleado</from-outcome>
+    		<from-outcome>UsuarioEmpleado</from-outcome>
     		<to-view-id>/private/employee/UsuarioEmpleado.xhtml</to-view-id>
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
@@ -62,7 +62,7 @@
     	</navigation-case>
     	
     	<navigation-case>
-    		<from-outcome>bodega1jj</from-outcome>
+    		<from-outcome>bodega1</from-outcome>
     		<to-view-id>/bodega1.xhtml</to-view-id>
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
@@ -80,14 +80,14 @@
     	</navigation-case>
     	
     	<navigation-case>
-    		<from-outcome>usuarioEmpleado</from-outcome>
-    		<to-view-id>/private/employee/UsuarioEmpleado.xhtml</to-view-id>
+    		<from-outcome>UsuarioEmpleado</from-outcome>
+    		<to-view-id>private/employee/UsuarioEmpleado.xhtml</to-view-id>
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
     	
     	<navigation-case>
-    		<from-outcome>usuarioAdmin</from-outcome>
-    		<to-view-id>/private/administrador/GestionarBodegasGeneral.xhtml</to-view-id>
+    		<from-outcome>GestionarBodegaGeneral</from-outcome>
+    		<to-view-id>private/employee/GestionarBodegaGeneral.xhtml</to-view-id>
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
     </navigation-rule>
@@ -138,11 +138,11 @@
     
          <!-- REGLAS PARA Ventana de Usuario Admin -->
     <navigation-rule>
-    	<from-view-id>/private/administrador/GestionarBodegasGeneral.xhtml</from-view-id>
+    	<from-view-id>/private/administrador/GestionarBodegaGeneral.xhtml</from-view-id>
     	
     	<navigation-case>
-    		<from-outcome>gestionarBodegasGeneral</from-outcome>
-    		<to-view-id>/private/administrador/gestionarBodegasGeneral.xhtml</to-view-id>
+    		<from-outcome>GestionarBodegaGeneral</from-outcome>
+    		<to-view-id>/private/administrador/GestionarBodegaGeneral.xhtml</to-view-id>
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
     	
@@ -200,7 +200,7 @@
     
      <!-- FIN REGLAS PARA LA BODEGA 3 -->        
             
-       
+   
 
     
 </faces-config>
