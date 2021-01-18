@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:z="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 
 
@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Ventana Principal Empleado
+        Listar Clientes
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -21,13 +21,6 @@
     <link href="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
 
 
-    <style type="text/css">
-        #contenedorDetalles {
-            position: fixed;
-            width: 90%;
-            margin-left: 52%;
-        }
-    </style>
 </h:head>
 
 <h:body>
@@ -47,7 +40,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
                             </div>
-                            <a class="navbar-brand" href="#Floro">Empleado - Listar Facturas</a>
+                            <a class="navbar-brand" href="#Floro">Empleado - Listar Clientes</a>
                         </div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -55,25 +48,35 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
                         <div class="collapse navbar-collapse justify-content-end" id="navigation">
+
                             <ul class="navbar-nav">
+
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i>Gestionar Facturas </i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+
                                         <h:commandLink class="dropdown-item" value="Crear Factura" action="#{navigator.reglaRedir('CreacionFactura')}" />
                                         <h:commandLink class="dropdown-item" value="Listar Facturas" action="#{navigator.reglaRedir('listarFactura')}" />
+
                                     </div>
                                 </li>
+
+
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i>Gestionar Clientes </i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+
                                         <h:commandLink class="dropdown-item" value="Crear Cliente" action="#{navigator.reglaRedir('crearCliente')}" />
                                         <h:commandLink class="dropdown-item" value="Listar Clientes" action="#{navigator.reglaRedir('listarClientes')}" />
+
                                     </div>
                                 </li>
+
+
                                 <li class="nav-item">
                                     <h:commandLink class="dropdown-item" action="#{navigator.reglaRedir('salir')}">
                                         <i class="now-ui-icons sport_user-run"></i></h:commandLink>
@@ -91,103 +94,60 @@
             </div>
 
 
-
             <div class="content">
 
+
                 <div class="row">
+
+
+
                     <div class="col-md-6">
-                        <div class="card  card-tasks">
+                        <div class="card">
+                            <div class="card-header">
 
-
-
-                            <div class="card-header ">
                             </div>
-
-
-                            <div class="card-body ">
-                                <div class="table-full-width table-responsive">
+                            <div class="card-body">
+                                <div class="table-responsive">
 
 
 
                                     <div id="filtros">
                                         <h:form>
-                                            <h3>Buscar por cedula de cliente</h3>
-                                            <p:inputText class="form-control" id="ced" value="#{facturaCabeceraBean.cedula}" type="text" />
-                                            <p:commandButton class=" btn-primary btn-block" value="Buscar" action="#{facturaCabeceraBean.filtrarFacturaCabecera}" update="facturaCabecera" />
-                                            <P></P>
+                                            <h3>Buscar por cedula</h3>
+                                            <p:inputText class="form-control" id="ced" value="#{personaBean.cedula}" type="text" />
+                                            <p:commandButton class=" btn-primary btn-block" value="Buscar" action="#{personaBean.filtrarDatos}" update="formClientes" />
+                                            <p></p>
                                         </h:form>
-
                                     </div>
 
-                                    <h:form id="facturaCabecera">
-                                        <div id="contenedorCabeceras">
-                                            <p:dataTable value="#{facturaCabeceraBean.cabeceras}" var="cabF" styleClass="tabla" headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+                                    <div id="contenedorClientes">
+                                        <h:form id="formClientes">
+                                            <p:dataTable id="tablaClientes" value="#{personaBean.personas}" var="per" styleClass="tabla" headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
                                                 <p:column>
-                                                    <f:facet name="header" id="proid">Codigo</f:facet>#{cabF.id}
+                                                    <f:facet name="header" id="proid">Cliente</f:facet>#{per.nombre} #{per.apellido}
                                                 </p:column>
                                                 <p:column>
-                                                    <f:facet name="header" id="proid">Fecha</f:facet>#{cabF.fecha}
+                                                    <f:facet name="header" id="proid">Cedula</f:facet>#{per.cedula}
                                                 </p:column>
                                                 <p:column>
-                                                    <f:facet name="header" id="proid">Cliente</f:facet>#{cabF.persona.getNombre()} #{cabF.persona.getApellido()}
+                                                    <f:facet name="header" id="proid">Direccion</f:facet>#{per.direccion}
                                                 </p:column>
                                                 <p:column>
-                                                    <f:facet name="header" id="proid">Subtotal</f:facet>#{cabF.subtotal}
+                                                    <f:facet name="header" id="proid">Telefono</f:facet>#{per.telefono}
                                                 </p:column>
                                                 <p:column>
-                                                    <f:facet name="header" id="proid">IVA</f:facet>#{cabF.iva}
-                                                </p:column>
-                                                <p:column>
-                                                    <f:facet name="header" id="proid">Total</f:facet>#{cabF.total}
-                                                </p:column>
-                                                <p:column>
-                                                    <f:facet name="header" id="proid">Detalle</f:facet>
-                                                    <p:commandButton class="btn-primary" value="Ver" action="#{facturaCabeceraBean.sacarDetalles(cabF)}" update="facturaDetalle">
+                                                    <p:commandButton class="btn-primary" value="Editar" actionListener="#{personaBean.cargarDatosEditarPersona(per)}" update="editarUsuario">
                                                     </p:commandButton>
                                                 </p:column>
                                                 <p:column>
-                                                    <f:facet name="header" id="proid">Detalle</f:facet>
-                                                    <p:commandButton class="btn-primary" value="Cancelar" action="#{facturaCabeceraBean.cancelarFactura(cabF)}" update="facturaCabecera facturaDetalle">
+                                                    <p:commandButton class=" btn-primary " value="Eliminar" actionListener="#{personaBean.eliminarUsuario(per)}" update="formClientes">
                                                     </p:commandButton>
                                                 </p:column>
                                             </p:dataTable>
-                                        </div>
-                                    </h:form>
+                                        </h:form>
+                                    </div>
 
 
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div id="contenedorDetalles">
-                        <div class="col-md-6">
-                            <div class="card">
-
-                                <div class="card-header">
-                                    <h4 class="card-title"> Detalles de la factura</h4>
-                                </div>
-                                <div class="card-body">
-
-
-
-                                    <h:form id="facturaDetalle">
-                                        <div>
-                                            <p:dataTable id="detalles" value="#{facturaCabeceraBean.detalles}" var="d" styleClass="tabla" headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
-                                                <p:column>
-                                                    <f:facet name="header" id="proid">Producto</f:facet>#{d.producto.nombre}
-                                                </p:column>
-                                                <p:column>
-                                                    <f:facet name="header" id="proid">Cantidad</f:facet>#{d.cantidad}
-                                                </p:column>
-                                                <p:column>
-                                                    <f:facet name="header" id="proid">Total</f:facet>#{d.total}
-                                                </p:column>
-                                            </p:dataTable>
-                                        </div>
-                                    </h:form>
 
 
 
@@ -195,8 +155,96 @@
                             </div>
                         </div>
                     </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="title">Editar Cliente</h5>
+                            </div>
+                            <div class="card-body">
+                                <h:form id="editarUsuario">
+                                    <div class="row">
+                                        <div class="col-md-5 pr-1">
+                                            <div class="form-group">
+                                                <label>Empresa (Por defecto)</label>
+                                                <input type="text" class="form-control" disabled="" placeholder="Pal Hogar" value="Pal Hogar" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 px-1">
+                                            <div class="form-group">
+                                                <label>Nombre:</label>
+                                                <p:inputText id="nombre" class="form-control" value="#{personaBean.nombre}" cols="2" z:placeholder="Nombre" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 pl-1">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Apellido:</label>
+                                                <p:inputText class="form-control" id="apellido" value="#{personaBean.apellido}" cols="2" z:placeholder="Apellido" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 pr-1">
+                                            <div class="form-group">
+                                                <label>Cedula: </label>
+                                                <p:inputText class="form-control" id="cedula" value="#{personaBean.cedula}" cols="2" z:placeholder="Cedula" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 pl-1">
+                                            <div class="form-group">
+                                                <label>Direccion:</label>
+                                                <p:inputText class="form-control" id="direccion" value="#{personaBean.direccion}" cols="2" z:placeholder="Eg. Paute- Abdon Calderon y bahia San jose" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>Telefono:</label>
+                                                <p:inputText class="form-control" id="telefono" value="#{personaBean.telefono}" cols="2" z:placeholder="Movil o Convencional" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 px-1">
+                                            <div class="form-group">
+                                                <label>Correo: </label>
+                                                <p:inputText class="form-control" id="correo" value="#{personaBean.correo}" cols="2" z:placeholder="ejemplo@ste.com" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 pl-1">
+
+                                            <div class="form-group">
+                                                <p:commandButton class="btn btn-primary btn-block" value="Modificar Cliente" actionListener="#{personaBean.editarPersona}" update="formClientes editarUsuario" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </h:form>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+
                 </div>
             </div>
+
+
+
+
+
+
+
 
 
 

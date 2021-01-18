@@ -23,7 +23,7 @@ public class Category implements Serializable {
     private int cod_cat;
 	
 	@Column(name="cat_name", length=255, nullable=false, unique=true)
-	private String CategoryName;
+	private String categoryName;
 	
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category_product")
@@ -38,13 +38,13 @@ public class Category implements Serializable {
 	public Category(int cod_cat, String categoryName) {
 		super();
 		this.cod_cat = cod_cat;
-		CategoryName = categoryName;
+		this.categoryName = categoryName;
 	}
 
 	
 	public Category(String categoryName) {
 		super();
-		CategoryName = categoryName;
+		this.categoryName = categoryName;
 	}
 
 	public int getCod_cat() {
@@ -58,12 +58,12 @@ public class Category implements Serializable {
 
 
 	public String getCategoryName() {
-		return CategoryName;
+		return categoryName;
 	}
 
 
 	public void setCategoryName(String categoryName) {
-		CategoryName = categoryName;
+		this.categoryName = categoryName;
 	}
 
 

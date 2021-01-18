@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+    <meta charset="utf-8" />
+	  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png"/>
+	  <link rel="icon" type="image/png" href="../assets/img/favicon.png"/>
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Bodegas</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+	  <!--     Fonts and icons     -->
+	  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
+	  <!-- CSS Files -->
+	<link href="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+
+	  
+	  
+	  <script type="text/javascript">
+	</script>
+	  
+</h:head>
+
+<h:body onload="#{bodegaBean.onload(3)}">
+
+<!-- 
+	<script type="text/javascript">
+		function test(){
+			  document.getElementById('form:buttonId').click();
+		}
+	</script>
+
+  
+	<h:form  id="form" style="display: none" >
+		<h:commandButton action="bodegaBean.onload(1)" id="buttonId" style="display: none"/>
+	</h:form>
+
+
+
+    <img id="logo" src="" alt="" />
+    
+    
+    <form id="formulario01"  action="Login" method="post">
+        <label for="correo">Correo: </label>
+        <input type="text" name="correo" placeholder="Ingrese su correo" />
+
+        <label for="password">Contraseña: </label>
+        <input type="password" name="password" placeholder="Ingrese su contraseña" /><br>
+        <input id="login" type="submit" value="Iniciar Sesion">
+
+    </form>
+-->
+    
+    <div class="wrapper ">
+    <div class="sidebar" data-color="orange">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+      <div class="logo">
+        <h1 style="color:white;"> Pal Hogar </h1>
+      </div>
+      
+      <!-- Lista del menu -->
+      <div class="sidebar-wrapper" id="sidebar-wrapper">
+        <h:form>
+        	<ul class="nav">
+	          <li>
+	            <h:commandLink value="Menu Principal" action="#{navigator.reglaRedir('menuPrincial')}">
+	              <i class="now-ui-icons files_paper"></i>
+	            </h:commandLink>
+	          </li>
+	          <li>
+	            <h:commandLink value="bodega 1" action="#{navigator.reglaRedir('bodega1')}">
+	              <i class="now-ui-icons shopping_box"></i>
+	            </h:commandLink>
+	          </li>
+	          <li>
+	            <h:commandLink value="bodega 2" action="#{navigator.reglaRedir('bodega2')}">
+	              <i class="now-ui-icons shopping_box"></i>
+	            </h:commandLink>
+	          </li>
+	          <li class="active ">
+	            <h:commandLink value="bodega 3" action="#{navigator.reglaRedir('bodega3')}">
+	              <i class="now-ui-icons shopping_box"></i>
+	            </h:commandLink>
+	          </li>
+	        </ul>
+        </h:form>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    <div class="main-panel" id="main-panel">
+    
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            
+            
+            <!-- Login -->
+           <h:form>
+              <div class="input-group no-border">
+                <h:inputText id="text" value="#{bodegaBean.usuario}"  class="form-control"  p:placeholder="Usuario"/>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="now-ui-icons users_single-02"></i>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <div class="input-group no-border">
+                <h:inputSecret id="contra" value="#{bodegaBean.contrasena}" type="password"  class="form-control" p:placeholder="Contraseña"/>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="now-ui-icons objects_key-25"></i>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <h:commandButton class="btn btn-primary btn-block" value="Iniciar sesion" action="#{bodegaBean.iniciarSecion()}"/>
+            </h:form>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="panel-header panel-header-lg">
+        <canvas id="bigDashboardChart"></canvas>
+      </div>
+
+      <!-- CONTENIDOOO -->
+      <div class="content">
+      <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title"> Inventario</h4>
+              </div>
+              <!-- Busqueda de los productos -->
+              <h:form  style="width : 80%; margin-left:10%;" >
+              	<div class="input-group no-border" >
+              
+              
+            		<h:selectOneMenu value="#{bodegaBean.categoria}">
+					<f:selectItems value="#{bodegaBean.categoriaList}" />
+				
+					<f:ajax  listener="#{bodegaBean.listener}"  render="productos" />
+					</h:selectOneMenu>
+            	<h:messages />
+              	<h:inputText id="text" value="#{bodegaBean.text}" type="text"  class="form-control" p:placeholder="Busqueda"/>
+
+              	</div>
+              
+            	<h:commandButton class="btn btn-primary btn-block" style="width : 40%; margin-left:60%;" value="Buscar por texto" action="#{bodegaBean.buscarTexto()}"/>
+              	<div class="card-body">
+                	<div class="table-responsive">
+                  		<h:dataTable id="productos"  value="#{bodegaBean.listaArr}" var = "producto"
+						   styleClass = "table"
+						   headerClass = "employeeTableHeader"
+						   rowClasses = "employeeTableOddRow,employeeTableEvenRow">
+						   
+					   		<h:column>    				
+						      <f:facet name = "header"> Producto</f:facet>    				
+						      #{producto.nombre}
+						   </h:column>
+						   
+						   <h:column>
+						      <f:facet name = "header">Precio Unitario</f:facet>
+						      #{producto.precio}
+						   </h:column>
+						   
+						   <h:column>
+						      <f:facet name = "header">Cantidad</f:facet>
+						      #{producto.stock}
+						   </h:column>
+						   
+						   <h:column>
+						      <f:facet name = "header">Categoria</f:facet>
+						      #{producto.categoria.nombre}
+						   </h:column>
+						</h:dataTable>
+                	</div>
+              	</div>
+              </h:form>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+ 
+ 
+    
+</h:body>
+
+</html>
