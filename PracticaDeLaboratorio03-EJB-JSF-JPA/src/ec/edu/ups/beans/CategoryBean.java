@@ -47,7 +47,6 @@ public class CategoryBean implements Serializable{
 		productos=ejbProducto.findAll();
 		categorias=ejbCategoria.findAll();
 		obtencionProductosActivos();
-		//obtencionListaCategorias();
 	}
     
     
@@ -71,7 +70,7 @@ public class CategoryBean implements Serializable{
     	
 
 		for (int i = 1; i < categorias.size(); i++)
-		    list[i] = "" +  categorias.get(i).getCategoryName();
+		    list[i] = "" +  categorias.get(i-1).getCategoryName();
 	
 		return this.list;
 	}

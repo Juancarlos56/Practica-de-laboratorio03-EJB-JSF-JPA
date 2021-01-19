@@ -104,6 +104,8 @@ public class BodegaBean implements Serializable{
 	return list;
     }
 
+	
+	
     
     
     public String[] getcategoriaList() {

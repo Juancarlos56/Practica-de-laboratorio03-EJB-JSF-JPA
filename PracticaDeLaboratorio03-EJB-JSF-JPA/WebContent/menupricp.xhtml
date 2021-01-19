@@ -104,25 +104,25 @@ xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
                         
                         <h:form>
                             <div class="input-group no-border">
-                                <h:inputText id="text" value="#{categoriaBean.usuario}" class="form-control" p:placeholder="Usuario" />
+                                <h:inputText id="text" value="#{loginUsuarioBean.username}" class="form-control" p:placeholder="Ingrese Correo Electronico" />
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <i class="now-ui-icons users_single-02"></i>
                                     </div>
                                 </div>
                             </div>
-                      <br />
-                            <div class="input-group no-border">
-                                <h:inputSecret id="contra" value="#{categoriaBean.contrasena}" type="password" class="form-control" p:placeholder="Contraseña" />
-	                                <div class="input-group-append">
-	                                    <div class="input-group-text">
-	                                        <i class="now-ui-icons objects_key-25"></i>
-	                                    </div>
-	                                </div>
-                            </div>
-                     	<br/>
-                     	<h:commandButton class="btn btn-primary btn-block" value="Iniciar Sesión" action="#{categoriaBean.iniciarSecion() }" />
-              			</h:form>
+	                      <br />
+	                            <div class="input-group no-border">
+	                                <h:inputSecret id="contra" value="#{loginUsuarioBean.contrasena}" type="password" class="form-control" p:placeholder="Ingrese Contraseña" />
+		                                <div class="input-group-append">
+		                                    <div class="input-group-text">
+		                                        <i class="now-ui-icons objects_key-25"></i>
+		                                    </div>
+		                                </div>
+	                            </div>
+	                     	<br/>
+	                     	<h:commandButton class="btn btn-primary btn-block" value="Iniciar Sesión" action="#{loginUsuarioBean.iniciarSecion}" />
+	              		</h:form>
                     </div>
                 </div>
             </nav>
