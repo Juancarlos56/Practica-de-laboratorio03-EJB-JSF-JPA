@@ -560,7 +560,7 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 }
 
 .btn-primary {
-  background-color: #f96332;
+  background-color:#485517c7;
   color: #FFFFFF;
 }
 
@@ -575,15 +575,17 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 .show>.btn-primary.dropdown-toggle,
 .show>.btn-primary.dropdown-toggle:focus,
 .show>.btn-primary.dropdown-toggle:hover {
-  background-color: #fa7a50;
+  background-color: #485517c7;
   color: #FFFFFF;
   box-shadow: none;
-  border-color: #fa7a50;
+  border-color: #485517c7;
 }
 
 .btn-primary:not([data-action]):not([class*="btn-outline-"]):hover {
   box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
 }
+
+
 
 .btn-primary.disabled,
 .btn-primary.disabled:hover,
@@ -609,19 +611,31 @@ fieldset[disabled] .btn-primary:focus,
 fieldset[disabled] .btn-primary.focus,
 fieldset[disabled] .btn-primary:active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #f96332;
-  border-color: #f96332;
+  background-color: #485517c7;
+  border-color: #485517c7;
 }
 
 .btn-primary.btn-link {
-  color: #f96332;
+  color: #485517c7;
 }
+
+
+
+
+.iconoUsuario {
+	
+	position: absolute;
+    width: 159px;
+    margin-top: -200px;
+    margin-right: 40px;
+}
+
 
 .btn-primary.btn-link:hover,
 .btn-primary.btn-link:focus,
 .btn-primary.btn-link:active {
   background-color: transparent;
-  color: #fa7a50;
+  color: #485517c7;
   text-decoration: none;
   box-shadow: none;
 }
@@ -1887,8 +1901,7 @@ h4,
 .h4 {
   font-size: 1.714em;
   line-height: 1.45em;
-  margin-top: 30px;
-  margin-bottom: 15px;
+
 }
 
 h4+.category,
@@ -3596,6 +3609,10 @@ Created using IcoMoon - icomoon.io
   content: "\ea51";
 }
 
+.now-ui-icons.fondo1 {
+  content: "\fondo1";
+}
+
 .all-icons .font-icon-detail {
   text-align: center;
   padding: 45px 0px 30px;
@@ -3809,9 +3826,9 @@ Created using IcoMoon - icomoon.io
 .off-canvas-sidebar {
   position: fixed;
   top: 0;
-  height: 100%;
+  height: 446px;
   bottom: 0;
-  width: 260px;
+  width: 12%;
   left: 0;
   z-index: 1030;
 }
@@ -3819,11 +3836,11 @@ Created using IcoMoon - icomoon.io
 .sidebar .sidebar-wrapper,
 .off-canvas-sidebar .sidebar-wrapper {
   position: relative;
-  height: calc(100vh - 75px);
+ 
   overflow: auto;
-  width: 260px;
+  width: 184px;
   z-index: 4;
-  padding-bottom: 100px;
+  padding-bottom: 134px;
 }
 
 .sidebar .sidebar-wrapper .dropdown .dropdown-backdrop,
@@ -3915,7 +3932,7 @@ Created using IcoMoon - icomoon.io
 
 .sidebar .nav li.active>a,
 .off-canvas-sidebar .nav li.active>a {
-  background-color: #FFFFFF;
+  background-color: #485517c7;
   box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
 }
 
@@ -4062,13 +4079,17 @@ Created using IcoMoon - icomoon.io
 
 .sidebar:after,
 .off-canvas-sidebar:after {
-  background: #888;
+  /*background: #888;
   background: -webkit-linear-gradient(#888 0%, #000 80%);
   background: -o-linear-gradient(#888 0%, #000 80%);
   background: -moz-linear-gradient(#888 0%, #000 80%);
+  *
   background: linear-gradient(#888 0%, #000 80%);
+  */
   z-index: 3;
 }
+
+
 
 .sidebar[data-color="blue"]:after,
 .off-canvas-sidebar[data-color="blue"]:after {
@@ -4107,13 +4128,25 @@ Created using IcoMoon - icomoon.io
 
 .sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]),
 .off-canvas-sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]) {
-  color: #f96332;
+  color: #ded6d5bf;
 }
 
 .sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]) i,
 .off-canvas-sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]) i {
-  color: #f96332;
+  color: #ded6d5bf;
 }
+
+.sidebar[data-color="white"] .nav li.active>a:not([data-toggle="collapse"]),
+.off-canvas-sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]) {
+  color: #ded6d5bf;
+}
+
+
+.sidebar[data-color="white"] .nav li.active>a:not([data-toggle="collapse"]) i,
+.off-canvas-sidebar[data-color="orange"] .nav li.active>a:not([data-toggle="collapse"]) i {
+  color: #ded6d5bf;
+}
+
 
 .sidebar[data-color="red"]:after,
 .off-canvas-sidebar[data-color="red"]:after {
@@ -4164,8 +4197,7 @@ Created using IcoMoon - icomoon.io
 
 .main-panel {
   position: relative;
-  float: right;
-  width: calc(100% - 260px);
+  width: 100%;
   background-color: #E3E3E3;
   background-color: #ebecf1;
   -webkit-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
@@ -4178,7 +4210,8 @@ Created using IcoMoon - icomoon.io
 .main-panel>.content {
   padding: 0 30px 30px;
   min-height: calc(100vh - 123px);
-  margin-top: -30px;
+  margin-top: 30px;
+  margin-left: 4%
 }
 
 .main-panel>.navbar {
@@ -4203,13 +4236,15 @@ Created using IcoMoon - icomoon.io
 }
 
 .panel-header {
-  height: 260px;
+
   padding-top: 80px;
   padding-bottom: 45px;
+  /*
   background: #141E30;
-  /* fallback for old browsers */
+  fallback for old browsers 
   background: -webkit-gradient(linear, left top, right top, from(#0c2646), color-stop(60%, #204065), to(#2a5788));
   background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
+  */
   position: relative;
   overflow: hidden;
 }
@@ -4234,7 +4269,9 @@ Created using IcoMoon - icomoon.io
 }
 
 .panel-header-lg {
-  height: 380px;
+    height: 446px;
+    width: 20%;
+    margin-left: 80%;
 }
 
 .footer {
@@ -4628,7 +4665,8 @@ Created using IcoMoon - icomoon.io
 }
 
 .card .card-header .card-title {
-  margin-top: 10px;
+      margin-top: 20px;
+    	margin-left: 35%;
 }
 
 .card .map {
@@ -5329,6 +5367,7 @@ Created using IcoMoon - icomoon.io
     width: 100%;
   }
 
+
   .navbar-toggle .navbar-toggler,
   .navbar-toggle {
     display: block !important;
@@ -5409,6 +5448,7 @@ Created using IcoMoon - icomoon.io
 @media screen and (min-width: 992px) {
   .navbar-collapse {
     background: none !important;
+    margin-top: 10px;
   }
 
   .navbar .navbar-toggle {

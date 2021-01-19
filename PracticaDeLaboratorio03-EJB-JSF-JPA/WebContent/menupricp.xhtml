@@ -39,9 +39,9 @@ xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 <h:body>
 
     <div class="wrapper ">
-        <div class="sidebar" data-color="orange">
+        <div class="sidebar" style="background-color: #738d4aad;">
             <div class="logo">
-                <h1 style="color:white;"> Pal Hogar </h1>
+                <h1 style="color:white;">HOME</h1>
             </div>
             <div class="sidebar-wrapper" id="sidebar-wrapper">
                 <h:form>
@@ -71,6 +71,16 @@ xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
             </div>
         </div>
         
+        <div style="
+    position: absolute;
+    z-index: 1030;
+    margin-left: 12%;
+    width: 68%;
+    height: 455px;
+    " >
+   		 	<h:graphicImage library="images" name="fondo1.png"/>
+        </div>
+        
         
         
         
@@ -78,9 +88,12 @@ xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
             <!-- Menu de Navegacion -->
             <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
                 <div class="container-fluid">
+                
                     <div class="navbar-wrapper">
                         <div class="navbar-toggle">
+                        		
                             <button type="button" class="navbar-toggler">
+                            
 				                <span class="navbar-toggler-bar bar1"></span>
 				                <span class="navbar-toggler-bar bar2"></span>
 				                <span class="navbar-toggler-bar bar3"></span>
@@ -102,7 +115,9 @@ xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
                     
                         <!-- Formulario para Login tipo Facebook -->
                         
-                        <h:form>
+                        <h:graphicImage library="images" name="iconoUsuario.png" class= "iconoUsuario" />
+                        
+                        <h:form style="margin-top: 193px;">
                             <div class="input-group no-border">
                                 <h:inputText id="text" value="#{categoriaBean.usuario}" class="form-control" p:placeholder="Usuario" />
                                 <div class="input-group-append">
@@ -129,7 +144,7 @@ xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
             <!-- End Navbar -->
             
             
-            <div class="panel-header panel-header-lg">
+            <div class="panel-header panel-header-lg" style="background-color: #738d4aad">
                 <canvas id="bigDashboardChart"></canvas>
             </div>
             
@@ -140,7 +155,7 @@ xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"> Productos de la Empresa</h4>
+                            <h4 class="card-title" style=" color: #e08d06; ">Distribuidora Home</h4>
                         </div>
 
 
@@ -151,12 +166,15 @@ xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
                                     <f:selectItems value="#{categoryBean.obtencionListaCategorias()}" />
 				                 </h:selectOneMenu>
                                 <h:messages />
-                                <h:inputText id="text" value="#{categoryBean.text}" type="text" class="form-control" p:placeholder="Busqueda" />
+                                <h:inputText id="text" value="#{categoryBean.text}" type="text" class="form-control" p:placeholder="Busqueda" tyle="color: #4c7f0c; font-family: emoji;" />
                             </div>
                             <h:commandButton class="btn btn-primary btn-block" style="width : 40%; margin-left:60%;" value="Buscar por texto" actionListener="#{categoryBean.buscarProducto()}" />
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <h:dataTable id="productos" value="#{categoryBean.listaProductosBuscado}" var="producto" styleClass="table" headerClass="employeeTableHeader" rowClasses="employeeTableOddRow,employeeTableEvenRow">
+                                <div class="table-responsive" >
+                                    <h:dataTable id="productos" value="#{categoryBean.listaProductosBuscado}" 
+                                    			 style="color: #4c7f0c; font-family: emoji;"
+                                    			 var="producto" styleClass="table" headerClass="employeeTableHeader"
+                                    			 rowClasses="employeeTableOddRow,employeeTableEvenRow">
                                         <h:column>
                                             <f:facet name="header"> Producto</f:facet>
                                             #{producto.productName}
