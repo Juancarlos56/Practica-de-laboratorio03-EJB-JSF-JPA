@@ -12,7 +12,7 @@ public class Navigator {
 		
 	}
 	
-	public String redireccionamiento( String page ) {
+	public String reglaRedir( String page ) {
 		
 		if(page.equals("CreacionFactura")) {
 			return "crearFactura";

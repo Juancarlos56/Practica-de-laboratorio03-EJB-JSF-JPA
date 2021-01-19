@@ -1,4 +1,4 @@
-package ec.edu.ups.controlador;
+package ec.edu.ups.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,14 +13,15 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.annotation.FacesConfig;
 import javax.inject.Named;
 
-import ec.edu.ups.ejb.BodegaFacade;
-import ec.edu.ups.ejb.CategoriaFacade;
-import ec.edu.ups.ejb.PersonaFacade;
-import ec.edu.ups.ejb.ProductoFacade;
+import ec.edu.ups.EJB.BodegaFacade;
+import ec.edu.ups.EJB.CategoriaFacade;
+import ec.edu.ups.EJB.PersonaFacade;
+import ec.edu.ups.EJB.ProductoFacade;
 import ec.edu.ups.entidades.Bodega;
 import ec.edu.ups.entidades.Categoria;
 import ec.edu.ups.entidades.Persona;
 import ec.edu.ups.entidades.Producto;
+
 
 @FacesConfig(version = FacesConfig.Version.JSF_2_3)
 @Named
@@ -104,8 +105,6 @@ public class BodegaBean implements Serializable{
 	return list;
     }
 
-	
-	
     
     
     public String[] getcategoriaList() {

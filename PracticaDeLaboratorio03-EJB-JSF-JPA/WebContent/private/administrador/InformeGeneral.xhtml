@@ -60,14 +60,14 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
-                                        <h:commandLink class="dropdown-item" value="Informe General" action="#{navigator.redireccionamiento('informeGeneral')}" />
-										<h:commandLink class="dropdown-item" value="Gestionar Bodegas" action="#{navigator.redireccionamiento('gestionGodegas')}" />
+                                        <h:commandLink class="dropdown-item" value="Informe General" action="#{navigator.reglaRedir('informeGeneral')}" />
+										<h:commandLink class="dropdown-item" value="Gestionar Bodegas" action="#{navigator.reglaRedir('gestionGodegas')}" />
 
                                     </div>
                                 </li>
 
                                 <li class="nav-item">
-                                        <h:commandLink class="dropdown-item" action="#{navigator.redireccionamiento('salir')}">
+                                        <h:commandLink class="dropdown-item" action="#{navigator.reglaRedir('salir')}">
                                         <i class="now-ui-icons sport_user-run"></i></h:commandLink>
                                 </li>
                             </ul>

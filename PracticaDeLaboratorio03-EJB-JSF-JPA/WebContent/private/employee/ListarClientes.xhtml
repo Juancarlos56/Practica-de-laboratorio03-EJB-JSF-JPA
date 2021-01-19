@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:h="http://xmlns.jcp.org/jsf/html" 
-xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
-xmlns:f="http://xmlns.jcp.org/jsf/core" 
-xmlns:p="http://primefaces.org/ui" 
-xmlns:z="http://xmlns.jcp.org/jsf/passthrough">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:z="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 
 
@@ -22,8 +17,8 @@ xmlns:z="http://xmlns.jcp.org/jsf/passthrough">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 
-   <link href="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+    <link href="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
 
 
 </h:head>
@@ -62,8 +57,8 @@ xmlns:z="http://xmlns.jcp.org/jsf/passthrough">
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
-                                        <h:commandLink class="dropdown-item" value="Crear Factura" action="#{navigator.redireccionamiento('CreacionFactura')}" />
-                                        <h:commandLink class="dropdown-item" value="Listar Facturas" action="#{navigator.redireccionamiento('listarFactura')}" />
+                                        <h:commandLink class="dropdown-item" value="Crear Factura" action="#{navigator.reglaRedir('CreacionFactura')}" />
+                                        <h:commandLink class="dropdown-item" value="Listar Facturas" action="#{navigator.reglaRedir('listarFactura')}" />
 
                                     </div>
                                 </li>
@@ -75,15 +70,15 @@ xmlns:z="http://xmlns.jcp.org/jsf/passthrough">
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
-                                        <h:commandLink class="dropdown-item" value="Crear Cliente" action="#{navigator.redireccionamiento('crearCliente')}" />
-                                        <h:commandLink class="dropdown-item" value="Listar Clientes" action="#{navigator.redireccionamiento('listarClientes')}" />
+                                        <h:commandLink class="dropdown-item" value="Crear Cliente" action="#{navigator.reglaRedir('crearCliente')}" />
+                                        <h:commandLink class="dropdown-item" value="Listar Clientes" action="#{navigator.reglaRedir('listarClientes')}" />
 
                                     </div>
                                 </li>
 
 
                                 <li class="nav-item">
-                                    <h:commandLink class="dropdown-item" action="#{navigator.redireccionamiento('salir')}">
+                                    <h:commandLink class="dropdown-item" action="#{navigator.reglaRedir('salir')}">
                                         <i class="now-ui-icons sport_user-run"></i></h:commandLink>
                                 </li>
                             </ul>
@@ -99,54 +94,53 @@ xmlns:z="http://xmlns.jcp.org/jsf/passthrough">
             </div>
 
 
-
-
-
-
             <div class="content">
+
+
                 <div class="row">
+
+
+
                     <div class="col-md-6">
                         <div class="card">
+                            <div class="card-header">
+
+                            </div>
                             <div class="card-body">
                                 <div class="table-responsive">
+
+
+
                                     <div id="filtros">
                                         <h:form>
-                                        	<h3>Buscar por cedula del Cliente</h3>
-                                        	<div class="col-md-3 px-1">
-                                            	<div class="form-group">
-                                                	<p:inputText class="form-control" id="ced" value="#{clientBean.cedula}" type="text" />
-                                            		<p:commandButton class=" btn-primary btn-block" value="Buscar" action="#{clientBean.buscarClienteCedula}" update="formClientes" />
-                                           		 	<p></p>                                            	
-                                           		 </div>
-                                       		</div>
+                                            <h3>Buscar por cedula</h3>
+                                            <p:inputText class="form-control" id="ced" value="#{personaBean.cedula}" type="text" />
+                                            <p:commandButton class=" btn-primary btn-block" value="Buscar" action="#{personaBean.filtrarDatos}" update="formClientes" />
+                                            <p></p>
                                         </h:form>
                                     </div>
 
                                     <div id="contenedorClientes">
                                         <h:form id="formClientes">
-                                            <p:dataTable id="tablaClientes" value="#{clientBean.cliente}" var="per" styleClass="tabla" headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+                                            <p:dataTable id="tablaClientes" value="#{personaBean.personas}" var="per" styleClass="tabla" headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
                                                 <p:column>
-                                                    <f:facet name="header" id="proid">Nombre: </f:facet>#{per.name} 
+                                                    <f:facet name="header" id="proid">Cliente</f:facet>#{per.nombre} #{per.apellido}
                                                 </p:column>
                                                 <p:column>
-                                                    <f:facet name="header" id="proid">Apellido: </f:facet>#{per.lastname}
+                                                    <f:facet name="header" id="proid">Cedula</f:facet>#{per.cedula}
                                                 </p:column>
                                                 <p:column>
-                                                    <f:facet name="header" id="proid">Cédula: </f:facet>#{per.dni}
+                                                    <f:facet name="header" id="proid">Direccion</f:facet>#{per.direccion}
                                                 </p:column>
                                                 <p:column>
-                                                    <f:facet name="header" id="proid">Correo Electronico: </f:facet>#{per.email}
+                                                    <f:facet name="header" id="proid">Telefono</f:facet>#{per.telefono}
                                                 </p:column>
                                                 <p:column>
-                                                    <f:facet name="header" id="proid">Estado: </f:facet>#{per.state}
-                                                </p:column>
-                                                
-                                                <p:column>
-                                                    <p:commandButton class="btn-primary" value="Editar" actionListener="#{clientBean.cargarDatosEditarCliente()}" update="editarUsuario">
+                                                    <p:commandButton class="btn-primary" value="Editar" actionListener="#{personaBean.cargarDatosEditarPersona(per)}" update="editarUsuario">
                                                     </p:commandButton>
                                                 </p:column>
                                                 <p:column>
-                                                    <p:commandButton class=" btn-primary " value="Eliminar" actionListener="#{clientBean.eliminarCliente(per)}" update="formClientes">
+                                                    <p:commandButton class=" btn-primary " value="Eliminar" actionListener="#{personaBean.eliminarUsuario(per)}" update="formClientes">
                                                     </p:commandButton>
                                                 </p:column>
                                             </p:dataTable>
@@ -172,47 +166,60 @@ xmlns:z="http://xmlns.jcp.org/jsf/passthrough">
                             </div>
                             <div class="card-body">
                                 <h:form id="editarUsuario">
-                                    <p:growl id="growl" life="2000" />
                                     <div class="row">
+                                        <div class="col-md-5 pr-1">
+                                            <div class="form-group">
+                                                <label>Empresa (Por defecto)</label>
+                                                <input type="text" class="form-control" disabled="" placeholder="Pal Hogar" value="Pal Hogar" />
+                                            </div>
+                                        </div>
                                         <div class="col-md-3 px-1">
                                             <div class="form-group">
                                                 <label>Nombre:</label>
-                                                <p:inputText id="nombre" class="form-control" value="#{clientBean.nombre}" cols="2" z:placeholder="Ingrese nombre del cliente" />
+                                                <p:inputText id="nombre" class="form-control" value="#{personaBean.nombre}" cols="2" z:placeholder="Nombre" />
                                             </div>
                                         </div>
-                                        <div class="col-md-3 px-1">
+                                        <div class="col-md-4 pl-1">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Apellido:</label>
-                                                <p:inputText class="form-control" id="apellido" value="#{clientBean.apellido}" cols="2" z:placeholder="Ingrese apellido del cliente" />
+                                                <p:inputText class="form-control" id="apellido" value="#{personaBean.apellido}" cols="2" z:placeholder="Apellido" />
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-3 px-1">
+                                        <div class="col-md-6 pr-1">
                                             <div class="form-group">
                                                 <label>Cedula: </label>
-                                                <p:inputText class="form-control" id="cedula" value="#{clientBean.cedula}" cols="2" z:placeholder="Ingrese cédula del cliente" />
+                                                <p:inputText class="form-control" id="cedula" value="#{personaBean.cedula}" cols="2" z:placeholder="Cedula" />
                                             </div>
                                         </div>
-                                        <div class="col-md-3 px-1">
+                                        <div class="col-md-6 pl-1">
                                             <div class="form-group">
-                                                <label>Correo Electronico: </label>
-                                                <p:inputText class="form-control" id="correo" value="#{clientBean.email}" cols="2" z:placeholder="Ingrese email: ejm@gmail.com" />
-                                            </div>
-                                        </div>
-                                         <div class="col-md-3 px-1">
-                                            <div class="form-group">
-                                                <label>Estado del Usuario: </label>
-                                                <p:inputText class="form-control" id="estado" value="#{clientBean.estado}" cols="2" z:placeholder="Activo/Inactivo" />
+                                                <label>Direccion:</label>
+                                                <p:inputText class="form-control" id="direccion" value="#{personaBean.direccion}" cols="2" z:placeholder="Eg. Paute- Abdon Calderon y bahia San jose" />
+
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>Telefono:</label>
+                                                <p:inputText class="form-control" id="telefono" value="#{personaBean.telefono}" cols="2" z:placeholder="Movil o Convencional" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 px-1">
+                                            <div class="form-group">
+                                                <label>Correo: </label>
+                                                <p:inputText class="form-control" id="correo" value="#{personaBean.correo}" cols="2" z:placeholder="ejemplo@ste.com" />
+                                            </div>
+                                        </div>
+
                                         <div class="col-md-4 pl-1">
 
                                             <div class="form-group">
-                                                <p:commandButton class="btn btn-primary btn-block" value="Modificar Cliente" actionListener="#{clientBean.editarCliente}" update="formClientes editarUsuario" />
+                                                <p:commandButton class="btn btn-primary btn-block" value="Modificar Cliente" actionListener="#{personaBean.editarPersona}" update="formClientes editarUsuario" />
 
                                             </div>
                                         </div>
@@ -221,7 +228,14 @@ xmlns:z="http://xmlns.jcp.org/jsf/passthrough">
                                 </h:form>
                             </div>
                         </div>
+
+
+
+
+
                     </div>
+
+
                 </div>
             </div>
 
@@ -239,13 +253,13 @@ xmlns:z="http://xmlns.jcp.org/jsf/passthrough">
 
     <!--   Core JS Files   -->
 
-   <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/jquery.min.js"></script>
-    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/popper.min.js"></script>
-    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/bootstrap.min.js"></script>
-    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/core/jquery.min.js"></script>
+    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/core/popper.min.js"></script>
+    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/core/bootstrap.min.js"></script>
+    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
+    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
 
 
 </h:body>

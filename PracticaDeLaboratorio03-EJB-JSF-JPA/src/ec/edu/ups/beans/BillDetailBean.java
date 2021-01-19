@@ -1,6 +1,7 @@
 package ec.edu.ups.beans;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +49,8 @@ public class BillDetailBean implements Serializable{
 	private List<Product> productos;
 	private List<ProductWarehouse> productosBodegaBuscada;
 	
+	private ProductWarehouse productoBodega;
+	
 	public BillDetailBean() {
         // TODO Auto-generated constructor stub
     }
@@ -72,10 +75,18 @@ public class BillDetailBean implements Serializable{
     	
 	}	
 	
-	public void addDetallesFactura(ProductWarehouse productoBodega) {
+	
+	public void agregarFacturaDetalle() {
+		
+		
+	}
+	
+	public String addDetallesFactura(int pro) {
+		
+		productoBodega = ejbProductoBodega.find(pro);
+		
 		System.out.println("Aqui:>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-		System.out.println("AddFacturaDetale: >>>>>>>>>>>>>>>>>>>>>: "+productoBodega.getProduct_ware_pro().getProductName());
-		//boolean stock = controlStock(getCantidadCompra(), productoBodega.getProductStock());
+		boolean stock = controlStock(getCantidadCompra(), productoBodega.getProductStock());
 		
 		if (stock) {
 			System.out.println("Se Agrego el productoooooo");
@@ -88,12 +99,12 @@ public class BillDetailBean implements Serializable{
 			
 			detallesFac.add(facturaDetalle);
 			disminicionStock(getCantidadCompra(), productoBodega);
-			addMessage("Producto Agregado!!");
+			//addMessage("Producto Agregado!!");
 		}else {
-			addMessage("No existe stock de este producto!!");
+			//addMessage("No existe stock de este producto!!");
 		}
 		
-		
+		return "listo";
 	}
 	
 	public boolean controlStock(int cantidadCompra, int cantidadProducto) {
@@ -122,12 +133,30 @@ public class BillDetailBean implements Serializable{
     }
     
     
+    public String proBodega(int cod_pro) {
+		
+    	productoBodega = ejbProductoBodega.find(cod_pro);
+    	System.out.println("Producto bodega: "+cod_pro);
+    	System.out.println("Producto bodega: "+productoBodega.getCod_pro());
+    	return "listo";
+	}
     
     
     
     
     
-    
+	public ProductWarehouse getProductoBodega() {
+		return productoBodega;
+	}
+
+
+
+	public void setProductoBodega(ProductWarehouse productoBodega) {
+		this.productoBodega = productoBodega;
+	}
+
+
+
 	public List<Product> getProductos() {
 		return productos;
 	}

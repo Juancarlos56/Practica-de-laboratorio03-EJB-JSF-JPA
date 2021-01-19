@@ -17,8 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 
-    <link href="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+    <link href="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
 
 
 </h:head>
@@ -57,8 +57,8 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
-                                        <h:commandLink class="dropdown-item" value="Crear Factura" action="#{navigator.redireccionamiento('CreacionFactura')}" />
-                                        <h:commandLink class="dropdown-item" value="Listar Facturas" action="#{navigator.redireccionamiento('listarFactura')}" />
+                                        <h:commandLink class="dropdown-item" value="Crear Factura" action="#{navigator.reglaRedir('CreacionFactura')}" />
+                                        <h:commandLink class="dropdown-item" value="Listar Facturas" action="#{navigator.reglaRedir('listarFactura')}" />
 
                                     </div>
                                 </li>
@@ -70,15 +70,15 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
-                                        <h:commandLink class="dropdown-item" value="Crear Cliente" action="#{navigator.redireccionamiento('crearCliente')}" />
-                                        <h:commandLink class="dropdown-item" value="Listar Clientes" action="#{navigator.redireccionamiento('listarClientes')}" />
+                                        <h:commandLink class="dropdown-item" value="Crear Cliente" action="#{navigator.reglaRedir('crearCliente')}" />
+                                        <h:commandLink class="dropdown-item" value="Listar Clientes" action="#{navigator.reglaRedir('listarClientes')}" />
 
                                     </div>
                                 </li>
 
 
                                 <li class="nav-item">
-                                    <h:commandLink class="dropdown-item" action="#{navigator.redireccionamiento('salir')}">
+                                    <h:commandLink class="dropdown-item" action="#{navigator.reglaRedir('salir')}">
                                         <i class="now-ui-icons sport_user-run"></i></h:commandLink>
                                 </li>
                             </ul>
@@ -92,17 +92,6 @@
             <div class="panel-header panel-header-sm">
 
             </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             <div class="content">
 
                 <div class="row">
@@ -113,7 +102,7 @@
 
                             <div class="card-header ">
 
-                                <h3 class="card-category">Busqueda de Productos: </h3>
+                                <h5 class="card-category">Productos a añadir a la factura</h5>
 
 
                             </div>
@@ -123,36 +112,31 @@
 
                                 <h:form id="fa1">
                                     <div id="buscarProdFac">
-                                        <h5>Ingrese el nombre del producto</h5>
-                                        <p:inputText class="form-control" id="nombreBuscar" value="#{billDetailBean.nombreProducto}" type="text"></p:inputText>
-                                        <p:commandButton class="btn btn-primary btn-block" value="Buscar Producto" action="#{billDetailBean.buscarPorNombreProductodBodega}" update="fa1">
+                                        <h3>Buscar por nombre</h3>
+                                        <p:inputText class="form-control" id="nombreBuscar" value="#{productoBean.nombreBusq}" type="text"></p:inputText>
+                                        <p:commandButton class="btn btn-primary btn-block" value="Buscar" action="#{productoBean.buscarPorNombre}" update="fa1">
                                         </p:commandButton>
                                         <p></p>
                                     </div>
                                     <div id="contenedorProductos">
-                                        <p:dataTable id="tablaProd" value="#{billDetailBean.productosBodegaBuscada}" var="pro" headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+                                        <p:dataTable id="tablaProd" value="#{productoBean.pedidos}" var="ped" headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
                                             <p:column headerText="Id">
-                                                <h:outputText value="#{pro.getProduct_ware_pro().cod_pro}" />
+                                                <h:outputText value="#{ped.producto.id}" />
                                             </p:column>
                                             <p:column headerText="Nombre">
-                                                <h:outputText value="#{pro.getProduct_ware_pro().productName}" />
+                                                <h:outputText value="#{ped.producto.nombre}" />
                                             </p:column>
-                                            
-                                            <p:column headerText="Precio">
-                                                <h:outputText value="#{pro.getProduct_ware_pro().productPrice}" />
-                                            </p:column>
-                                            
                                             <p:column headerText="Stock">
-                                                <h:outputText value="#{pro.productStock}" />
+                                                <h:outputText value="#{ped.producto.stock}" />
                                             </p:column>
                                             <p:column headerText="Bodega">
-                                                <h:outputText value="#{pro.getWarehouse_ware_pro().wareHouseName}" />
+                                                <h:outputText value="#{ped.producto.bodegas.get(0).nombre}" />
                                             </p:column>
                                             <p:column headerText="Cantidad a Pedir">
-                                                <p:inputText class="form-control" id="cantidad" name="header" value="#{billDetailBean.amount}" type="text"></p:inputText>
+                                                <p:inputText class="form-control" id="cantidad" name="header" value="#{ped.cantidad}" type="text"></p:inputText>
                                             </p:column>
                                             <p:column headerText="">
-                                                <p:commandButton class="btn-primary" value="Agregar" actionListener="#{billDetailBean.addDetallesFactura(pro)}" update="fa1 fa3">
+                                                <p:commandButton class="btn-primary" value="Agregar" actionListener="#{facturaDetalleBean.addDetallesFac(ped)}" update="fa1 fa3">
                                                 </p:commandButton>
                                             </p:column>
                                         </p:dataTable>
@@ -171,27 +155,27 @@
                                     <h:form id="fa2">
                                         <h3>Buscar Cliente</h3>
                                         <p></p>
-                                        <h:inputText class="form-control" id="cedulaBuscar" value="#{clientBean.cedula}" type="text"></h:inputText>
-                                        <h:commandButton class="btn btn-primary btn-block" value="buscarPersona" actionListener="#{clientBean.buscarClienteCedula}">
-                                            <f:ajax execute="cedulaBuscar" render="salidaNombre salidaApellido salidaCedula salidaEmail salidaEstado" />
+                                        <h:inputText class="form-control" id="cedulaBuscar" value="#{personaBean.cedula}" type="text"></h:inputText>
+                                        <h:commandButton class="btn btn-primary btn-block" value="buscarPersona" action="#{personaBean.buscarPersonaCedula}">
+                                            <f:ajax execute="cedulaBuscar" render="salidaNombre salidaApellido salidaCedula salidaTelefono salidaDireccion" />
                                         </h:commandButton>
                                         <p></p>
                                         <h:outputLabel for="salidaNombre" value="Nombre:"></h:outputLabel>
-                                        <h:inputText class="form-control" id="salidaNombre" value="#{clientBean.nombre}"></h:inputText>
+                                        <h:inputText class="form-control" id="salidaNombre" value="#{personaBean.nombre}"></h:inputText>
                                         <p></p>
                                         <h:outputLabel for="salidaApellido" value="Apellido:"></h:outputLabel>
-                                        <h:inputText class="form-control" id="salidaApellido" value="#{clientBean.apellido}"></h:inputText>
+                                        <h:inputText class="form-control" id="salidaApellido" value="#{personaBean.apellido}"></h:inputText>
                                         <p></p>
-                                        <h:outputLabel for="salidaEmail" value="Email:"></h:outputLabel>
-                                        <h:inputText class="form-control" id="salidaEmail" value="#{clientBean.email}"></h:inputText>
+                                        <h:outputLabel for="salidaTelefono" value="Telefono:"></h:outputLabel>
+                                        <h:inputText class="form-control" id="salidaTelefono" value="#{personaBean.telefono}"></h:inputText>
                                         <p></p>
-                                        <h:outputLabel for="salidaEstado" value="Estado:"></h:outputLabel>
-                                        <h:inputText class="form-control" id="salidaEstado" value="#{clientBean.estado}"></h:inputText>
+                                        <h:outputLabel for="salidaDireccion" value="Direccion:"></h:outputLabel>
+                                        <h:inputText class="form-control" id="salidaDireccion" value="#{personaBean.direccion}"></h:inputText>
                                         <p></p>
                                     </h:form>
                                     <h:form id="fa3">
                                         <div id="detalleFactura">
-                                            <p:dataTable id="tablaDetalle" value="#{billDetailBean.d}" var="detalle" styleClass="tabla" headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+                                            <p:dataTable id="tablaDetalle" value="#{facturaDetalleBean.detallesFac}" var="detalle" styleClass="tabla" headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
                                                 <p:column>
                                                     <f:facet name="header" id="prodId">Producto</f:facet>#{detalle.producto.nombre}
                                                 </p:column>
@@ -229,10 +213,10 @@
 
     <!--   Core JS Files   -->
 
-    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/jquery.min.js"></script>
-    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/popper.min.js"></script>
-    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/bootstrap.min.js"></script>
-    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/core/jquery.min.js"></script>
+    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/core/popper.min.js"></script>
+    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/core/bootstrap.min.js"></script>
+    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>

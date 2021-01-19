@@ -1,6 +1,7 @@
-package ec.edu.ups.controlador;
+package ec.edu.ups.controller;
 
 import java.io.Serializable;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,9 +12,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.annotation.FacesConfig;
 import javax.inject.Named;
 
-import ec.edu.ups.ejb.FacturaCabeceraFacade;
-import ec.edu.ups.ejb.FacturaDetalleFacade;
-import ec.edu.ups.ejb.ProductoFacade;
+import ec.edu.ups.EJB.FacturaCabeceraFacade;
+import ec.edu.ups.EJB.FacturaDetalleFacade;
+import ec.edu.ups.EJB.ProductoFacade;
 import ec.edu.ups.entidades.FacturaCabecera;
 import ec.edu.ups.entidades.FacturaDetalle;
 import ec.edu.ups.entidades.Pedido;
