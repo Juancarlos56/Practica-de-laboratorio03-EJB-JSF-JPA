@@ -17,8 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 
-    <link href="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+    <link href="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
 
 
 </h:head>
@@ -57,8 +57,8 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
-                                        <h:commandLink class="dropdown-item" value="Crear Factura" action="#{navigator.reglaRedir('CreacionFactura')}" />
-                                        <h:commandLink class="dropdown-item" value="Listar Facturas" action="#{navigator.reglaRedir('listarFactura')}" />
+                                        <h:commandLink class="dropdown-item" value="Crear Factura" action="#{navigator.redireccionamiento('CreacionFactura')}" />
+                                        <h:commandLink class="dropdown-item" value="Listar Facturas" action="#{navigator.redireccionamiento('listarFactura')}" />
 
                                     </div>
                                 </li>
@@ -70,8 +70,8 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
-                                        <h:commandLink class="dropdown-item" value="Crear Cliente" action="#{navigator.reglaRedir('crearCliente')}" />
-                                        <h:commandLink class="dropdown-item" value="Listar Clientes" action="#{navigator.reglaRedir('listarClientes')}" />
+                                        <h:commandLink class="dropdown-item" value="Crear Cliente" action="#{navigator.redireccionamiento('crearCliente')}" />
+                                        <h:commandLink class="dropdown-item" value="Listar Clientes" action="#{navigator.redireccionamiento('listarClientes')}" />
 
                                     </div>
                                 </li>
@@ -79,7 +79,7 @@
 
 
                                 <li class="nav-item">
-                                    <h:commandLink class="dropdown-item" action="#{navigator.reglaRedir('salir')}">
+                                    <h:commandLink class="dropdown-item" action="#{navigator.redireccionamiento('salir')}">
                                         <i class="now-ui-icons sport_user-run"></i></h:commandLink>
                                 </li>
                             </ul>
@@ -229,15 +229,13 @@
         </div>
     </div>
 
-    <!--   Core JS Files   -->
-
-    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/core/jquery.min.js"></script>
-    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/core/popper.min.js"></script>
-    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/core/bootstrap.min.js"></script>
-    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-
+   <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/jquery.min.js"></script>
+    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/popper.min.js"></script>
+    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/bootstrap.min.js"></script>
+    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
+    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
+
 
 
 </h:body>
