@@ -8,19 +8,13 @@
     
      <!-- REGLAS PARA LA PAGINA PRINCIPAL DE USUARIO --> 
     <navigation-rule>
-    	<from-view-id>/private/employee/UsuarioEmpleado.xhtml</from-view-id>
+    	<from-view-id>/private/employee/PrincipalEmpleadoJSF.xhtml</from-view-id>
     	
-    	
-    	<navigation-case>
-    		<from-outcome>UsuarioEmpleado</from-outcome>
-    		<to-view-id>/private/employee/UsuarioEmpleado.xhtml</to-view-id>
-    		<redirect include-view-params="true"></redirect>
-    	</navigation-case>
     	
     	
     	<navigation-case>
-    		<from-outcome>creacionFactura</from-outcome>
-    		<to-view-id>/private/employee/crearFactura.xhtml</to-view-id>
+    		<from-outcome>crearFactura</from-outcome>
+    		<to-view-id>/private/employee/CrearFactura.xhtml</to-view-id>
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
     	
@@ -32,22 +26,175 @@
     	
     	<navigation-case>
     		<from-outcome>crearCliente</from-outcome>
-    		<to-view-id>/private/employee/CreateUser.xhtml</to-view-id>
+    		<to-view-id>/private/employee/CrearUsuario.xhtml</to-view-id>
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
     	
     	<navigation-case>
-    		<from-outcome>listarCliente</from-outcome>
-    		<to-view-id>/private/employee/listarUsuario.xhtml</to-view-id>
+    		<from-outcome>listarClientes</from-outcome>
+    		<to-view-id>/private/employee/ListarClientes.xhtml</to-view-id>
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
     	
+    	 <navigation-case>
+			<from-outcome>salir</from-outcome>
+			<to-view-id>/menupricp.xhtml</to-view-id>
+		</navigation-case>
+	
     </navigation-rule>
+    
+    
+    
+    
      <!-- FIN  REGLAS PARA LA PAGINA PRINCIPAL DE USUARIO --> 
     
     
     
+        <navigation-rule>
+    	<from-view-id>/private/employee/CrearFactura.xhtml</from-view-id>
+    	
+    	
+    	<navigation-case>
+    		<from-outcome>listarFactura</from-outcome>
+    		<to-view-id>/private/employee/ListarFacturas.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>crearCliente</from-outcome>
+    		<to-view-id>/private/employee/CrearUsuario.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>listarClientes</from-outcome>
+    		<to-view-id>/private/employee/ListarClientes.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	 <navigation-case>
+			<from-outcome>salir</from-outcome>
+			<to-view-id>/menupricp.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule> 
+	
+	
+	
+	
+	
+	
+	
+	
+	   
     
+        <navigation-rule>
+    	<from-view-id>/private/employee/ListarFacturas.xhtml</from-view-id>
+
+    	<navigation-case>
+    		<from-outcome>crearFactura</from-outcome>
+    		<to-view-id>/private/employee/CrearFactura.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+
+    	
+    	<navigation-case>
+    		<from-outcome>crearCliente</from-outcome>
+    		<to-view-id>/private/employee/CrearUsuario.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>listarClientes</from-outcome>
+    		<to-view-id>/private/employee/ListarClientes.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	 <navigation-case>
+			<from-outcome>salir</from-outcome>
+			<to-view-id>/menupricp.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule> 
+	
+    
+    
+    
+    
+    
+    
+    
+       <navigation-rule>
+    	<from-view-id>/private/employee/CrearUsuario.xhtml</from-view-id>
+
+    	<navigation-case>
+    		<from-outcome>crearFactura</from-outcome>
+    		<to-view-id>/private/employee/CrearFactura.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>listarFactura</from-outcome>
+    		<to-view-id>/private/employee/ListarFacturas.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	
+    	<navigation-case>
+    		<from-outcome>listarClientes</from-outcome>
+    		<to-view-id>/private/employee/ListarClientes.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	 <navigation-case>
+			<from-outcome>salir</from-outcome>
+			<to-view-id>/menupricp.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>         
+	
+	
+	
+	
+	
+	
+	
+	
+	<navigation-rule>
+    	<from-view-id>/private/employee/ListarClientes.xhtml</from-view-id>
+    	
+    	<navigation-case>
+    		<from-outcome>crearFactura</from-outcome>
+    		<to-view-id>/private/employee/CrearFactura.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>listarFactura</from-outcome>
+    		<to-view-id>/private/employee/ListarFacturas.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>crearCliente</from-outcome>
+    		<to-view-id>/private/employee/CrearUsuario.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    
+    	 <navigation-case>
+			<from-outcome>salir</from-outcome>
+			<to-view-id>/menupricp.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule> 
+	
+	
+	
+	
+	
+	
+    
+      
+      
+      
+	
+	
     
    <!-- REGLAS PARA LA NAVEGACION DE PAGINA PRINCIPAL  --> 
     
@@ -55,11 +202,7 @@
      
       <from-view-id>/menupricp.xhtml</from-view-id>
       
-    	<navigation-case>
-    		<from-outcome>menupricp</from-outcome>
-    		<to-view-id>/menupricp.xhtml</to-view-id>
-    		<redirect include-view-params="true"></redirect>
-    	</navigation-case>
+
     	
     	<navigation-case>
     		<from-outcome>menuBodega1</from-outcome>
@@ -81,18 +224,22 @@
     	
     	<navigation-case>
     		<from-outcome>UsuarioEmpleado</from-outcome>
-    		<to-view-id>private/employee/UsuarioEmpleado.xhtml</to-view-id>
+    		<to-view-id>/private/employee/UsuarioEmpleado.xhtml</to-view-id>
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
     	
     	<navigation-case>
-    		<from-outcome>GestionarBodegaGeneral</from-outcome>
-    		<to-view-id>private/employee/GestionarBodegaGeneral.xhtml</to-view-id>
+    		<from-outcome>GestionarBodegas</from-outcome>
+    		<to-view-id>/private/administrador/GestionarBodegas.xhtml</to-view-id>
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
     </navigation-rule>
    
      <!-- FIN REGLAS PARA LA NAVEGACION DE PAGINA PRINCIPAL  --> 
+    
+    
+    
+    
      
      
        <!-- REGLAS PARA LA BODEGA 1  
@@ -107,6 +254,43 @@
     </navigation-rule>
     
       FIN REGLAS PARA LA BODEGA 1 --> 
+      
+          <navigation-rule>
+     
+      <from-view-id>/menuBodega1.xhtml</from-view-id>
+      
+
+    	
+    	<navigation-case>
+    		<from-outcome>menuPrincial</from-outcome>
+    		<to-view-id>/menupricp.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>menuBodega2</from-outcome>
+    		<to-view-id>/menuBodega2.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>menuBodega3</from-outcome>
+    		<to-view-id>/menuBodega3.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>UsuarioEmpleado</from-outcome>
+    		<to-view-id>/private/employee/UsuarioEmpleado.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>GestionarBodegas</from-outcome>
+    		<to-view-id>/private/administrador/GestionarBodegas.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    </navigation-rule>
     
     
      <!-- REGLAS PARA LA BODEGA 2 
@@ -122,6 +306,44 @@
     --> 
     <!-- FIN  REGLAS PARA LA BODEGA 2 -->  
    
+             <navigation-rule>
+     
+      <from-view-id>/menuBodega2.xhtml</from-view-id>
+      
+
+    	
+    	<navigation-case>
+    		<from-outcome>menuPrincial</from-outcome>
+    		<to-view-id>/menupricp.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>menuBodega1</from-outcome>
+    		<to-view-id>/menuBodega1.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>menuBodega3</from-outcome>
+    		<to-view-id>/menuBodega3.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>UsuarioEmpleado</from-outcome>
+    		<to-view-id>/private/employee/UsuarioEmpleado.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>GestionarBodegas</from-outcome>
+    		<to-view-id>/private/administrador/GestionarBodegas.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    </navigation-rule>
+    
+    
         
      <!-- REGLAS PARA LA BODEGA 3  
     <navigation-rule>
@@ -135,6 +357,45 @@
     
     -->
      <!-- FIN REGLAS PARA LA BODEGA 3 --> 
+     
+    
+                 <navigation-rule>
+     
+      <from-view-id>/menuBodega3.xhtml</from-view-id>
+      
+
+    	
+    	<navigation-case>
+    		<from-outcome>menuPrincial</from-outcome>
+    		<to-view-id>/menupricp.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>menuBodega1</from-outcome>
+    		<to-view-id>/menuBodega1.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>menuBodega2</from-outcome>
+    		<to-view-id>/menuBodega2.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>UsuarioEmpleado</from-outcome>
+    		<to-view-id>/private/employee/UsuarioEmpleado.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    	
+    	<navigation-case>
+    		<from-outcome>GestionarBodegas</from-outcome>
+    		<to-view-id>/private/administrador/GestionarBodegas.xhtml</to-view-id>
+    		<redirect include-view-params="true"></redirect>
+    	</navigation-case>
+    </navigation-rule>
+    
     
          <!-- REGLAS PARA Ventana de Usuario Admin -->
     <navigation-rule>
@@ -201,6 +462,47 @@
      <!-- FIN REGLAS PARA LA BODEGA 3 -->        
             
           
+          
+          
+     <navigation-rule>
+	
+		<from-view-id>/private/administrador/InformeGeneral.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-outcome>gestionGodegas</from-outcome>
+			<to-view-id>/private/administrador/GestionarBodegas.xhtml</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>salir</from-outcome>
+			<to-view-id>/menupricp.xhtml</to-view-id>
+		</navigation-case>
+		
+	</navigation-rule>
+	
+	
+	
+	
+	
+	
+	<navigation-rule>
+	
+		<from-view-id>/private/administrador/GestionarBodegas.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-outcome>informeGeneral</from-outcome>
+			<to-view-id>/private/administrador/InformeGeneral.xhtml</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>salir</from-outcome>
+			<to-view-id>/menupricp.xhtml</to-view-id>
+		</navigation-case>
+		
+	</navigation-rule>
+	
+	
+	
    
 
     

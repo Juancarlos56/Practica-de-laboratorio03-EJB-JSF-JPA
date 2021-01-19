@@ -28,11 +28,31 @@
 
 <h:body>
     <div class="wrapper ">
+    
+    <div style="width: 100%">
 
-        <div class="main-panel" id="main-panel" style="width:calc(100%)">
-            <!-- Navbar -->
+		      <div class="sidebar" style="background-color: #738d4aad;">
+            <div class="logo">
+                <h1 style="color:white;">HOME</h1>
+            </div>
+          
+        </div>
+        
+        <div style=" position: absolute; z-index: 1030; margin-left: 12%; width: 68%; height: 455px; " >
+   		 	<h:graphicImage library="images" name="fondo1.png"/>
+        </div>
+        
+        
+        <div style=" position: absolute; z-index: 1030;" >
+            <!-- Menu de Navegacion -->
+            <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute" style="MARGIN-TOP: 60PX;margin-left: 79%;">
+                <div class="container-fluid" style=" margin-top: 358px;">
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
 
-            <h:form id="formGestionClientes">
+                        
+              
+              
+               <h:form id="formGestionClientes">
                 <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
                     <div class="container-fluid">
                         <div class="navbar-wrapper">
@@ -43,9 +63,10 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
                             </div>
-                            <a class="navbar-brand" href="#Floro">Empleado - Informe general</a>
+                            <a class="navbar-brand"   style="margin-left: 152px;margin-top: 10px;font-size: 20px;color: #4f8c1c;margin-left: 34p;" >Administrador</a>
                         </div>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -54,21 +75,21 @@
 
                             <ul class="navbar-nav">
 
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <li class="nav-item dropdown" style="list-style:none;">
+                                    <a class="nav-link dropdown-toggle" style=" font-size: 20px; color: #4f8c1c"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i>Manejo de inventario </i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
-                                        <h:commandLink class="dropdown-item" value="Informe General" action="#{navigator.reglaRedir('informeGeneral')}" />
-										<h:commandLink class="dropdown-item" value="Gestionar Bodegas" action="#{navigator.reglaRedir('gestionGodegas')}" />
+                                        <h:commandLink style="font-size: 20px; color: #4f8c1c; list-style:none;" class="dropdown-item" value="Informe General" action="#{navegador.redireccionamiento('informeGeneral')}" />
+										<h:commandLink  style="font-size: 20px; color: #4f8c1c; list-style:none;" class="dropdown-item" value="Gestionar Bodegas" action="#{navegador.redireccionamiento('gestionGodegas')}" />
 
                                     </div>
                                 </li>
 
-                                <li class="nav-item">
-                                        <h:commandLink class="dropdown-item" action="#{navigator.reglaRedir('salir')}">
-                                        <i class="now-ui-icons sport_user-run"></i></h:commandLink>
+                                <li class="nav-item" style="list-style: none;" >
+                                        <h:commandLink  style="color: white; font-size: 20px; margin-left: 10px; color: #4f8c1c" class="dropdown-item" value="SALIR" action="#{navegador.redireccionamiento('salir')}">
+                                        </h:commandLink>
                                 </li>
                             </ul>
                         </div>
@@ -76,13 +97,32 @@
                 </nav>
 
             </h:form>
+                          
+                        
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            
+            </div>
+            <div class="panel-header panel-header-lg" style="background-color: #738d4aad; HEIGHT: 453PX;">
+                <canvas id="bigDashboardChart"></canvas>
+            </div>
+
+         
+        </div>
+        
+
+        
+        <div class="main-panel" id="main-panel" style="width: 72%;margin-left: 10%;height: 10px;margin-top: 40px;">
+            <!-- Navbar -->
 
             <!-- End Navbar -->
-            <div class="panel-header panel-header-sm">
-
-            </div>
             
-            <div class="content">
+           </div>  
+           
+            
+            <div class="content" style="margin-top: 30px;" >
 
                 <div class="col-md-12">
                     <div class="card">
@@ -121,17 +161,19 @@
             
             
 
-        </div>
+       
     </div>
 
     <!--   Core JS Files   -->
 
-    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/core/popper.min.js"></script>
-    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/core/bootstrap.min.js"></script>
-    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+   <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/jquery.min.js"></script>
+    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/popper.min.js"></script>
+    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/bootstrap.min.js"></script>
+    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
+    <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
+
 
 
 </h:body>

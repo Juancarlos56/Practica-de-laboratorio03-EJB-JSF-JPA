@@ -34,6 +34,7 @@ public class Navigator {
 			return "informeGeneral";
 		}else if(page.equals("gestionGodegas")) {
 			return "gestionGodegas";
+			
 		}else if(page.equals("salir")) {
 			LoguinBean log=new LoguinBean();
 			log.logout();
