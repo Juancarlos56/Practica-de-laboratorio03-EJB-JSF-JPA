@@ -89,14 +89,24 @@ public class CategoryBean implements Serializable{
         	if (getText().equals("")) {
 				prod = getListaProductos();
 			}else {
-				for (Product producto : getListaProductos()) {
-	    			if (producto.getProductName().toLowerCase().contains(text.toLowerCase())) {
-	    				prod.add(producto);
+				
+				for (Product producto : getListaProductos()) {	
+					if (producto.getProductName().toLowerCase().contains(text.toLowerCase())) {
+						prod.add(producto);
 	    			}
 	    		}
 			}
     	}else {
-	        
+    		for (Product producto : getListaProductos()) {
+				
+				if (producto.getProductName().toLowerCase().contains(text.toLowerCase())) {
+					if (producto.getCategory_product().getCategoryName().equalsIgnoreCase(getCategoria())) {
+						prod.add(producto);
+					}
+					
+    			}
+				
+    		}
     	}
         
         setListaProductosBuscado(prod);
