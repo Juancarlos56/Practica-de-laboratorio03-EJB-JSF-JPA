@@ -2,50 +2,65 @@
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16093676111890" configfile="/PracticaDeLaboratorio03-EJB-JSF-JPA/WebContent/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" name="empleado/UsuarioEmpleado.xhtml" x="122" y="178" id="pf16105806570140" referenceLink="//@navigationRule.0/@fromViewId|" path="/empleado/UsuarioEmpleado.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="empleado/vistaEmpleado.xhtml" x="122" y="562" id="pf16105806570152" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="/empleado/vistaEmpleado.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="bodega1.xhtml" x="122" y="946" id="pf16105936224763" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" path="bodega1.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="bodega2.xhtml" x="122" y="1330" id="pf16105936224775" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" path="bodega2.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="bodega3.xhtml" x="122" y="1714" id="pf16105936224777" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" path="bodega3.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="private/employee/UsuarioEmpleado.xhtml" x="338" y="1330" id="pf16106191954199" referenceLink="//@navigationRule.1/@navigationCase.4/@toViewId|" outlinks="pf161061919541910 pf161061919541911 pf161061919541912 pf161061919541913 pf161061919541914" inlinks="pf161061919541910 pf161061919541915" path="/private/employee/UsuarioEmpleado.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="private/employee/crearFactura.xhtml" x="554" y="562" id="pf161061919541916" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf161061919541911" path="/private/employee/crearFactura.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="private/employee/ListarFacturas.xhtml" x="554" y="946" id="pf161061919541917" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf161061919541912" path="/private/employee/ListarFacturas.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="private/employee/CreateUser.xhtml" x="554" y="1330" id="pf161061919541918" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf161061919541913" path="/private/employee/CreateUser.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="private/employee/listarUsuario.xhtml" x="554" y="1714" id="pf161061919541919" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" inlinks="pf161061919541914" path="/private/employee/listarUsuario.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginaPrincipal.xhtml" x="122" y="2098" id="pf161061919541920" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf161061919541921 pf161061919541922 pf161061919541923 pf161061919541924 pf161061919541915 pf16106268005447" inlinks="pf161061919541921" path="/paginaPrincipal.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="bodega1.xhtml" x="338" y="1714" id="pf161061919541926" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" inlinks="pf161061919541922" path="/bodega1.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="bodega2.xhtml" x="338" y="2098" id="pf161061919541927" referenceLink="//@navigationRule.1/@navigationCase.2/@toViewId|" inlinks="pf161061919541923" path="/bodega2.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="bodega3.xhtml" x="338" y="2482" id="pf161061919541928" referenceLink="//@navigationRule.1/@navigationCase.3/@toViewId|" inlinks="pf161061919541924" path="/bodega3.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="private/administrador/UsuarioAdmin.xhtml" x="338" y="2866" id="pf161061919541929" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf16106268005448 pf16106268005449 pf161062680054410 pf161062680054411 pf161062680054412" inlinks="pf16106268005447" path="/private/administrador/GestionarBodegaGeneral.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="private/administrador/UsuarioAdmi.xhtml" x="554" y="2098" id="pf16106238183284" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf16106238183285 pf161063575439516 pf161063575439517" inlinks="pf16106268005449" path="/private/administrador/inventarioPorBodega.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="private/administrador/gestionarProductos.xhtml" x="770" y="1714" id="pf16106238183286" referenceLink="//@navigationRule.3/@navigationCase.1/@toViewId|" inlinks="pf16106238183285" path="/private/administrador/gestionarProductos.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="private/administrador/gestionarBodegasGeneral.xhtml" x="554" y="2482" id="pf161062680054513" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf16106268005448" path="/private/administrador/GestionarBodegaGeneral.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="private/administrador/bodega1Producto.xhtml" x="554" y="2866" id="pf161062680054514" referenceLink="//@navigationRule.2/@navigationCase.2/@toViewId|" inlinks="pf161062680054410" path="/private/administrador/bodega1Producto.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="private/administrador/bodega2Producto.xhtml" x="554" y="3250" id="pf161062680054515" referenceLink="//@navigationRule.2/@navigationCase.4/@toViewId|" inlinks="pf161062680054411 pf161062680054412" path="/private/administrador/bodega2Producto.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="private/administrador/UsuarioAdmin.xhtml" x="770" y="2098" id="pf161063575439618" referenceLink="//@navigationRule.3/@navigationCase.2/@toViewId|" inlinks="pf161063575439516 pf161063575439517" path="/private/administrador/UsuarioAdmin.xhtml"/>
-  <links id="pf161061919541911" target="pf161061919541916" source="pf16106191954199" outcome="creacionFactura" redirect="true"/>
-  <links id="pf161061919541912" target="pf161061919541917" source="pf16106191954199" outcome="listarFactura" redirect="true"/>
-  <links id="pf161061919541913" target="pf161061919541918" source="pf16106191954199" outcome="crearCliente" redirect="true"/>
-  <links id="pf161061919541914" target="pf161061919541919" source="pf16106191954199" outcome="listarCliente" redirect="true"/>
-  <links id="pf161061919541922" target="pf161061919541926" source="pf161061919541920" outcome="bodega1" redirect="true"/>
-  <links id="pf161061919541923" target="pf161061919541927" source="pf161061919541920" outcome="bodega2" redirect="true"/>
-  <links id="pf161061919541924" target="pf161061919541928" source="pf161061919541920" outcome="bodega3" redirect="true"/>
-  <links id="pf161061919541915" target="pf16106191954199" source="pf161061919541920" outcome="UsuarioEmpleado" redirect="true"/>
-  <links id="pf16106238183285" target="pf16106238183286" source="pf16106238183284" outcome="productoPorBodega" redirect="true"/>
-  <links id="pf16106268005447" target="pf161061919541929" source="pf161061919541920" outcome="GestionarBodegaGeneral" redirect="true"/>
-  <links id="pf16106268005448" target="pf161062680054513" source="pf161061919541929" outcome="GestionarBodegaGeneral" redirect="true"/>
-  <links id="pf16106268005449" target="pf16106238183284" source="pf161061919541929" outcome="inventarioPorBodega" redirect="true"/>
-  <links id="pf161062680054410" target="pf161062680054514" source="pf161061919541929" outcome="bodega1Producto" redirect="true"/>
-  <links id="pf161062680054411" target="pf161062680054515" source="pf161061919541929" outcome="bodega2Producto" redirect="true"/>
-  <links id="pf161062680054412" target="pf161062680054515" source="pf161061919541929" outcome="bodega2Producto" redirect="true"/>
-  <links id="pf161063575439516" target="pf161063575439618" source="pf16106238183284" outcome="usuarioAdmin" redirect="true"/>
-  <links id="pf161063575439517" target="pf161063575439618" source="pf16106238183284" outcome="usuarioAdministrador" redirect="true"/>
-  <links id="pf161061919541910" target="pf16106191954199" source="pf16106191954199" outcome="UsuarioEmpleado" redirect="true">
-    <bendPoints d1Height="-36" d2Height="-36"/>
-    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
-    <bendPoints d1Width="-64" d2Width="-64"/>
-  </links>
-  <links id="pf161061919541921" target="pf161061919541920" source="pf161061919541920" outcome="paginaPrincipal" redirect="true">
-    <bendPoints d1Height="-36" d2Height="-36"/>
-    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
-    <bendPoints d1Width="-64" d2Width="-64"/>
-  </links>
+  <nodes xsi:type="pageflow:PFPage" name="bodega1.xhtml" x="122" y="1521" id="pf16105936224763" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" path="bodega1.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="bodega2.xhtml" x="122" y="2097" id="pf16105936224775" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" path="bodega2.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="bodega3.xhtml" x="122" y="3490" id="pf16105936224777" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" path="bodega3.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="private/employee/ListarFacturas.xhtml" x="338" y="754" id="pf161061919541917" referenceLink="//@navigationRule.4/@navigationCase.1/@toViewId|" outlinks="pf161106101114767 pf161106101114768 pf161106105663273 pf161106105663274" inlinks="pf16110609349150 pf161106101114769 pf161106105663275 pf161106111449286" path="/private/employee/ListarFacturas.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="private/administrador/gestionarBodegasGeneral.xhtml" x="122" y="4690" id="pf161062680054513" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" path="/private/administrador/GestionarBodegaGeneral.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Empleado/PrincipalEmpleadoJSF.xhtml" id="pf16110609349156" referenceLink="//@navigationRule.8/@navigationCase.4/@toViewId|" outlinks="pf16110609349158 pf16110609349159 pf16110609349150 pf161106093491510 pf161106094139063" inlinks="pf161106111449387 pf161106123812092 pf161106123812093 pf161106128567296" path="/private/employee/PrincipalEmpleadoJSF.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="menupricp.xhtml" id="pf161106093491535" referenceLink="//@navigationRule.10/@navigationCase.1/@toViewId|" outlinks="pf161106093491536 pf161106093491537 pf161106093491538 pf161106111449387 pf161106116601589" inlinks="pf161106093491540 pf161106093491541 pf161106093491542 pf16110609349158 pf161106101114870 pf161106101114767 pf161106105663376 pf161106107390479 pf161106128567297 pf161106128567298" path="/menupricp.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="menuBodega1.xhtml" id="pf161106093491545" referenceLink="//@navigationRule.8/@navigationCase.1/@toViewId|" outlinks="pf161106093491540 pf161106093491546 pf161106093491547 pf161106116601690 pf161106123812092" inlinks="pf161106093491536 pf161106093491549 pf161106093491550" path="/menuBodega1.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="menuBodega2.xhtml" id="pf161106093491551" referenceLink="//@navigationRule.8/@navigationCase.2/@toViewId|" outlinks="pf161106093491541 pf161106093491549 pf161106093491552 pf161106123812094 pf161106123812093" inlinks="pf161106093491537 pf161106093491546 pf161106093491554" path="/menuBodega2.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="menuBodega3.xhtml" id="pf161106093491655" referenceLink="//@navigationRule.8/@fromViewId|" outlinks="pf161106093491542 pf161106093491550 pf161106093491554 pf161106123812195 pf161106128567296" inlinks="pf161106093491538 pf161106093491547 pf161106093491552" path="/menuBodega3.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="private/employee/CrearFactura.xhtml" id="pf161106093491761" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf161106101114870 pf161106101114769 pf161106101114871 pf161106101114872" inlinks="pf16110609349159 pf161106101114768 pf161106105663377" path="/private/employee/CrearFactura.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="private/employee/CrearUsuario.xhtml" id="pf161106093491762" referenceLink="//@navigationRule.4/@navigationCase.2/@toViewId|" outlinks="pf161106105663376 pf161106105663377 pf161106105663275 pf161106105663378" inlinks="pf161106093491510 pf161106101114871 pf161106105663273 pf161106111449388" path="/private/employee/CrearUsuario.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="private/employee/ListarClientes.xhtml" id="pf161106094139164" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf161106107390580 pf161106107390479 pf161106111449286 pf161106111449388" inlinks="pf161106094139063 pf161106101114872 pf161106105663274 pf161106105663378" path="/private/employee/ListarClientes.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Empleado/CrearFactura.xhtml" id="pf161106107390583" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf161106107390580" path="/private/employee/CrearFactura.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="private/administrador/InformeGeneral.xhtml" id="pf161106116601691" referenceLink="//@navigationRule.10/@navigationCase.0/@toViewId|" outlinks="pf161106128567297 pf161106128567399" inlinks="pf161106116601589 pf161106116601690 pf161106123812094 pf161106123812195 pf1611061285673100" path="/private/administrador/InformeGeneral.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="private/administrador/GestionarBodegas.xhtml" id="pf1611061285673101" referenceLink="//@navigationRule.10/@fromViewId|" outlinks="pf161106128567298 pf1611061285673100" inlinks="pf161106128567399" path="/private/administrador/GestionarBodegas.xhtml"/>
+  <links id="pf161106093491536" target="pf161106093491545" source="pf161106093491535" outcome="bodega1"/>
+  <links id="pf161106093491537" target="pf161106093491551" source="pf161106093491535" outcome="bodega2"/>
+  <links id="pf161106093491538" target="pf161106093491655" source="pf161106093491535" outcome="bodega3"/>
+  <links id="pf161106093491540" target="pf161106093491535" source="pf161106093491545" outcome="menuPrincial"/>
+  <links id="pf161106093491546" target="pf161106093491551" source="pf161106093491545" outcome="bodega2"/>
+  <links id="pf161106093491547" target="pf161106093491655" source="pf161106093491545" outcome="bodega3"/>
+  <links id="pf161106093491541" target="pf161106093491535" source="pf161106093491551" outcome="menuPrincial"/>
+  <links id="pf161106093491549" target="pf161106093491545" source="pf161106093491551" outcome="bodega1"/>
+  <links id="pf161106093491552" target="pf161106093491655" source="pf161106093491551" outcome="bodega3"/>
+  <links id="pf161106093491542" target="pf161106093491535" source="pf161106093491655" outcome="menuPrincial"/>
+  <links id="pf161106093491550" target="pf161106093491545" source="pf161106093491655" outcome="bodega1"/>
+  <links id="pf161106093491554" target="pf161106093491551" source="pf161106093491655" outcome="bodega2"/>
+  <links id="pf16110609349158" target="pf161106093491535" source="pf16110609349156" outcome="salir"/>
+  <links id="pf16110609349159" target="pf161106093491761" source="pf16110609349156" outcome="crearFactura"/>
+  <links id="pf16110609349150" target="pf161061919541917" source="pf16110609349156" outcome="listarFactura"/>
+  <links id="pf161106093491510" target="pf161106093491762" source="pf16110609349156" outcome="crearCliente"/>
+  <links id="pf161106094139063" target="pf161106094139164" source="pf16110609349156" outcome="listarClientes"/>
+  <links id="pf161106101114870" target="pf161106093491535" source="pf161106093491761" outcome="salir"/>
+  <links id="pf161106101114769" target="pf161061919541917" source="pf161106093491761" outcome="listarFactura"/>
+  <links id="pf161106101114871" target="pf161106093491762" source="pf161106093491761" outcome="crearCliente"/>
+  <links id="pf161106101114872" target="pf161106094139164" source="pf161106093491761" outcome="listarClientes"/>
+  <links id="pf161106101114767" target="pf161106093491535" source="pf161061919541917" outcome="salir"/>
+  <links id="pf161106101114768" target="pf161106093491761" source="pf161061919541917" outcome="crearFactura"/>
+  <links id="pf161106105663273" target="pf161106093491762" source="pf161061919541917" outcome="crearCliente"/>
+  <links id="pf161106105663274" target="pf161106094139164" source="pf161061919541917" outcome="listarClientes"/>
+  <links id="pf161106105663376" target="pf161106093491535" source="pf161106093491762" outcome="salir"/>
+  <links id="pf161106105663377" target="pf161106093491761" source="pf161106093491762" outcome="crearFactura"/>
+  <links id="pf161106105663275" target="pf161061919541917" source="pf161106093491762" outcome="listarFactura"/>
+  <links id="pf161106105663378" target="pf161106094139164" source="pf161106093491762" outcome="listarClientes"/>
+  <links id="pf161106107390580" target="pf161106107390583" source="pf161106094139164" outcome="crearFactura"/>
+  <links id="pf161106107390479" target="pf161106093491535" source="pf161106094139164" outcome="salir"/>
+  <links id="pf161106111449286" target="pf161061919541917" source="pf161106094139164" outcome="listarFactura"/>
+  <links id="pf161106111449388" target="pf161106093491762" source="pf161106094139164" outcome="crearCliente"/>
+  <links id="pf161106111449387" target="pf16110609349156" source="pf161106093491535" outcome="inicioUsuario"/>
+  <links id="pf161106116601589" target="pf161106116601691" source="pf161106093491535" outcome="inicioAdmin"/>
+  <links id="pf161106116601690" target="pf161106116601691" source="pf161106093491545" outcome="inicioAdmin"/>
+  <links id="pf161106123812092" target="pf16110609349156" source="pf161106093491545" outcome="inicioUsuario"/>
+  <links id="pf161106123812094" target="pf161106116601691" source="pf161106093491551" outcome="inicioAdmin"/>
+  <links id="pf161106123812093" target="pf16110609349156" source="pf161106093491551" outcome="inicioUsuario"/>
+  <links id="pf161106123812195" target="pf161106116601691" source="pf161106093491655" outcome="inicioAdmin"/>
+  <links id="pf161106128567296" target="pf16110609349156" source="pf161106093491655" outcome="inicioUsuario"/>
+  <links id="pf161106128567297" target="pf161106093491535" source="pf161106116601691" outcome="salir"/>
+  <links id="pf161106128567399" target="pf1611061285673101" source="pf161106116601691" outcome="gestionGodegas"/>
+  <links id="pf161106128567298" target="pf161106093491535" source="pf1611061285673101" outcome="salir"/>
+  <links id="pf1611061285673100" target="pf161106116601691" source="pf1611061285673101" outcome="informeGeneral"/>
 </pageflow:Pageflow>

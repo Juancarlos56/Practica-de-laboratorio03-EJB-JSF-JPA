@@ -268,8 +268,8 @@ public class DataCreate implements Serializable{
 		ejbUser.create(user6);
 		
 		
-		Client cli = new Client(0, "barrerajuan930@gmail.com", "0106113301", "Juan", "Barrera");
-		Client cli2 = new Client(0, "katerinbarrera21@gmail.com", "0106114309", "Katherine", "Barrera");
+		Client cli = new Client(0, "barrerajuan930@gmail.com", "0106113301", "Juan", "Barrera", "Activo");
+		Client cli2 = new Client(0, "katerinbarrera21@gmail.com", "0106114309", "Katherine", "Barrera", "Activo");
 		
 		ejbClient.create(cli);
 		ejbClient.create(cli2);

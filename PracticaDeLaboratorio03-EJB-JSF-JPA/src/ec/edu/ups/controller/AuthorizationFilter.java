@@ -1,4 +1,4 @@
-package ec.edu.ups.controlador;
+package ec.edu.ups.controller;
 
 import java.io.IOException;
 import javax.servlet.Filter;

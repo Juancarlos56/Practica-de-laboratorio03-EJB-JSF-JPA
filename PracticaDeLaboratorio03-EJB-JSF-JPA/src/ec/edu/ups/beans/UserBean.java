@@ -51,8 +51,6 @@ public class UserBean implements Serializable{
 			addMessage("Usuario creado!!");
 			return "Success";
 		} catch (Exception e) {
-			e.printStackTrace();
-			addMessage("No se pudo crear el usuario!!");
 			return "Error";
 		}
 	}

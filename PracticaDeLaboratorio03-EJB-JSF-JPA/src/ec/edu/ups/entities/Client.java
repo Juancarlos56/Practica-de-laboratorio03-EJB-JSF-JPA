@@ -34,6 +34,9 @@ public class Client implements Serializable {
 	@Column(name="cli_lastname", length=255, nullable=false)
     private String lastname;
 	
+	@Column(name="cli_state", nullable=false, columnDefinition = "VARCHAR(10) DEFAULT 'Activo'")
+    private String state;
+	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "client_head")
     private List<BillHead> billsClient = new ArrayList<BillHead>();
 	
@@ -48,6 +51,16 @@ public class Client implements Serializable {
 		this.dni = dni;
 		this.name = name;
 		this.lastname = lastname;
+	}
+	
+	public Client(int cod_cli, String email, String dni, String name, String lastname, String state) {
+		super();
+		this.cod_cli = cod_cli;
+		this.email = email;
+		this.dni = dni;
+		this.name = name;
+		this.lastname = lastname;
+		this.state = state;
 	}
 
 	public int getCod_cli() {
@@ -104,6 +117,14 @@ public class Client implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 	@Override

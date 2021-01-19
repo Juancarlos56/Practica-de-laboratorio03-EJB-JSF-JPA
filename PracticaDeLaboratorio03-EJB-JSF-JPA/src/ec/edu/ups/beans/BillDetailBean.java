@@ -32,6 +32,9 @@ public class BillDetailBean implements Serializable{
 	@EJB
 	private ProductWarehouseFacade ejbProductoBodega;
 	
+	
+	private String nombreProducto;
+	
 	private int cantidadCompra;
 	private List<BillDetail> detallesFac = new ArrayList<BillDetail>();
 	private BillDetail facturaDetalle;
@@ -39,16 +42,40 @@ public class BillDetailBean implements Serializable{
     private int amount;
 	private double unitPrice;
 	private boolean state;
-	//private ProductWarehouse productoBodega;
+	private ProductWarehouseFacade ejbProudctoBodega;
+	
+	private List<ProductWarehouse> productosBodegas;
+	private List<Product> productos;
+	private List<ProductWarehouse> productosBodegaBuscada;
 	
 	public BillDetailBean() {
         // TODO Auto-generated constructor stub
     }
 	
 	
+	
+	public void buscarPorNombreProductodBodega() {
+    	productosBodegaBuscada = new  ArrayList<ProductWarehouse>();
+    	ProductWarehouse proBod = null;
+    	productos = ejbProductoBodega.buscarPorNombre(getNombreProducto());
+    	productosBodegas = ejbProductoBodega.findAll();
+    	
+    	
+    	for (int i = 0; i < productosBodegas.size(); i++) {
+			
+    		proBod = productosBodegas.get(i);
+    		if (proBod.getProduct_ware_pro().getProductName().toLowerCase().equals(getNombreProducto().toLowerCase())) {
+    			productosBodegaBuscada.add(proBod);
+			}
+    		
+		}
+    	
+	}	
+	
 	public void addDetallesFactura(ProductWarehouse productoBodega) {
-		System.out.println("No mames: "+productoBodega.getProduct_ware_pro().getProductName());
-		boolean stock = controlStock(getCantidadCompra(), productoBodega.getProductStock());
+		System.out.println("Aqui:>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		System.out.println("AddFacturaDetale: >>>>>>>>>>>>>>>>>>>>>: "+productoBodega.getProduct_ware_pro().getProductName());
+		//boolean stock = controlStock(getCantidadCompra(), productoBodega.getProductStock());
 		
 		if (stock) {
 			System.out.println("Se Agrego el productoooooo");
@@ -97,6 +124,68 @@ public class BillDetailBean implements Serializable{
     
     
     
+    
+    
+    
+    
+	public List<Product> getProductos() {
+		return productos;
+	}
+
+
+
+	public void setProductos(List<Product> productos) {
+		this.productos = productos;
+	}
+
+
+
+	public List<ProductWarehouse> getProductosBodegaBuscada() {
+		return productosBodegaBuscada;
+	}
+
+
+
+	public void setProductosBodegaBuscada(List<ProductWarehouse> productosBodegaBuscada) {
+		this.productosBodegaBuscada = productosBodegaBuscada;
+	}
+
+
+
+	public ProductWarehouseFacade getEjbProudctoBodega() {
+		return ejbProudctoBodega;
+	}
+
+
+
+	public void setEjbProudctoBodega(ProductWarehouseFacade ejbProudctoBodega) {
+		this.ejbProudctoBodega = ejbProudctoBodega;
+	}
+
+
+
+	public List<ProductWarehouse> getProductosBodegas() {
+		return productosBodegas;
+	}
+
+
+
+	public void setProductosBodegas(List<ProductWarehouse> productosBodegas) {
+		this.productosBodegas = productosBodegas;
+	}
+
+
+
+	public String getNombreProducto() {
+		return nombreProducto;
+	}
+
+
+	public void setNombreProducto(String nombreProducto) {
+		this.nombreProducto = nombreProducto;
+	}
+
+
 	public List<BillDetail> getDetallesFac() {
 		return detallesFac;
 	}

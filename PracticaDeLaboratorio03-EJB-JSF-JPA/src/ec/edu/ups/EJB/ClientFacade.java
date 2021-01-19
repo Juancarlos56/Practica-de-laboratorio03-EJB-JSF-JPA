@@ -29,7 +29,7 @@ public class ClientFacade extends AbstractFacade<Client>{
     @SuppressWarnings("unchecked")
 	public Client buscarClienteCedula(String cedula) {
     	Client prod = new Client();
-		String consulta = "SELECT  c FROM Client c WHERE c.dni = :cedula";
+		String consulta = "SELECT  c FROM Client c WHERE c.dni =:cedula";
 		try {
 			em.clear();
 			prod = (Client) em.createQuery(consulta).setParameter("cedula", cedula).getSingleResult();
