@@ -14,18 +14,12 @@ import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import ec.edu.ups.EJB.CategoryFacade;
-import ec.edu.ups.EJB.ProductFacade;
-import ec.edu.ups.EJB.UserFacade;
-import ec.edu.ups.ejb.CategoriaFacade;
-import ec.edu.ups.ejb.PersonaFacade;
-import ec.edu.ups.ejb.ProductoFacade;
+import ec.edu.ups.EJB.CategoriaFacade;
+import ec.edu.ups.EJB.PersonaFacade;
+import ec.edu.ups.EJB.ProductoFacade;
 import ec.edu.ups.entidades.Categoria;
 import ec.edu.ups.entidades.Persona;
 import ec.edu.ups.entidades.Producto;
-import ec.edu.ups.entities.Category;
-import ec.edu.ups.entities.Product;
-import ec.edu.ups.entities.User;
 
 
 @FacesConfig(version = FacesConfig.Version.JSF_2_3)
@@ -46,35 +40,35 @@ public class CategoriaBean implements Serializable {
     private String text = "";
     
     
-    //private String usuario;
+    private String usuario;
     
-    //private String contrasena;
+    private String contrasena;
     
     private ArrayList<Producto> listaArr ;
     
     private String lista = "nada aqui";
 
-    private List<Product> productos;
+    private List<Producto> productos;
 	
 	
-	public List<Product> getProductos() {
+	public List<Producto> getProductos() {
 		return productos;
 	}
 
-	public void setProductos(List<Product> productos) {
+	public void setProductos(List<Producto> productos) {
 		this.productos = productos;
 	}
 
-	private List<Category> categorias;
+	private List<Categoria> categorias;
 	
 	@EJB
-	private CategoryFacade ejbCategoria;
+	private CategoriaFacade ejbCategoria;
 	
 	@EJB
-	private ProductFacade ejbProducto;
+	private ProductoFacade ejbProducto;
 	
 	@EJB
-	private UserFacade ejbPersona;
+	private PersonaFacade ejbPersona;
 	
 	public CategoriaBean() {
 		
@@ -90,41 +84,44 @@ public class CategoriaBean implements Serializable {
 
 	private String[] generateList(String pre, int size) {
     	list = new String[size];
-    	list[0] = "Todas";
+	list[0] = "Todas";
 
-		for (int i = 1; i < size; i++)
-		    list[i] = pre +  categorias.get(i).getCategoryName();
-	
-		return list;
-	}
+	for (int i = 1; i < size; i++)
+	    list[i] = pre +  categorias.get(i).getNombre();
+
+	return list;
+    }
 
     
     
     public String[] getcategoriaList() {
-    	return this.generateList("",  categorias.size());
+	return this.generateList("",  categorias.size());
     }
 
 	public String getCategoria() {
 		System.out.println(categoria);
-		return categoria;	
+		return categoria;
+		
 	}
 
 	public void setCategoria(String categoria) {
-		this.categoria = categoria;	
-	}
+		this.categoria = categoria;
+
+		//Aqui se carga la categoria 
+		
+		
+		//this.bntBusc = this.categoria.equals("Categorias");
 	
+	}
 	public String getlista() {
 		return lista;
 	}
-	
 	public void setlista(String productosT) {
 		this.lista = productosT;
 	}
-
 	public void listener() {
 		System.out.println("Texto de busqueda: " + text);
         System.out.println("Seleccionada : " + categoria);
-        
         ArrayList<Producto> stosTemp = new ArrayList<Producto>();        
         if(categoria.equals("Todas")) {
     		for (Producto producto : listaArr) {
@@ -223,8 +220,12 @@ public class CategoriaBean implements Serializable {
 
 	public String iniciarSecion() {
 		
-		System.out.println("Username: " + usuario+" Password: " + contrasena );
-		User sta = ejbPersona.inicioSesion(usuario, contrasena);
+		System.out.println("Usuario: " + usuario );
+		
+		System.out.println("Contrase�a: " + contrasena );
+		
+		
+		Persona sta = ejbPersona.inicioSesion(usuario, contrasena);
 		LoguinBean loguinBean=new LoguinBean();
 		
 		if (sta != null && sta.getRol() == 'A') {

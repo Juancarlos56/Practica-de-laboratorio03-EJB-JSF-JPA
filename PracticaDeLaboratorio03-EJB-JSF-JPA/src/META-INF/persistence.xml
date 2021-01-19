@@ -13,8 +13,14 @@
 		<class>ec.edu.ups.entities.BillDetail</class>
 		<class>ec.edu.ups.entities.User</class>
 		<class>ec.edu.ups.entities.Client</class>
-	
-	
+		<class>ec.edu.ups.entidades.Bodega</class>
+		<class>ec.edu.ups.entidades.Categoria</class>
+		<class>ec.edu.ups.entidades.Ciudad</class>
+		<class>ec.edu.ups.entidades.FacturaCabecera</class>
+		<class>ec.edu.ups.entidades.FacturaDetalle</class>
+		<class>ec.edu.ups.entidades.Persona</class>
+		<class>ec.edu.ups.entidades.Provincia</class>
+		<class>ec.edu.ups.entidades.Producto</class>
 	<properties>
 			 <property name="javax.persistence.schema-generation.database.action" value="create"/>
 	</properties>

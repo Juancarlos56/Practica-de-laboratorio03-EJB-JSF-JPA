@@ -1,6 +1,7 @@
-package ec.edu.ups.controlador;
+package ec.edu.ups.controller;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +11,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.annotation.FacesConfig;
 import javax.inject.Named;
 
-import ec.edu.ups.ejb.CategoriaFacade;
-import ec.edu.ups.ejb.ProductoFacade;
+import ec.edu.ups.EJB.CategoriaFacade;
+import ec.edu.ups.EJB.ProductoFacade;
 import ec.edu.ups.entidades.Categoria;
 import ec.edu.ups.entidades.Pedido;
 import ec.edu.ups.entidades.Producto;
@@ -32,22 +33,6 @@ public class ProductoBean implements Serializable{
 	
 	@EJB
 	private CategoriaFacade ejbCategoria;
-	
-	
-	/*PostConstruct
-	public void init(){
-		ejbCategoria.findAll();
-		//pedidos.clear();
-		//if(centinela){
-			productos=ejbProducto.findAll();
-			System.out.println("tyamana: "+productos.get(0).getBodegas().get(0).getNombre());
-			for(Producto producto : productos) {
-				Pedido pedido=new Pedido(producto, "");
-				pedidos.add(pedido);
-			}
-		//}
-		//centinela=false;
-	}*/
 	
 	public void buscarPorNombre() {
 		List<Categoria> cat=ejbCategoria.findAll();

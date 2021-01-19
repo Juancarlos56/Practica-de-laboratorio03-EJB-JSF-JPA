@@ -35,7 +35,7 @@ public class ProductWarehouseFacade extends AbstractFacade<ProductWarehouse>{
 		try {
 			em.clear();
 			prod = (List<ProductWarehouse>)em.createQuery(consulta).setParameter("nombre", nombre).getResultList();		
-			em.refresh(prod);
+			//em.refresh(prod);
 			System.out.println("PRODUCTOS: "+prod.size());
 		} catch (Exception e) {
 			System.out.println(">>>WARNING1111 (productosEmpresa EmpresaDAO): " + e.getMessage());
@@ -66,7 +66,7 @@ public class ProductWarehouseFacade extends AbstractFacade<ProductWarehouse>{
 			try {
 				em.clear();
 				prod = (List<ProductWarehouse>)em.createQuery(consulta).setParameter("nombre", nombre).getResultList();	
-				em.refresh(prod);
+				//em.refresh(prod);
 			} catch (Exception e) {
 				System.out.println(">>>WARNING2222 (buscarProductoBodega ): " + e.getMessage());
 			}
@@ -81,7 +81,7 @@ public class ProductWarehouseFacade extends AbstractFacade<ProductWarehouse>{
 			try {
 				em.clear();
 				prod = (List<Product>)em.createQuery(consulta).setParameter("nombre", nombre).getResultList();	
-				em.refresh(prod);
+				//em.refresh(prod);
 			} catch (Exception e) {
 				System.out.println(">>>WARNING2222 (buscarPorNombre ): " + e.getMessage());
 			}

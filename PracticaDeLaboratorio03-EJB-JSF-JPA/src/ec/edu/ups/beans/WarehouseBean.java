@@ -1,6 +1,7 @@
 package ec.edu.ups.beans;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import javax.inject.Named;
 
 import ec.edu.ups.EJB.CategoryFacade;
 import ec.edu.ups.EJB.ProductFacade;
+import ec.edu.ups.EJB.ProductWarehouseFacade;
 import ec.edu.ups.EJB.UserFacade;
 import ec.edu.ups.EJB.WarehouseFacade;
 import ec.edu.ups.entities.Category;
@@ -30,6 +32,8 @@ public class WarehouseBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private boolean b; 
 	private int bodega = 0;
+	private int bodegaActual;	
+	
 	
 	private String[] list;
     private String categoria;
@@ -43,6 +47,8 @@ public class WarehouseBean implements Serializable{
     private List<Product> listaProductos;
     private List<Product> listaProductosBuscado; 
     private List<ProductWarehouse> productosBuscadoBodega; 
+    private Warehouse bodegaSeleccionada;
+    private List<ProductWarehouse> productosBodegaSelect;
     
 	@EJB
 	private CategoryFacade ejbCategoria;
@@ -55,6 +61,9 @@ public class WarehouseBean implements Serializable{
 	
 	@EJB
 	private UserFacade ejbUsuario;
+	
+	@EJB
+	private ProductWarehouseFacade ejbproductoBodega;
 	
     public WarehouseBean() {
         // TODO Auto-generated constructor stub
@@ -161,14 +170,68 @@ public class WarehouseBean implements Serializable{
         setProductosBuscadoBodega(prodBodega);
     }
     
+    
+    
     public void buscarProducto(String bodega) {
     	ajaxObtencionProductosBodega(bodega);
 	}
     
     
+    public String buscarProductoBodegaCodigo(int cod) {
+    	System.out.println("Este es el codigo: >>>>>>>>>"+cod);
+    	bodegaSeleccionada= ejbBodega.find(cod);
+    	productosBodegaSelect = bodegaSeleccionada.getWarehousesProduct();
+    	
+		return "listo";
+	}
     
     
     
+    
+    public void editarProducto(ProductWarehouse p) {
+    	System.out.println("Editar producto"+p.getProduct_ware_pro().getProductName());
+		ejbproductoBodega.edit(p);
+		//return "listo";
+	}
+    
+    
+    public String eliminarProducto(ProductWarehouse p) {	
+    	p.setProductState("Inactivo");
+    	ejbproductoBodega.edit(p);	
+    	return "listo";
+	}
+    
+    
+
+	public ProductWarehouseFacade getEjbproductoBodega() {
+		return ejbproductoBodega;
+	}
+
+
+	public void setEjbproductoBodega(ProductWarehouseFacade ejbproductoBodega) {
+		this.ejbproductoBodega = ejbproductoBodega;
+	}
+
+
+	public List<ProductWarehouse> getProductosBodegaSelect() {
+		return productosBodegaSelect;
+	}
+
+
+	public void setProductosBodegaSelect(List<ProductWarehouse> productosBodegaSelect) {
+		this.productosBodegaSelect = productosBodegaSelect;
+	}
+
+
+	public Warehouse getBodegaSeleccionada() {
+		return bodegaSeleccionada;
+	}
+
+
+	public void setBodegaSeleccionada(Warehouse bodegaSeleccionada) {
+		this.bodegaSeleccionada = bodegaSeleccionada;
+	}
+
 
 	public List<ProductWarehouse> getProductosBuscadoBodega() {
 		return productosBuscadoBodega;
@@ -337,6 +400,16 @@ public class WarehouseBean implements Serializable{
 
 	public void setEjbUsuario(UserFacade ejbUsuario) {
 		this.ejbUsuario = ejbUsuario;
+	}
+
+
+	public int getBodegaActual() {
+		return bodegaActual;
+	}
+
+
+	public void setBodegaActual(int bodegaActual) {
+		this.bodegaActual = bodegaActual;
 	}
 	
     

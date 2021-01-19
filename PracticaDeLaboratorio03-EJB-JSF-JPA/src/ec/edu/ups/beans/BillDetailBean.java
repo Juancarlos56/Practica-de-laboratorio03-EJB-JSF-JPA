@@ -1,6 +1,7 @@
 package ec.edu.ups.beans;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +33,9 @@ public class BillDetailBean implements Serializable{
 	@EJB
 	private ProductWarehouseFacade ejbProductoBodega;
 	
+	
+	private String nombreProducto;
+	
 	private int cantidadCompra;
 	private List<BillDetail> detallesFac = new ArrayList<BillDetail>();
 	private BillDetail facturaDetalle;
@@ -39,15 +43,49 @@ public class BillDetailBean implements Serializable{
     private int amount;
 	private double unitPrice;
 	private boolean state;
-	//private ProductWarehouse productoBodega;
+	private ProductWarehouseFacade ejbProudctoBodega;
+	
+	private List<ProductWarehouse> productosBodegas;
+	private List<Product> productos;
+	private List<ProductWarehouse> productosBodegaBuscada;
+	
+	private ProductWarehouse productoBodega;
 	
 	public BillDetailBean() {
         // TODO Auto-generated constructor stub
     }
 	
 	
-	public void addDetallesFactura(ProductWarehouse productoBodega) {
-		System.out.println("No mames: "+productoBodega.getProduct_ware_pro().getProductName());
+	
+	public void buscarPorNombreProductodBodega() {
+    	productosBodegaBuscada = new  ArrayList<ProductWarehouse>();
+    	ProductWarehouse proBod = null;
+    	productos = ejbProductoBodega.buscarPorNombre(getNombreProducto());
+    	productosBodegas = ejbProductoBodega.findAll();
+    	
+    	
+    	for (int i = 0; i < productosBodegas.size(); i++) {
+			
+    		proBod = productosBodegas.get(i);
+    		if (proBod.getProduct_ware_pro().getProductName().toLowerCase().equals(getNombreProducto().toLowerCase())) {
+    			productosBodegaBuscada.add(proBod);
+			}
+    		
+		}
+    	
+	}	
+	
+	
+	public void agregarFacturaDetalle() {
+		
+		
+	}
+	
+	public String addDetallesFactura(int pro) {
+		
+		productoBodega = ejbProductoBodega.find(pro);
+		
+		System.out.println("Aqui:>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		boolean stock = controlStock(getCantidadCompra(), productoBodega.getProductStock());
 		
 		if (stock) {
@@ -61,12 +99,12 @@ public class BillDetailBean implements Serializable{
 			
 			detallesFac.add(facturaDetalle);
 			disminicionStock(getCantidadCompra(), productoBodega);
-			addMessage("Producto Agregado!!");
+			//addMessage("Producto Agregado!!");
 		}else {
-			addMessage("No existe stock de este producto!!");
+			//addMessage("No existe stock de este producto!!");
 		}
 		
-		
+		return "listo";
 	}
 	
 	public boolean controlStock(int cantidadCompra, int cantidadProducto) {
@@ -95,8 +133,88 @@ public class BillDetailBean implements Serializable{
     }
     
     
+    public String proBodega(int cod_pro) {
+		
+    	productoBodega = ejbProductoBodega.find(cod_pro);
+    	System.out.println("Producto bodega: "+cod_pro);
+    	System.out.println("Producto bodega: "+productoBodega.getCod_pro());
+    	return "listo";
+	}
     
     
+    
+    
+    
+	public ProductWarehouse getProductoBodega() {
+		return productoBodega;
+	}
+
+
+
+	public void setProductoBodega(ProductWarehouse productoBodega) {
+		this.productoBodega = productoBodega;
+	}
+
+
+
+	public List<Product> getProductos() {
+		return productos;
+	}
+
+
+
+	public void setProductos(List<Product> productos) {
+		this.productos = productos;
+	}
+
+
+
+	public List<ProductWarehouse> getProductosBodegaBuscada() {
+		return productosBodegaBuscada;
+	}
+
+
+
+	public void setProductosBodegaBuscada(List<ProductWarehouse> productosBodegaBuscada) {
+		this.productosBodegaBuscada = productosBodegaBuscada;
+	}
+
+
+
+	public ProductWarehouseFacade getEjbProudctoBodega() {
+		return ejbProudctoBodega;
+	}
+
+
+
+	public void setEjbProudctoBodega(ProductWarehouseFacade ejbProudctoBodega) {
+		this.ejbProudctoBodega = ejbProudctoBodega;
+	}
+
+
+
+	public List<ProductWarehouse> getProductosBodegas() {
+		return productosBodegas;
+	}
+
+
+
+	public void setProductosBodegas(List<ProductWarehouse> productosBodegas) {
+		this.productosBodegas = productosBodegas;
+	}
+
+
+
+	public String getNombreProducto() {
+		return nombreProducto;
+	}
+
+
+	public void setNombreProducto(String nombreProducto) {
+		this.nombreProducto = nombreProducto;
+	}
+
+
 	public List<BillDetail> getDetallesFac() {
 		return detallesFac;
 	}

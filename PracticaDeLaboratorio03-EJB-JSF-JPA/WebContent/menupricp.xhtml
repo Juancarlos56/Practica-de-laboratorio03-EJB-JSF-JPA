@@ -1,68 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:h="http://xmlns.jcp.org/jsf/html" 
-xmlns:f="http://xmlns.jcp.org/jsf/core" 
-xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
-xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 
 
 
 <h:head>
-   
     <meta charset="utf-8" />
-    
-    
-    <!--  
-    //Colocar el nuestro
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
-    -->
-    
-    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>MainPage</title>
-    
+    <title>Bodegas</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-    
-    
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
     <!-- CSS Files -->
-	<link href="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+	<link href="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Practica-de-laboratorio-03-EJB-JSF-y-JPA/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
 
 </h:head>
 
 <h:body>
 
     <div class="wrapper ">
-        <div class="sidebar" style="background-color: #738d4aad;">
+        <div class="sidebar" data-color="orange">
             <div class="logo">
-                <h1 style="color:white;">HOME</h1>
+                <h1 style="color:white;"> Pal Hogar </h1>
             </div>
             <div class="sidebar-wrapper" id="sidebar-wrapper">
                 <h:form>
                     <ul class="nav">
                         <li class="active ">
-                            <h:commandLink value="Menu Principal" action="#{navigator.redireccionamiento('menupricp')}">
+                            <h:commandLink value="Menu Principal" action="#{navigator.reglaRedir('menuPrincial')}">
                                 <i class="now-ui-icons files_paper"></i>
                             </h:commandLink>
                         </li>
                         <li>
-                            <h:commandLink value="bodega 1" action="#{navigator.redireccionamiento('menuBodega1')}">
+                            <h:commandLink value="bodega 1" action="#{navigator.reglaRedir('bodega1')}">
                                 <i class="now-ui-icons shopping_box"></i>
                             </h:commandLink>
                         </li>
                         <li>
-                            <h:commandLink value="bodega 2" action="#{navigator.redireccionamiento('menuBodega2')}">
+                            <h:commandLink value="bodega 2" action="#{navigator.reglaRedir('bodega2')}">
                                 <i class="now-ui-icons shopping_box"></i>
                             </h:commandLink>
                         </li>
                         <li>
-                            <h:commandLink value="bodega 3" action="#{navigator.redireccionamiento('menuBodega3')}">
+                            <h:commandLink value="bodega 3" action="#{navigator.reglaRedir('bodega3')}">
                                 <i class="now-ui-icons shopping_box"></i>
                             </h:commandLink>
                         </li>
@@ -70,120 +55,93 @@ xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
                 </h:form>
             </div>
         </div>
-        
-        <div style=" position: absolute; z-index: 1030; margin-left: 12%; width: 68%; height: 455px; " >
-   		 	<h:graphicImage library="images" name="fondo1.png"/>
-        </div>
-        
-        
-        
-        
         <div class="main-panel" id="main-panel">
-            <!-- Menu de Navegacion -->
+            <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
                 <div class="container-fluid">
-                
                     <div class="navbar-wrapper">
                         <div class="navbar-toggle">
-                        		
                             <button type="button" class="navbar-toggler">
-                            
 				                <span class="navbar-toggler-bar bar1"></span>
 				                <span class="navbar-toggler-bar bar2"></span>
 				                <span class="navbar-toggler-bar bar3"></span>
 			                </button>
                         </div>
                     </div>
-                    
-                    
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
 		            <span class="navbar-toggler-bar navbar-kebab"></span>
 		            <span class="navbar-toggler-bar navbar-kebab"></span>
 		            <span class="navbar-toggler-bar navbar-kebab"></span>
           		</button>
-          		
-          		
-          		
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                    
-                    
-                        <!-- Formulario para Login tipo Facebook -->
-                        
-                        <h:graphicImage library="images" name="iconoUsuario.png" class= "iconoUsuario" />
-                        
-                        <h:form style="margin-top: 193px;">
+                        <!-- Login -->
+                        <h:form>
                             <div class="input-group no-border">
-                                <h:inputText id="text" value="#{loginUsuarioBean.username}" class="form-control" p:placeholder="Ingrese Correo Electronico" />
+                                <h:inputText id="text" value="#{categoriaBean.usuario}" class="form-control" p:placeholder="Usuario" />
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <i class="now-ui-icons users_single-02"></i>
                                     </div>
                                 </div>
                             </div>
-	                      <br />
-	                            <div class="input-group no-border">
-	                                <h:inputSecret id="contra" value="#{loginUsuarioBean.contrasena}" type="password" class="form-control" p:placeholder="Ingrese Contraseña" />
-		                                <div class="input-group-append">
-		                                    <div class="input-group-text">
-		                                        <i class="now-ui-icons objects_key-25"></i>
-		                                    </div>
-		                                </div>
-	                            </div>
-	                     	<br/>
-	                     	<h:commandButton class="btn btn-primary btn-block" value="Iniciar Sesión" action="#{loginUsuarioBean.iniciarSecion}" />
-	              		</h:form>
+                      <br />
+                            <div class="input-group no-border">
+                                <h:inputSecret id="contra" value="#{categoriaBean.contrasena}" type="password" class="form-control" p:placeholder="Contraseña" />
+	                                <div class="input-group-append">
+	                                    <div class="input-group-text">
+	                                        <i class="now-ui-icons objects_key-25"></i>
+	                                    </div>
+	                                </div>
+                            </div>
+                     	<br/>
+                     	<h:commandButton class="btn btn-primary btn-block" value="Iniciar sesion" action="#{categoriaBean.iniciarSecion() }" />
+              			</h:form>
                     </div>
                 </div>
             </nav>
             <!-- End Navbar -->
-            
-            
-            <div class="panel-header panel-header-lg" style="background-color: #738d4aad">
+            <div class="panel-header panel-header-lg">
                 <canvas id="bigDashboardChart"></canvas>
             </div>
-            
-            
-            
             <!-- CONTENIDOOO -->
             <div class="content">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title" style=" color: #e08d06; ">Distribuidora Home</h4>
+                            <h4 class="card-title"> Inventario</h4>
                         </div>
-
 
                         <!-- Busqueda de los productos -->
                         <h:form style="width : 80%; margin-left:10%;">
                             <div class="input-group no-border">
-                                <h:selectOneMenu value="#{categoryBean.categoria}">
-                                    <f:selectItems value="#{categoryBean.obtencionListaCategorias()}" />
-				                 </h:selectOneMenu>
+                                <h:selectOneMenu value="#{categoriaBean.categoria}">
+                                    <f:selectItems value="#{categoriaBean.categoriaList}" />
+
+                                    <f:ajax listener="#{categoriaBean.listener}" render="productos" />
+
+                                </h:selectOneMenu>
                                 <h:messages />
-                                <h:inputText id="text" value="#{categoryBean.text}" type="text" class="form-control" p:placeholder="Busqueda" tyle="color: #4c7f0c; font-family: emoji;" />
+                                <h:inputText id="text" value="#{categoriaBean.text}" type="text" class="form-control" p:placeholder="Busqueda" />
                             </div>
-                            <h:commandButton class="btn btn-primary btn-block" style="width : 40%; margin-left:60%;" value="Buscar por texto" actionListener="#{categoryBean.buscarProducto()}" />
+                            <h:commandButton class="btn btn-primary btn-block" style="width : 40%; margin-left:60%;" value="Buscar por texto" action="#{categoriaBean.buscarTexto()}" />
                             <div class="card-body">
-                                <div class="table-responsive" >
-                                    <h:dataTable id="productos" value="#{categoryBean.listaProductosBuscado}" 
-                                    			 style="color: #4c7f0c; font-family: emoji;"
-                                    			 var="producto" styleClass="table" headerClass="employeeTableHeader"
-                                    			 rowClasses="employeeTableOddRow,employeeTableEvenRow">
+                                <div class="table-responsive">
+                                    <h:dataTable id="productos" value="#{categoriaBean.listaArr}" var="producto" styleClass="table" headerClass="employeeTableHeader" rowClasses="employeeTableOddRow,employeeTableEvenRow">
                                         <h:column>
                                             <f:facet name="header"> Producto</f:facet>
-                                            #{producto.productName}
+                                            #{producto.nombre}
                                         </h:column>
                                         <h:column>
                                             <f:facet name="header">Precio Unitario</f:facet>
-                                            #{producto.productPrice}
+                                            #{producto.precio}
                                         </h:column>
                                         <h:column>
-                                            <f:facet name="header">Descripcion del Producto</f:facet>
-                                            #{producto.proDescription}
+                                            <f:facet name="header">Cantidad</f:facet>
+                                            #{producto.stock}
                                         </h:column>
                                         <h:column>
                                             <f:facet name="header">Categoria</f:facet>
-                                            #{producto.category_product.categoryName}
+                                            #{producto.categoria.nombre}
                                         </h:column>
                                     </h:dataTable>
                                 </div>

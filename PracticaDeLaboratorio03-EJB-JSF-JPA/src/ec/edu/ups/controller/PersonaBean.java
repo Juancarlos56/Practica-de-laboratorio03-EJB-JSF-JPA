@@ -1,6 +1,7 @@
-package ec.edu.ups.controlador;
+package ec.edu.ups.controller;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +16,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import ec.edu.ups.ejb.PersonaFacade;
+import ec.edu.ups.EJB.PersonaFacade;
 import ec.edu.ups.entidades.FacturaCabecera;
 import ec.edu.ups.entidades.Persona;
 

@@ -1,14 +1,15 @@
 package ec.edu.ups.EJB;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
 public abstract class AbstractFacade<T> {
 
-	private Class<T> entityClass;
+    private Class<T> entityClass;
 
     public AbstractFacade(Class<T> entityClass) {
-    	this.entityClass = entityClass;
+	this.entityClass = entityClass;
     }
 
     protected abstract EntityManager getEntityManager();
@@ -26,18 +27,16 @@ public abstract class AbstractFacade<T> {
     }
 
     public T find(Object id) {
-    	return getEntityManager().find(entityClass, id);
+		return getEntityManager().find(entityClass, id);
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<T> findAll() {
+    public List<T> findAll() {
 		javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
 		cq.select(cq.from(entityClass));
 		return getEntityManager().createQuery(cq).getResultList();
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-	public List<T> findRange(int[] range) {
+    public List<T> findRange(int[] range) {
 		javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
 		cq.select(cq.from(entityClass));
 		javax.persistence.Query q = getEntityManager().createQuery(cq);
@@ -46,12 +45,12 @@ public abstract class AbstractFacade<T> {
 		return q.getResultList();
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-	public int count() {
+    public int count() {
 		javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
 		javax.persistence.criteria.Root<T> rt = cq.from(entityClass);
 		cq.select(getEntityManager().getCriteriaBuilder().count(rt));
 		javax.persistence.Query q = getEntityManager().createQuery(cq);
 		return ((Long) q.getSingleResult()).intValue();
     }
+
 }

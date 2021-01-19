@@ -1,6 +1,7 @@
 package ec.edu.ups.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -14,6 +15,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import ec.edu.ups.EJB.ProductWarehouseFacade;
+import ec.edu.ups.entities.Product;
 import ec.edu.ups.entities.ProductWarehouse;
 
 @FacesConfig(version = FacesConfig.Version.JSF_2_3)
