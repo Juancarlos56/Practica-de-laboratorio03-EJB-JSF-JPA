@@ -19,20 +19,20 @@ public class Navegador implements Serializable{
 	
 	public String redireccionar(String page) {
 		
-		if(page.equals("bodega1")) {
-			return "bodega1";
-		} else if(page.equals("bodega2")) {
-			return "bodega2";
-		}else if(page.equals("bodega3")) {
-			return "bodega3";
+		if(page.equals("menuBodega1")) {
+			return "menuBodega1";
+		} else if(page.equals("menuBodega2")) {
+			return "menuBodega2";
+		}else if(page.equals("menuBodega3")) {
+			return "menuBodega3";
 		}else if(page.equals("UsuarioEmpleado")) {
 			return "UsuarioEmpleado";
 			
 		}else if(page.equals("GestionarBodegaGeneral")) {
 			return "GestionarBodegaGeneral";
 			
-		}else if(page.equals("paginaPrincipal")) {
-			return "paginaPrincipal";
+		}else if(page.equals("menupricp")) {
+			return "menupricp";
 			
 		}else if(page.equals("CreacionFactura")) {
 			return "creacionFactura";

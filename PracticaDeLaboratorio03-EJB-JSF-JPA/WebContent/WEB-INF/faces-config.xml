@@ -53,29 +53,29 @@
     
      <navigation-rule>
      
-      <from-view-id>/paginaPrincipal.xhtml</from-view-id>
+      <from-view-id>/menupricp.xhtml</from-view-id>
       
     	<navigation-case>
-    		<from-outcome>paginaPrincipal</from-outcome>
-    		<to-view-id>/paginaPrincipal.xhtml</to-view-id>
+    		<from-outcome>menupricp</from-outcome>
+    		<to-view-id>/menupricp.xhtml</to-view-id>
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
     	
     	<navigation-case>
-    		<from-outcome>bodega1</from-outcome>
-    		<to-view-id>/bodega1.xhtml</to-view-id>
+    		<from-outcome>menuBodega1</from-outcome>
+    		<to-view-id>/menuBodega1.xhtml</to-view-id>
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
     	
     	<navigation-case>
-    		<from-outcome>bodega2</from-outcome>
-    		<to-view-id>/bodega2.xhtml</to-view-id>
+    		<from-outcome>menuBodega2</from-outcome>
+    		<to-view-id>/menuBodega2.xhtml</to-view-id>
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
     	
     	<navigation-case>
-    		<from-outcome>bodega3</from-outcome>
-    		<to-view-id>/bodega3.xhtml</to-view-id>
+    		<from-outcome>menuBodega3</from-outcome>
+    		<to-view-id>/menuBodega3.xhtml</to-view-id>
     		<redirect include-view-params="true"></redirect>
     	</navigation-case>
     	
@@ -200,6 +200,7 @@
     
      <!-- FIN REGLAS PARA LA BODEGA 3 -->        
             
+          
    
 
     
