@@ -18,26 +18,15 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 
     <link href="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
+<link href="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
 
 
 </h:head>
 
 <h:body>
-	<div class="wrapper ">
+    <div class="wrapper ">
 
-    
-    <div class="sidebar" style="background-color: #738d4aad; HEIGHT: 220px;">
-            <div class="logo">
-                <h1 style="color:white; margin-left:10px;">HO</h1>
-                <h1 style="color:white; margin-left:10px;">ME</h1>
-            </div>
-          
-        </div>
-        
-        <div style=" position: absolute; z-index: 1030; margin-left: 12%; width: 68%; height: 220px; " >
-   		 	
-   		 	        <div class="main-panel" id="main-panel" style="width: 72%;margin-left: 10%;height: 180px ;margin-top: 40px;">
+        <div class="main-panel" id="main-panel" style="width:calc(100%)">
             <!-- Navbar -->
 
             <h:form id="formGestionClientes">
@@ -46,61 +35,52 @@
                         <div class="navbar-wrapper">
                             <div class="navbar-toggle">
                                 <button type="button" class="navbar-toggler">
-               						 <span class="navbar-toggler-bar bar1"></span>
-               						 <span class="navbar-toggler-bar bar2"></span>
-              						 <span class="navbar-toggler-bar bar3"></span>
-             					 </button>
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
                             </div>
+                            <a class="navbar-brand" href="#Floro">Empleado - Crear Cliente</a>
                         </div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            				<span class="navbar-toggler-bar navbar-kebab"></span>
-            				<span class="navbar-toggler-bar navbar-kebab"></span>
-            				<span class="navbar-toggler-bar navbar-kebab"></span>
-          				</button>
-                        <div class="collapse navbar-collapse justify-content-end" id="navigation" style=" width: 100%; ">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navigation">
 
-                            <ul class="navbar-nav" style=" width: 100%; ">
+                            <ul class="navbar-nav">
 
-                                <li class="nav-item dropdown" style=" width: 45%; ">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                    style=" font-size: 20px; color: #354e0dad; ">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i>Gestionar Facturas </i>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" style="
-    									width: 100%;
-    									font-size: 20px;
-    									background: #ffa07c;">
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
-                                        <h:commandLink class="dropdown-item" value="Crear Factura" action="#{navegador.redireccionamiento('CreacionFactura')}" />
-                                        <h:commandLink class="dropdown-item" value="Listar Facturas" action="#{navegador.redireccionamiento('listarFactura')}" />
+                                        <h:commandLink class="dropdown-item" value="Crear Factura" action="#{navigator.redireccionamiento('CreacionFactura')}" />
+                                        <h:commandLink class="dropdown-item" value="Listar Facturas" action="#{navigator.redireccionamiento('listarFactura')}" />
 
                                     </div>
                                 </li>
 
 
-                                <li class="nav-item dropdown" style=" width: 45%; ">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                    style="font-size: 20px; color: #354e0dad; ">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i>Gestionar Clientes </i>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" style="
-    									width: 100%;
-    									font-size: 20px;
-    									background: #ffa07c;
-										">
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
-                                        <h:commandLink class="dropdown-item" value="Crear Cliente" action="#{navegador.redireccionamiento('crearCliente')}" />
-                                        <h:commandLink class="dropdown-item" value="Listar Clientes" action="#{navegador.redireccionamiento('listarClientes')}" />
+                                        <h:commandLink class="dropdown-item" value="Crear Cliente" action="#{navigator.redireccionamiento('crearCliente')}" />
+                                        <h:commandLink class="dropdown-item" value="Listar Clientes" action="#{navigator.redireccionamiento('listarClientes')}" />
 
                                     </div>
                                 </li>
 
 
 
-                                <li class="nav-item" style=" width: 10%;">
-                                	
-                                    <h:commandLink class="dropdown-item" action="#{navegador.redireccionamiento('salir')}" style=" color: #354e0dad; ">
-                                        <H5>SALIR</H5></h:commandLink>
+                                <li class="nav-item">
+                                    <h:commandLink class="dropdown-item" action="#{navigator.redireccionamiento('salir')}">
+                                        <i class="now-ui-icons sport_user-run"></i></h:commandLink>
                                 </li>
                             </ul>
                         </div>
@@ -114,66 +94,13 @@
 
             </div>
 
-        </div>
-   		 	
-   		 	
-   		 	
-   		 	
-   		 	
-   		 	
-        </div>
-        
-        
-        <div class="main-panel" id="main-panel" style="height: 220px; ">
-            <!-- Menu de Navegacion -->
-            <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute" style=" MARGIN-TOP: 127PX; ">
-                <div class="container-fluid">
-                
-                   
-          		
-                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                    
-                    
-                        <!-- Formulario para Login tipo Facebook -->
-                        
-                        <h:graphicImage library="images" name="iconoUsuario.png" class= "iconoUsuario" />
-                        
-                        <h5 style="color:white;">CREAR CLIENTE</h5>
-                        
-                    </div>
-                </div>
-            </nav>
-            <!-- End Navbar -->
-            
-            
-            <div class="panel-header panel-header-lg" style="background-color: #738d4aad; height: 220px">
-                <canvas id="bigDashboardChart"></canvas>
-            </div>
-            
-            
-         
-        </div>
-
-        <div class="panel-header panel-header-sm" style="margin-top: -117px; ">
-
-        </div>
-        
-            
-            
-            
-            
-            
-            
-            
-            <!-- CONTENIDO -->
-
 
             <div class="content">
-                <div class="row" style="width: 98%;">
+                <div class="row">
                     <div class="col-md-8">
-                        <div class="card" style="width: 150%; margin-left: 41px;">
+                        <div class="card">
                             <div class="card-header">
-                                <h5 class="title">Crear Cliente</h5>
+                                <h5 class="title">Añadir Cliente</h5>
                             </div>
                             <div class="card-body">
 
@@ -183,99 +110,132 @@
                                     <div class="row">
                                         <div class="col-md-5 pr-1">
                                             <div class="form-group">
-                                                <label style="font-size: 18px; color: #d08b56; font-family: emoji;">Empresa HOME</label>
-                                                <input style="font-family: emoji; color: #468e13; font-size: 19px;" type="text" class="form-control" disabled="" placeholder="Home" value="Home" />
+                                                <label>Empresa (Por defecto)</label>
+                                                <input type="text" class="form-control" disabled="" placeholder="Pal Hogar" value="Pal Hogar" />
                                             </div>
                                         </div>
-                                        <Br></Br>
-                                        <di style="width: 32%; margin-left: 41px;">
-                                        </di>
                                         <div class="col-md-3 px-1">
                                             <div class="form-group">
-                                                <label style="font-size: 18px; color: #d08b56; font-family: emoji;" >Nombre:</label>
-                                                <p:inputText style="font-family: emoji; color: #468e13; font-size: 19px;"  id="nombre" class="form-control" value="#{personaBean.nombre}" cols="2" z:placeholder="Nombre" />
+                                                <label>Nombre:</label>
+                                                <p:inputText id="nombre" class="form-control" value="#{personaBean.nombre}" cols="2" z:placeholder="Nombre" />
                                             </div>
                                         </div>
                                         <div class="col-md-4 pl-1">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1" style="font-size: 18px; color: #d08b56; font-family: emoji;">Apellido:</label>
-                                                <p:inputText style="font-family: emoji; color: #468e13; font-size: 19px;"   class="form-control" id="apellido" value="#{personaBean.apellido}" cols="2" z:placeholder="Apellido" />
+                                                <label for="exampleInputEmail1">Apellido:</label>
+                                                <p:inputText class="form-control" id="apellido" value="#{personaBean.apellido}" cols="2" z:placeholder="Apellido" />
                                             </div>
                                         </div>
                                     </div>
-                                    <Br></Br>
-                                   
-                                        
                                     <div class="row">
                                         <div class="col-md-6 pr-1">
                                             <div class="form-group">
-                                                <label style="font-size: 18px; color: #d08b56; font-family: emoji;" >Cedula: </label>
-                                                <p:inputText style="font-family: emoji; color: #468e13; font-size: 19px;"  class="form-control" id="cedula" value="#{personaBean.cedula}" cols="2" z:placeholder="Cedula" />
+                                                <label>Cedula: </label>
+                                                <p:inputText class="form-control" id="cedula" value="#{personaBean.cedula}" cols="2" z:placeholder="Cedula" />
                                             </div>
                                         </div>
-                                        
-                                          <di style="width: 32%; margin-left: 41px;">
-                                        </di>
-                                        
                                         <div class="col-md-6 pl-1">
                                             <div class="form-group">
-                                                <label style="font-size: 18px; color: #d08b56; font-family: emoji;" >Direccion:</label>
-                                                <p:inputText style="font-family: emoji; color: #468e13; font-size: 19px;"  class="form-control" id="direccion" value="#{personaBean.direccion}" cols="2" z:placeholder="Ej. Paute- Abdon Calderon y bahia San jose" />
+                                                <label>Direccion:</label>
+                                                <p:inputText class="form-control" id="direccion" value="#{personaBean.direccion}" cols="2" z:placeholder="Ej. Paute- Abdon Calderon y bahia San jose" />
 
                                             </div>
                                         </div>
                                     </div>
-                                    <BR></BR>
-                                    
 
                                     <div class="row">
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
-                                                <label style="font-size: 18px; color: #d08b56; font-family: emoji;" >Telefono:</label>
-                                                <p:inputText style="font-family: emoji; color: #468e13; font-size: 19px;"  class="form-control" id="telefono" value="#{personaBean.telefono}" cols="2" z:placeholder="Movil o Convencional" />
+                                                <label>Telefono:</label>
+                                                <p:inputText class="form-control" id="telefono" value="#{personaBean.telefono}" cols="2" z:placeholder="Movil o Convencional" />
                                             </div>
                                         </div>
-                                        
-                                     
                                         <div class="col-md-4 px-1">
                                             <div class="form-group">
                                                 <label>Correo: </label>
-                                                <p:inputText style="font-family: emoji; color: #468e13; font-size: 19px;"  class="form-control" id="correo" value="#{personaBean.correo}" cols="2" z:placeholder="ejemplo@gmail.com" />
+                                                <p:inputText class="form-control" id="correo" value="#{personaBean.correo}" cols="2" z:placeholder="ejemplo@gmail.com" />
                                             </div>
                                         </div>
-										
-										<br></br>
-										
-										  
+
                                         <div class="col-md-4 pl-1">
 
                                             <div class="form-group">
-                                                <p:commandButton style="font-size: 16px;" class="btn btn-primary btn-block" value="Crear Cliente" action="#{personaBean.agregarPersona}" update="crearUsuario" />
+                                                <p:commandButton class="btn btn-primary btn-block" value="Agregar Cliente" action="#{personaBean.agregarPersona}" update="crearUsuario" />
                                             </div>
                                         </div>
                                     </div>
 
                                 </h:form>
 
+
+
+
+
+
+
                             </div>
                         </div>
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <div class="image">
+                                <img src="https://images8.alphacoders.com/970/thumb-1920-970019.png" alt="..." />
+                            </div>
+                            <div class="card-body">
+                                <div class="author">
+                                    <a href="#">
+                                        <img class="avatar border-gray" src="https://pbs.twimg.com/profile_images/1296615683929899008/P7tOIMBp_400x400.jpg" alt="..." />
+                                        <h5 class="title">El mismisimo Kirby Empresario</h5>
+                                    </a>
+                                </div>
+                                <p class="description text-center">
+                                    "En todos los trabajos debe haber un Kirby"
+                                </p>
+                            </div>
+
+                            <div class="button-container">
+                                <button href="https://www.facebook.com/kirbys.cubby" class="btn btn-neutral btn-icon btn-round btn-lg">
+                  <i class="fab fa-facebook-f"></i>
+                </button>
+                                <button href="https://twitter.com/kirbyinformer" class="btn btn-neutral btn-icon btn-round btn-lg">
+                  <i class="fab fa-twitter"></i>
+                </button>
+                                <button href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIhPgLaabbFayQrAA0RV66jUCUMKKs6Wcraw&usqp;=CAU" class="btn btn-neutral btn-icon btn-round btn-lg">
+                  <i class="fab fa-google-plus-g"></i>
+                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
 
                 </div>
             </div>
 
         </div>
-  
+    </div>
 
-    <!--   Core JS Files   -->
-
-     <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/jquery.min.js"></script>
+   <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/jquery.min.js"></script>
     <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/popper.min.js"></script>
     <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/core/bootstrap.min.js"></script>
     <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="/PracticaDeLaboratorio03-EJB-JSF-JPA/resources/assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
+
 
 
 </h:body>
