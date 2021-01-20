@@ -31,132 +31,121 @@
 </h:head>
 
 <h:body onload="#{bodegaBean.onload(2)}">
-
-<!-- 
-	<script type="text/javascript">
-		function test(){
-			  document.getElementById('form:buttonId').click();
-		}
-	</script>
-
-  
-	<h:form  id="form" style="display: none" >
-		<h:commandButton action="bodegaBean.onload(1)" id="buttonId" style="display: none"/>
-	</h:form>
-
-
-
-    <img id="logo" src="" alt="" />
-    
-    
-    <form id="formulario01"  action="Login" method="post">
-        <label for="correo">Correo: </label>
-        <input type="text" name="correo" placeholder="Ingrese su correo" />
-
-        <label for="password">Contraseña: </label>
-        <input type="password" name="password" placeholder="Ingrese su contraseña" /><br>
-        <input id="login" type="submit" value="Iniciar Sesion">
-
-    </form>
--->
-    
-    <div class="wrapper ">
-    <div class="sidebar" data-color="orange">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
-      <div class="logo">
-        <h1 style="color:white;"> Pal Hogar </h1>
-      </div>
-      
-      <!-- Lista del menu -->
-      <div class="sidebar-wrapper" id="sidebar-wrapper">
-        <h:form>
-        	<ul class="nav">
-	          <li>
-	            <h:commandLink value="Menu Principal" action="#{navigator.redireccionamiento('menuPrincial')}">
-	              <i class="now-ui-icons files_paper"></i>
-	            </h:commandLink>
-	          </li>
-	          <li>
-	            <h:commandLink value="bodega 1" action="#{navigator.redireccionamiento('bodega1')}">
-	              <i class="now-ui-icons shopping_box"></i>
-	            </h:commandLink>
-	          </li>
-	          <li class="active ">
-	            <h:commandLink value="bodega 2" action="#{navigator.redireccionamiento('bodega2')}">
-	              <i class="now-ui-icons shopping_box"></i>
-	            </h:commandLink>
-	          </li>
-	          <li>
-	            <h:commandLink value="bodega 3" action="#{navigator.redireccionamiento('bodega3')}">
-	              <i class="now-ui-icons shopping_box"></i>
-	            </h:commandLink>
-	          </li>
-	        </ul>
-        </h:form>
-      </div>
-
-    </div>
-
-    <div class="main-panel" id="main-panel">
-    
-    
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <div class="navbar-toggle">
-              <button type="button" class="navbar-toggler">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </button>
+	 <div class="wrapper ">
+     <div class="sidebar" style="background-color: #738d4aad;">
+            <div class="logo">
+                <h1 style="color:white;">HOME</h1>
             </div>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            
-            
-            <!-- Login -->
-          <h:form>
-              <div class="input-group no-border">
-                <h:inputText id="text" value="#{bodegaBean.usuario}"  class="form-control"  p:placeholder="Usuario"/>
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="now-ui-icons users_single-02"></i>
-                  </div>
-                </div>
-              </div>
-              <br />
-              <div class="input-group no-border">
-                <h:inputSecret id="contra" value="#{bodegaBean.contrasena}" type="password"  class="form-control" p:placeholder="Contraseña"/>
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="now-ui-icons objects_key-25"></i>
-                  </div>
-                </div>
-              </div>
-              <br />
-              <h:commandButton class="btn btn-primary btn-block" value="Iniciar sesion" action="#{bodegaBean.iniciarSecion()}"/>
-            </h:form>
-          </div>
+            <div class="sidebar-wrapper" id="sidebar-wrapper">
+                <h:form>
+                    <ul class="nav">
+                        <li class="active ">
+                            <h:commandLink value="Menu Principal" action="#{navigator.redireccionamiento('menupricp')}">
+                                <i class="now-ui-icons files_paper"></i>
+                            </h:commandLink>
+                        </li>
+                        <li>
+                            <h:commandLink value="bodega 1" action="#{navigator.redireccionamiento('menuBodega1')}">
+                                <i class="now-ui-icons shopping_box"></i>
+                            </h:commandLink>
+                        </li>
+                        <li>
+                            <h:commandLink value="bodega 2" action="#{navigator.redireccionamiento('menuBodega2')}">
+                                <i class="now-ui-icons shopping_box"></i>
+                            </h:commandLink>
+                        </li>
+                        <li>
+                            <h:commandLink value="bodega 3" action="#{navigator.redireccionamiento('menuBodega3')}">
+                                <i class="now-ui-icons shopping_box"></i>
+                            </h:commandLink>
+                        </li>
+                    </ul>
+                </h:form>
+            </div>
         </div>
-      </nav>
-      <!-- End Navbar -->
-      <div class="panel-header panel-header-lg">
-        <canvas id="bigDashboardChart"></canvas>
-      </div>
+        
+        <div style=" position: absolute; z-index: 1030; margin-left: 12%; width: 68%; height: 455px; " >
+   		 	<h:graphicImage library="images" name="fondo1.png"/>
+        </div>
+        
+        
+        
+        
+        <div class="main-panel" id="main-panel">
+            <!-- Menu de Navegacion -->
+            <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+                <div class="container-fluid">
+                
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle">
+                        		
+                            <button type="button" class="navbar-toggler">
+                            
+				                <span class="navbar-toggler-bar bar1"></span>
+				                <span class="navbar-toggler-bar bar2"></span>
+				                <span class="navbar-toggler-bar bar3"></span>
+			                </button>
+                        </div>
+                    </div>
+                    
+                    
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+		            <span class="navbar-toggler-bar navbar-kebab"></span>
+		            <span class="navbar-toggler-bar navbar-kebab"></span>
+		            <span class="navbar-toggler-bar navbar-kebab"></span>
+          		</button>
+          		
+          		
+          		
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                    
+                    
+                        <!-- Formulario  -->
+                        
+                        <h:graphicImage library="images" name="iconoUsuario.png" class= "iconoUsuario" />
+                        
+                        <h:form style="margin-top: 193px;">
+                            <div class="input-group no-border">
+                                <h:inputText id="text" value="#{loginUsuarioBean.username}" class="form-control" p:placeholder="Ingrese Correo Electronico" />
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="now-ui-icons users_single-02"></i>
+                                    </div>
+                                </div>
+                            </div>
+	                      <br />
+	                            <div class="input-group no-border">
+	                                <h:inputSecret id="contra" value="#{loginUsuarioBean.contrasena}" type="password" class="form-control" p:placeholder="Ingrese Contraseña" />
+		                                <div class="input-group-append">
+		                                    <div class="input-group-text">
+		                                        <i class="now-ui-icons objects_key-25"></i>
+		                                    </div>
+		                                </div>
+	                            </div>
+	                     	<br/>
+	                     	<h:commandButton class="btn btn-primary btn-block" value="Iniciar Sesión" action="#{loginUsuarioBean.iniciarSecion}" />
+	              		</h:form>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            
+            
+            <div class="panel-header panel-header-lg" style="background-color: #738d4aad">
+                <canvas id="bigDashboardChart"></canvas>
+            </div>
+	
+   
+   
+   
+   
+   
       <!-- CONTENIDOOO -->
       <div class="content">
       <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"> Inventario</h4>
+                <h4 class="card-title" style=" color: #e08d06;" > BODEGA 2 </h4>
               </div>
               <!-- Busqueda de los productos -->
               <h:form  style="width : 80%; margin-left:10%;" >

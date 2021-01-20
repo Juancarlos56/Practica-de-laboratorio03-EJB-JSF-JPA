@@ -152,38 +152,37 @@ xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
                             <h4 class="card-title" style=" color: #e08d06; ">Distribuidora Home</h4>
                         </div>
 
-
-                        <!-- Busqueda de los productos -->
+						<!-- Busqueda de los productos -->
                         <h:form style="width : 80%; margin-left:10%;">
                             <div class="input-group no-border">
-                                <h:selectOneMenu value="#{categoryBean.categoria}">
-                                    <f:selectItems value="#{categoryBean.obtencionListaCategorias()}" />
-				                 </h:selectOneMenu>
+                                <h:selectOneMenu value="#{categoriaBean.categoria}">
+                                    <f:selectItems value="#{categoriaBean.categoriaList}" />
+
+                                    <f:ajax listener="#{categoriaBean.listener}" render="productos" />
+
+                                </h:selectOneMenu>
                                 <h:messages />
-                                <h:inputText id="text" value="#{categoryBean.text}" type="text" class="form-control" p:placeholder="Busqueda" tyle="color: #4c7f0c; font-family: emoji;" />
+                                <h:inputText id="text" value="#{categoriaBean.text}" type="text" class="form-control" p:placeholder="Busqueda" />
                             </div>
-                            <h:commandButton class="btn btn-primary btn-block" style="width : 40%; margin-left:60%;" value="Buscar por texto" actionListener="#{categoryBean.buscarProducto()}" />
+                            <h:commandButton class="btn btn-primary btn-block" style="width : 40%; margin-left:60%;" value="Buscar por texto" action="#{categoriaBean.buscarTexto()}" />
                             <div class="card-body">
-                                <div class="table-responsive" >
-                                    <h:dataTable id="productos" value="#{categoryBean.listaProductosBuscado}" 
-                                    			 style="color: #4c7f0c; font-family: emoji;"
-                                    			 var="producto" styleClass="table" headerClass="employeeTableHeader"
-                                    			 rowClasses="employeeTableOddRow,employeeTableEvenRow">
+                                <div class="table-responsive">
+                                    <h:dataTable id="productos" value="#{categoriaBean.listaArr}" var="producto" styleClass="table" headerClass="employeeTableHeader" rowClasses="employeeTableOddRow,employeeTableEvenRow">
                                         <h:column>
                                             <f:facet name="header"> Producto</f:facet>
-                                            #{producto.productName}
+                                            #{producto.nombre}
                                         </h:column>
                                         <h:column>
                                             <f:facet name="header">Precio Unitario</f:facet>
-                                            #{producto.productPrice}
+                                            #{producto.precio}
                                         </h:column>
                                         <h:column>
-                                            <f:facet name="header">Descripcion del Producto</f:facet>
-                                            #{producto.proDescription}
+                                            <f:facet name="header">Cantidad</f:facet>
+                                            #{producto.stock}
                                         </h:column>
                                         <h:column>
                                             <f:facet name="header">Categoria</f:facet>
-                                            #{producto.category_product.categoryName}
+                                            #{producto.categoria.nombre}
                                         </h:column>
                                     </h:dataTable>
                                 </div>

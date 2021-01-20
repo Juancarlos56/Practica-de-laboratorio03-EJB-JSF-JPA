@@ -7,8 +7,10 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.annotation.FacesConfig;
 import javax.inject.Named;
 
+import ec.edu.ups.EJB.PersonaFacade;
 import ec.edu.ups.EJB.UserFacade;
 import ec.edu.ups.controller.LoguinBean;
+import ec.edu.ups.entidades.Persona;
 import ec.edu.ups.entities.User;
 
 @FacesConfig(version = FacesConfig.Version.JSF_2_3)
@@ -18,9 +20,8 @@ public class LoginUsuarioBean {
 
 	private String username;
     private String contrasena;
-    
     @EJB
-    private UserFacade ejbUser;
+	private PersonaFacade ejbPersona;
     
     public LoginUsuarioBean() {
         // TODO Auto-generated constructor stub
@@ -29,21 +30,19 @@ public class LoginUsuarioBean {
 	public String iniciarSecion() {
 		
 		System.out.println("Username: " + username+" Password: " + contrasena );
-		User usuario = ejbUser.buscarUsuario(username, contrasena);
+		
+		Persona sta = ejbPersona.inicioSesion(username, contrasena);
 		LoguinBean loguinBean=new LoguinBean();
 		
-		if (usuario != null && usuario.getState().equals("Activo")) {
-			if (usuario != null && usuario.getRole().equals("Admin")) {
-				loguinBean.login();
-				return "inicioAdmin";
-			}else if (usuario != null) {
-				loguinBean.login();
-				return "inicioUsuario";
-			}
+		if (sta != null && sta.getRol() == 'A') {
+			loguinBean.login();
+			return "inicioAdmin";
+		}else if (sta != null) {
+			loguinBean.login();
+			return "inicioUsuario";
 		}
 		
 		return null;
-		
 	}
 
 	public String getUsername() {
@@ -61,14 +60,4 @@ public class LoginUsuarioBean {
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
-
-	public UserFacade getEjbUser() {
-		return ejbUser;
-	}
-
-	public void setEjbUser(UserFacade ejbUser) {
-		this.ejbUser = ejbUser;
-	}
-    
-
 }

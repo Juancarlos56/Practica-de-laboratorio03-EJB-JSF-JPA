@@ -57,7 +57,13 @@ public class Navegador implements Serializable{
 			
 		}else if(page.equals("bodega2Producto")) {
 			return "bodega2Producto";
-			
+		
+		}else if(page.equals("informeGeneral")) {
+			return "InformeGeneral";
+		
+		}else if(page.equals("gestionGodegas")) {
+			return "gestionGodegas";
+		
 		}else if(page.equals("bodega1Producto")) {
 			return "bodega2Producto";
 		}

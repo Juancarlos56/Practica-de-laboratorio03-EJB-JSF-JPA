@@ -242,6 +242,12 @@
 	
 		<from-view-id>/private/administrador/InformeGeneral.xhtml</from-view-id>
 		
+		
+		<navigation-case>
+			<from-outcome>informeGeneral</from-outcome>
+			<to-view-id>/private/administrador/InformeGeneral.xhtml</to-view-id>
+		</navigation-case>
+		
 		<navigation-case>
 			<from-outcome>gestionGodegas</from-outcome>
 			<to-view-id>/private/administrador/GestionarBodegas.xhtml</to-view-id>
@@ -257,6 +263,12 @@
 	<navigation-rule>
 	
 		<from-view-id>/private/administrador/GestionarBodegas.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-outcome>gestionGodegas</from-outcome>
+			<to-view-id>/private/administrador/GestionarBodegas.xhtml</to-view-id>
+		</navigation-case>
+		
 		
 		<navigation-case>
 			<from-outcome>informeGeneral</from-outcome>
